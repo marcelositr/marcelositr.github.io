@@ -1,6 +1,6 @@
-CONTRATO DE DOAÇÃO COM ENCARGO
+# CONTRATO DE DOAÇÃO COM ENCARGO
 
-# IDENTIFICAÇÃO DAS PARTES CONTRATANTES
+## IDENTIFICAÇÃO DAS PARTES CONTRATANTES
 
 DOADOR: (Nome do Doador), (Nacionalidade), (Estado Civil), (Profissão), Carteira de Identidade nº (xxx), C.P.F. nº (xxx), residente e domiciliado na Rua (xxx), nº (xxx), bairro (xxx), Cep (xxx), Cidade (xxx), no Estado (xxx);
 
@@ -53,4 +53,4 @@ Por estarem assim justos e contratados, firmam o presente instrumento, em duas v
 > 1. Art. 1.180, do Código Civil.
 > 2. Art. 1.181, parágrafo único, do Código Civil.
 
-[![Voltar...](./index.md)
+[Voltar...](./index.md)
