@@ -18,7 +18,7 @@ As partes acima identificadas têm, entre si, justo e acertado o presente Contra
 
 **Cláusula 3ª.** A presente doação realizada entre as partes considerar-se-á antecipação da legítima1, ou seja, o bem imóvel objeto deste contrato será considerado como já herdado pelo DONATÁRIO uma vez aberta a sucessão do DOADOR, vez que o DONATÁRIO é filho do DOADOR, e portanto, seu herdeiro necessário2.
 
-## CONDIÇÕES GERAIS##
+## CONDIÇÕES GERAIS
 
 **Cláusula 4ª.** O presente contrato passa a vigorar entre as partes a partir da assinatura.
 
