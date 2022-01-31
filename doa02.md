@@ -13,6 +13,7 @@ As partes acima identificadas têm, entre si, justo e acertado o presente Contra
 **Cláusula 1ª.** O presente instrumento tem como OBJETO o bem móvel de propriedade do DOADOR, conforme comprova a documentação em anexo, o qual possui as seguintes descrições: (Descrevê-lo).
 
 _Parágrafo primeiro. O DOADOR é proprietário do bem por livre e legítima aquisição, ressaltando que o mesmo não apresenta quaisquer problemas extrínsecos ou intrínsecos, nem mesmo, gravames que possam inutilizá-lo, encontrando-se, portanto, desembaraçado de qualquer ônus que possa prejudicar a presente Doação._
+
 _Parágrafo segundo. O bem está sendo doado, espontaneamente, sem coação ou vício de consentimento, a título gratuito, por livre e espontânea vontade._
 
 ## DO BEM
@@ -20,9 +21,13 @@ _Parágrafo segundo. O bem está sendo doado, espontaneamente, sem coação ou v
 **Cláusula 2ª.** O bem, além da descrição genérica expressa acima, possui as seguintes funcionalidades:
 
 a) possui (xxx) metros de comprimento; (xxx) metros de largura e (xxx) metros de altura.
+
 b) possui a utilidade de (xxx).
+
 c) ano de fabricação (xxx), manual de utilização (xxx), nº de série (xxx).
+
 d) avaliado em R$ (xxx) (Valor Expresso).
+
 e) documento de identificação nº (xxx).
 
 ## DA REVERSÃO
