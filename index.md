@@ -121,3 +121,47 @@ Long, single-line code blocks should not wrap. They should horizontally scroll i
 ```
 The final element.
 ```
+
+```
+Contrato de Doação com Encargo.
+```
+
+```
+Contrato de Doação com Reversão.
+```
+
+```
+Contrato de Doação Condicional.
+```
+
+```
+Contrato de Doação de Pai para Filho.
+```
+
+```
+Contrato de Doação de Pai para Filho Com Adiantamento da Legítima.
+```
+
+```
+Contrato de Doação e Outras Avenças.
+```
+
+```
+Contrato de Doação e Outras Avenças com ITCMD.
+```
+
+```
+Contrato de Doação e Outras Avenças com adiantamento da Legítima.
+```
+
+```
+Contrato de Doação e Outras Avenças com adiantamento da Legítima e ITCMD.
+```
+
+```
+Contrato de Doação Remuneratória.
+```
+
+```
+Contrato de Doção Puro Simples.
+```
