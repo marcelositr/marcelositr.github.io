@@ -2,13 +2,17 @@
 
 This is a normal paragraph following a header. GitHub is a code hosting platform for version control and collaboration. It lets you and others work together on projects from anywhere.
 
+| Contratos de Sigilo:                                 ||            |
+|:-----------------------------------------------------||:-----------|
+| Com Encargo.                                         || [Visualizar](./sig01.md) |
+
 | Contratos de Doação:                                 ||            |
 |:-----------------------------------------------------||:-----------|
-| Encargo.                                             || [Visualizar](./doa01.md) |
-| Reversão.                                            || [Visualizar](./doa02.md) |
+| Com Encargo.                                         || [Visualizar](./doa01.md) |
+| Com Reversão.                                        || [Visualizar](./doa02.md) |
 | Condicional.                                         || [Visualizar](./doa03.md) |
-| Pai para Filho.                                      || [Visualizar](./doa04.md) |
-| Pai para Filho Com Adiantamento da Legítima.         || [Visualizar](./doa05.md) |
+| De Pai para Filho.                                   || [Visualizar](./doa04.md) |
+| De Pai para Filho Com Adiantamento da Legítima.      || [Visualizar](./doa05.md) |
 | Outras Avenças.                                      || [Visualizar](./doa06.md) |
 | Outras Avenças com ITCMD.                            || [Visualizar](./doa07.md) |
 | Outras Avenças com adiantamento da Legítima.         || [Visualizar](./doa08.md) |
