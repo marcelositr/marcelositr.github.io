@@ -1,9 +1,12 @@
+```js
 <script>
 function funcao1()
 {
-alert("Lembre-se sempre que outros também estão tentando acessar esse site, não repasse o link do mesmo! Seja generoso. Caso queira compartilhar algo com outra pessoa, baixe o arquivo e envie via Whatsapp ou outro meio! ;)");
+alert("Lembre-se sempre que outros também estão tentando acessar esse site, não repasse o link do mesmo! Seja generoso. Caso queira compartilhar algo com outra pessoa, baixe o arquivo e envie via Whatsapp ou outro meio! ;) ");
 }
 </script>
+```
+
 # Início
 
 Nesta página estou dispondo de alguns modelos de contratos que poderam ser utilizados para a elaboração de seus respectivos contratos pessoais. Utilize-os como uma fonte de estudos, apresente as claúsulas e modelos para os responsáveis que estão elaborando seus contratos pessoais e então; pergunte, discuta e aprimore os seus proprios contratos. Não compartilhe este link em grupos de Telegram ou Whatsapp, pois esta página é simples, e pode se tornar instável, caso haja muitos acessos.
