@@ -28,6 +28,8 @@ As partes acima identificadas têm, entre si, justo e acertado o presente Contra
 
 ## DO FORO
 
+[Voltar...](./index.md)
+
 **Cláusula 7ª.** Para dirimir quaisquer controvérsias oriundas do CONTRATO, as partes elegem o foro da comarca de (xxx).
 
 Por estarem assim justos e contratados, firmam o presente instrumento, em duas vias de igual teor, juntamente com 2 (duas) testemunhas.
