@@ -8,7 +8,7 @@ This is a normal paragraph following a header. GitHub is a code hosting platform
 
 | Contratos de Doação:                            ||            |
 |:------------------------------------------------||:-----------|
-| Com Encargo.                                    || [**Visualizar****](./doa01.md) |
+| Com Encargo.                                    || [**Visualizar**](./doa01.md) |
 | Com Reversão.                                   || [**Visualizar**](./doa02.md) |
 | Condicional.                                    || [**Visualizar**](./doa03.md) |
 | De Pai para Filho.                              || [**Visualizar**](./doa04.md) |
