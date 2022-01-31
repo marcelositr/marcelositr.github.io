@@ -21,3 +21,5 @@ This is a normal paragraph following a header. GitHub is a code hosting platform
 | Puro Simples.                                        || [Visualizar](./doa11.md) |
 
 > Comentário.
+
+[GPG KEY: B761 8EC9 F9C0 1FF0 FEDE 2BC3 216C 4296 5C20 6B67](./macelostrindadeadmbr.asc)
