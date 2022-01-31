@@ -121,6 +121,7 @@ Long, single-line code blocks should not wrap. They should horizontally scroll i
 ```
 The final element.
 ```
+
 | head1  | Contratos de Doação:                                 |
 |:-------|:-----------------------------------------------------|
 | Baixar | Encargo.                                             |
