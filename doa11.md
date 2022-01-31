@@ -10,11 +10,11 @@ DONATÁRIO: (Nome do Donatário), (Nacionalidade), (Profissão), (Estado Civil),
 
 ## DO BEM
 
-**Cláusula 1ª.** O primeiro dos acima qualificados, de ora em diante denominado simplesmente DOADOR, declara e confessa que é legítimo possuidor de uma casa residencial, localizada na Rua __, n° __, na cidade de __ , com as seguintes características e confrontações: (descrever o imóvel tal qual se encontra matriculado ou registrado).
+**Cláusula 1ª.** O primeiro dos acima qualificados, de ora em diante denominado simplesmente DOADOR, declara e confessa que é legítimo possuidor de uma casa residencial, localizada na Rua (xxx), n° (xxx), na cidade de (xxx), com as seguintes características e confrontações: _(descrever o imóvel tal qual se encontra matriculado ou registrado)._
 
 ## DA DOAÇÃO
 
-**Cláusula 2ª.** Por livre e espontânea vontade do DOADOR, sem coação ou influência de quem quer que seja, faz DOAÇÃO, inter vivos, ao segundo dos acima qualificados, de ora em diante denominado DONATÁRIO, gratuitamente, sem condições ou encargo de qualquer natureza, do imóvel acima caracterizado, dando o valor de R$__, (por extenso), transferindo desde já e irrevogavelmente ao DONATÁRIO toda posse, jus, ação, domínio que exercia sobre o referido imóvel.
+**Cláusula 2ª.** Por livre e espontânea vontade do DOADOR, sem coação ou influência de quem quer que seja, faz DOAÇÃO, inter vivos, ao segundo dos acima qualificados, de ora em diante denominado DONATÁRIO, gratuitamente, sem condições ou encargo de qualquer natureza, do imóvel acima caracterizado, dando o valor de R$ (xxx), (por extenso), transferindo desde já e irrevogavelmente ao DONATÁRIO toda posse, jus, ação, domínio que exercia sobre o referido imóvel.
 
 ## DA ACEITAÇÃO
 
