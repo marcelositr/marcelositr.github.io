@@ -2,10 +2,6 @@
 
 This is a normal paragraph following a header. GitHub is a code hosting platform for version control and collaboration. It lets you and others work together on projects from anywhere.
 
-| Contratos de Sigilo:                            ||            |
-|:------------------------------------------------||:-----------|
-| Com Encargo.                                    || [**Visualizar**](./sig01.md) |
-
 | Contratos de Doação:                            ||            |
 |:------------------------------------------------||:-----------|
 | Com Encargo.                                    || [**Visualizar**](./doa01.md) |
@@ -19,6 +15,9 @@ This is a normal paragraph following a header. GitHub is a code hosting platform
 | Out. Ave. com adiantamento da Legítima e ITCMD. || [**Visualizar**](./doa09.md) |
 | Remuneratória.                                  || [**Visualizar**](./doa10.md) |
 | Puro Simples.                                   || [**Visualizar**](./doa11.md) |
+| Contratos de Sigilo:                            ||            |
+|:------------------------------------------------||:-----------|
+| Com Encargo.                                    || [**Visualizar**](./sig01.md) |
 
 > Comentário.
 
