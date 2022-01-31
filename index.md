@@ -12,7 +12,7 @@ This is a normal paragraph following a header. GitHub is a code hosting platform
 - Outras Avenças. [**Visualizar**](./doa06.md)
   - Outras Avenças com ITCMD. [**Visualizar**](./doa07.md)
   - Outras Avenças com Adiantamento da Legítima. [**Visualizar**](./doa08.md)
-    -Outras Avenças com adiantamento da Legítima e ITCMD. [**Visualizar**](./doa09.md)
+    - Outras Avenças com adiantamento da Legítima e ITCMD. [**Visualizar**](./doa09.md)
 - Remuneratória. [**Visualizar**](./doa10.md)
 - Puro Simples. [**Visualizar**](./doa11.md)
 
