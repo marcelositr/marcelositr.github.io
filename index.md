@@ -1,6 +1,8 @@
 # Modelos de Contratos
 
-Nesta página estou dispondo de alguns modelos de contratos que poderam ser utilizados para a elaboração de seus respectivos contratos pessoais. Utilize-os como uma fonte de estudos, apresente as claúsulas e modelos para os responsáveis que estão elaborando seus contratos e então; pergunte, discuta e aprimore os seus proprios. Não compartilhe este link em grupos de Telegram ou Whatsapp, pois esta página é simples, e pode se tornar instável, caso haja muitos acessos.
+Nesta página estou dispondo de alguns modelos de contratos de doação que poderam ser utilizados para a elaboração de seus respectivos contratos pessoais. Utilize-os como uma fonte de estudos, apresente as claúsulas e modelos para os responsáveis que estão elaborando seus contratos e então; pergunte, discuta e aprimore os seus proprios. 
+
+**Não compartilhe este link em grupos de Telegram ou Whatsapp, pois esta página é simples, e pode se tornar instável, caso haja muitos acessos.**
 
 ## Contratos de Doação:
 
