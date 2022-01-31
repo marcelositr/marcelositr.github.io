@@ -1,6 +1,6 @@
 # CONTRATO DE DOAÇÃO COM REVERSÃO
 
-IDENTIFICAÇÃO DAS PARTES CONTRATANTES
+## IDENTIFICAÇÃO DAS PARTES CONTRATANTES
 
 DOADOR: (Nome do Doador), (Nacionalidade), (Estado Civil), (Profissão), Carteira de Identidade nº (xxx), C.P.F. nº (xxx), capaz, residente e domiciliado na Rua (xxx), nº (xxx), bairro (xxx), Cep nº (xxx), Cidade (xxx), no Estado (xxx);
 
@@ -55,3 +55,5 @@ Por estarem assim justos e contratados, firmam o presente instrumento, em duas v
 (Nome, RG e assinatura da Testemunha 1)
 
 (Nome, RG e assinatura da Testemunha 2)
+
+[Voltar...](./index.md)
