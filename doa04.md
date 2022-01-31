@@ -45,4 +45,6 @@ Por estarem assim justos e contratados, firmam o presente instrumento, em duas v
 > 1. Art. 1.171, do Código Civil.
 > 2. Art. 1.721, do Código Civil.
 
+[Baixar cópia em .txt](./doa04.txt)
+
 [Voltar...](./index.md)
