@@ -20,6 +20,12 @@ Nesta página estou dispondo de alguns modelos de contratos que poderam ser util
 
 - Com Encargo. [Visualizar](./sig01.md)
 
-> Comentário.
+## Download
+
+Os contratos acima podem ser baixados através desde link.
+
+Demais contratos podem ser baixados aqui.
+
+> Todos os contratos são fruto de pesquisas realizadas na web.
 
 [**GPG KEY: B761 8EC9 F9C0 1FF0 FEDE 2BC3 216C 4296 5C20 6B67**](./gpg.asc)
