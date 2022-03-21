@@ -20,7 +20,7 @@ Nesta página estou dispondo de alguns modelos de contratos de doação que pode
 
 ## Contrato de Sigilo:
 
-- Com Encargo. [Visualizar](./sig01.md)
+- Acordo de Confidencialidade e Segredo. [Visualizar](./sig01.md)
 
 ## Download
 
