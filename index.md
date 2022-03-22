@@ -1,8 +1,8 @@
 # Modelos de Contratos
 
-Nesta página estou dispondo de alguns modelos de contratos de doação que poderam ser utilizados para a elaboração de seus respectivos contratos pessoais. Utilize-os como uma fonte de estudos, apresente as claúsulas e modelos para os responsáveis que estão elaborando seus contratos e então; pergunte, discuta e aprimore os seus proprios. 
+Nesta página, tenho alguns modelos de contrato de doação que podem ser usados ​​para fazer os respectivos contratos individuais. Use-os como fonte de pesquisa, apresente os termos e modelos para o responsável que está elaborando o contrato, depois pergunte, discuta e melhore o seu.
 
-**Não compartilhe este link em grupos de Telegram ou Whatsapp, pois esta página é simples, e pode se tornar instável, caso haja muitos acessos.**
+**Não compartilhe este link em grupos do Telegram ou Whatsapp, pois esta página é simples e pode ficar instável se for acessada demais.**
 
 ## Contratos de Doação:
 
@@ -28,6 +28,6 @@ Os contratos acima podem ser baixados através desde link.
 
 Demais contratos podem ser baixados aqui.
 
-> Todos os contratos são fruto de pesquisas realizadas na web.
+> Todos os contratos são resultado de pesquisas realizadas na web. Se você possui os direitos autorais de qualquer um dos documentos postados aqui, envie-me um [e-mail](mailto:marcelo@strindade.com.br) para solicitar sua remoção.
 
 [**GPG KEY: B761 8EC9 F9C0 1FF0 FEDE 2BC3 216C 4296 5C20 6B67**](./gpg.asc)
