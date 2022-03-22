@@ -1,0 +1,73 @@
+## CONTRATO DE DOAÇÃO E OUTRAS AVENÇAS
+
+# IDENTIFICAÇÃO DAS PARTES CONTRATANTES
+
+DOADOR: (Nome do Doador), (Nacionalidade), (Estado Civil), (Profissão), Carteira de Identidade nº (xxx), C.P.F. nº (xxx), residente e domiciliado na Rua (xxx), nº (xxx), bairro (xxx), Cep (xxx), Cidade (xxx), no Estado (xxx);
+
+DONATÁRIO: (Nome do Donatário), (Nacionalidade), (Estado Civil), (Profissão), Carteira de Identidade nº (xxx), C.P.F. nº (xxx), residente e domiciliado na Rua (xxx), nº (xxx), bairro (xxx), Cep (xxx), Cidade (xxx), no Estado (xxx).
+
+E todos em conjunto doravante designados como "PARTES", que se regerá pelas cláusulas seguintes e pelas condições descritas no presente.
+
+# PREÂMBULO
+
+Considerando que em 01/01/2000 o DOADOR concluiu transferência de sua conta-corrente bancária junto ao Banco xxx (xxx), agência xxxx, C/C xxxxx-x, para a conta-corrente bancária do DONATÁRIO junto ao xxx (xxx), agência xxxx, C/C xxxxx-x, no valor total de R$ xxx,xx (xxx);
+
+Resolvem as PARTES celebrar o presente Instrumento Particular de Doação e Outras Avenças ("CONTRATO"), nos termos do artigo 538 e seguintes da Lei n° 10.406/2002 (Código Civil) e pelos seguintes termos e condições que as PARTES mutuamente outorgam e aceitam.
+
+# CLÁUSULA PRIMEIRA
+
+# OBJETO DO CONTRATO
+
+1 . O presente CONTRATO tem por objeto a doação de R$ xxx,xx (xxx), em pecúnia, quantia entregue pelo DOADOR em favor do DONATÁRIO, para que a utilize como melhor lhe convier, na condição de seu possuidor e titular.
+
+# CLÁUSULA SEGUNDA
+
+# DAS DECLARAÇÕES DOS DOADORES
+
+2 . O DOADOR declara e reconhece que: (a) a doação objeto do presente instrumento é realizada, nos termos do artigo 544 do Código Civil, importando adiantamento do que cabe ao DONATÁRIO por herança, e (b) possui outros bens suficientes a garantir a sua respectiva subsistência, conforme dispõem os artigos 548 e 549 do Código Civil.
+
+# CLÁUSULA TERCEIRA
+
+# DA ACEITAÇÃO DA DOAÇÃO
+
+3 . O DONATÁRIO declara que concorda plenamente com todos os termos e condições do presente instrumento e aceita a doação da quantia doada, nos termos do artigo 539 do Código Civil.
+
+# CLÁUSULA QUARTA
+
+# DO RECOLHIMENTO DO ITCMD
+
+4 . O DONATÁRIO declara que já recolheu o ITCMD (Imposto sobre Transmissão "Causa Mortis" e Doação de Quaisquer Bens ou Direitos) em razão do disposto no inciso III do artigo 10 do Decreto Estadual n° 46.655/2.002, conforme guia GARE anexa, que faz parte integrante do presente instrumento.
+
+# CLÁUSULA QUINTA
+
+# DISPOSIÇÕES GERAIS
+
+5.1 . O DOADOR declara que a quantia doada de R$ xxx,xx (xxx) está inteiramente livre e desembaraçada de todos e quaisquer ônus, dúvidas, dívidas, encargos e gravames, não havendo restrição alguma, quer de natureza legal, contratual, societária ou judicial, que impeçam o DOADOR de validamente doá-la ao DONATÁRIO, a qualquer título.
+
+5.2 . A celebração do presente instrumento não viola quaisquer disposições de qualquer contrato do qual o DOADOR e/ou DONATÁRIO sejam PARTES, nem tampouco infringe qualquer disposição de lei, decreto, norma ou regulamento aos quais as PARTES estejam sujeitas.
+
+5.3 . O presente instrumento contratual é firmado em caráter irrevogável e irretratável e obriga as PARTES contratantes, seus herdeiros e sucessores, a qualquer título e a qualquer tempo, salvo pelas hipóteses previstas no Código Civil e contempladas neste CONTRATO.
+
+5.4 . O presente CONTRATO somente poderá ser modificado mediante expressa concordância por escrito de todas as PARTES.
+
+5.5 . Fica eleito o foro da Comarca de xxx, estado de xxx, para dirimir as dúvidas ou controvérsias oriundas deste instrumento, com expressa renúncia de qualquer outro, por mais privilegiado que seja ou venha a ser.
+
+E, por estarem justos e contratados, assinam o presente instrumento em 2 (duas) vias de igual teor e forma, na presença das 2 (duas) testemunhas abaixo assinadas e a tudo presentes.
+
+(Local, data e ano).
+
+(Nome e assinatura do Doador)
+
+(Nome e assinatura do Donatário)
+
+(Nome, RG e assinatura da Testemunha 1)
+
+(Nome, RG e assinatura da Testemunha 2)
+
+[Baixar cópia em .txt](./doa09.txt)
+
+[Voltar...](./index.md)
+
+> Nota:
+> 1. Art. 1.180, do Código Civil.
+> 2. Art. 1.181, parágrafo único, do Código Civil.
