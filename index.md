@@ -1,4 +1,6 @@
-# Modelos de Contratos
+# strindade.com.br
+
+## Modelos de Contratos
 
 Nesta página, tenho alguns modelos de contrato de doação que podem ser usados ​​para fazer os respectivos contratos individuais. Use-os como fonte de pesquisa, apresente os termos e modelos para o responsável que está elaborando o contrato, depois pergunte, discuta e melhore o seu.
 
