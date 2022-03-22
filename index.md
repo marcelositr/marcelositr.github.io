@@ -2,7 +2,7 @@
 
 ## Modelos de Contratos
 
-Nesta página, tenho alguns modelos de contrato de doação que podem ser usados ​​para fazer os respectivos contratos individuais. Use-os como fonte de pesquisa, apresente os termos e modelos para o responsável que está elaborando o contrato, depois pergunte, discuta e melhore o seu.
+Nesta página, tenho alguns modelos de contrato de doação que podem ser usados para fazer os respectivos contratos individuais. Use-os como fonte de pesquisa, apresente os termos e modelos para o responsável que está elaborando o contrato, depois pergunte, discuta e melhore o seu.
 
 **Não compartilhe este link em grupos do Telegram ou Whatsapp, pois esta página é simples e pode ficar instável se for acessada demais.**
 
