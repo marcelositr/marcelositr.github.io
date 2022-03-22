@@ -24,9 +24,9 @@ Nesta página, tenho alguns modelos de contrato de doação que podem ser usados
 
 ## Download
 
-Os contratos acima podem ser baixados através desde link.
+Os contratos acima poderão ser baixados atravéz desde [link](./txt_contratos-v1.zip).
 
-Demais contratos podem ser baixados aqui.
+Demais contratos podem ser baixados [aqui](./txt_contratos-v2.zip).
 
 > Todos os contratos são resultado de pesquisas realizadas na web. Se você possui os direitos autorais de qualquer um dos documentos postados aqui, envie-me um [e-mail](mailto:marcelo@strindade.com.br) para solicitar sua remoção.
 
