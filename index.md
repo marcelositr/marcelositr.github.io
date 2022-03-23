@@ -8,21 +8,21 @@ Nesta página, tenho alguns modelos de contrato de doação que podem ser usados
 
 ## Contratos de Doação:
 
-- Com Encargo. [Visualizar](./donwload/doa01.md)
-- Com Reversão. [Visualizar](./donwload/doa02.md)
-- Condicional. [Visualizar](./donwload/doa03.md)
-- De Pai para Filho. [Visualizar](./donwload/doa05.md)
-- De Pai para Filho Com Adiantamento da Legítima. [Visualizar](./donwload/doa04.md)
-- Outras Avenças. [Visualizar](./donwload/doa06.md)
-- Outras Avenças com ITCMD. [Visualizar](./donwload/doa07.md)
-- Outras Avenças com Adiantamento da Legítima. [Visualizar](./donwload/doa08.md)
-- Outras Avenças com adiantamento da Legítima e ITCMD. [Visualizar](./donwload/doa09.md)
-- Remuneratória. [Visualizar](./donwload/doa10.md)
-- Puro Simples. [Visualizar](./donwload/doa11.md)
+- Com Encargo. [Visualizar](./contratos/doa01.md)
+- Com Reversão. [Visualizar](./contratos/doa02.md)
+- Condicional. [Visualizar](./contratos/doa03.md)
+- De Pai para Filho. [Visualizar](./contratos/doa05.md)
+- De Pai para Filho Com Adiantamento da Legítima. [Visualizar](./contratos/doa04.md)
+- Outras Avenças. [Visualizar](./contratos/doa06.md)
+- Outras Avenças com ITCMD. [Visualizar](./contratos/doa07.md)
+- Outras Avenças com Adiantamento da Legítima. [Visualizar](./contratos/doa08.md)
+- Outras Avenças com adiantamento da Legítima e ITCMD. [Visualizar](./contratos/doa09.md)
+- Remuneratória. [Visualizar](./contratos/doa10.md)
+- Puro Simples. [Visualizar](./contratos/doa11.md)
 
 ## Contrato de Sigilo:
 
-- Acordo de Confidencialidade e Segredo. [Visualizar](./donwload/sig01.md)
+- Acordo de Confidencialidade e Segredo. [Visualizar](./contratos/sig01.md)
 
 ## Download
 
