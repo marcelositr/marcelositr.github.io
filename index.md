@@ -34,4 +34,4 @@ Demais contratos podem ser baixados [aqui](./donwload/txt_contratos-v2.zip).
 
 [**GPG KEY: B761 8EC9 F9C0 1FF0 FEDE 2BC3 216C 4296 5C20 6B67**](.gpg/gpg_marcelostrindadecombr.asc)
 
-##### Este trabalho está licenciado a [Creative Commons Atribuição 4.0 Internacional (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0).
+##### Este trabalho está licenciado a [Creative Commons Atribuição 4.0 Internacional (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/).
