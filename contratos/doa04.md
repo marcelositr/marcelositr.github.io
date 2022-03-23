@@ -1,0 +1,50 @@
+# CONTRATO DE DOAÇÃO DE PAI PARA FILHO  ADIANTAMENTO DA LEGÍTIMA
+
+## IDENTIFICAÇÃO DAS PARTES CONTRATANTES
+
+DOADOR: (Nome do Doador), (Nacionalidade), (Estado Civil), (Profissão), Carteira de Identidade nº (xxx), C.P.F. nº (xxx), residente e domiciliado na Rua (xxx), nº (xxx), bairro (xxx), Cep (xxx), Cidade (xxx), no Estado (xxx);
+
+DONATÁRIO: (Nome do Donatário), (Nacionalidade), (Estado Civil), (Profissão), Carteira de Identidade nº (xxx), C.P.F. nº (xxx), residente e domiciliado na Rua (xxx), nº (xxx), bairro (xxx), Cep (xxx), Cidade (xxx), no Estado (xxx).
+
+As partes acima identificadas têm, entre si, justo e acertado o presente Contrato de Doação de Pai para Filho - Adiantamento da Legítima, que se regerá pelas cláusulas seguintes e pelas condições descritas no presente.
+
+## DO OBJETO DO CONTRATO
+
+**Cláusula 1ª.** O presente contrato tem como OBJETO, o bem imóvel de propriedade do DOADOR, livre de qualquer ônus ou defeito que possa inquiná-lo de inutilidade, possuindo as seguintes descrições: (Descrevê-lo).
+
+**Cláusula 2ª.** O bem está sendo doado, espontaneamente, sem coação ou vício de consentimento, a título gratuito, por livre e espontânea vontade.
+
+## DO ADIANTAMENTO DA LEGÍTIMA
+
+**Cláusula 3ª.** A presente doação realizada entre as partes considerar-se-á antecipação da legítima1, ou seja, o bem imóvel objeto deste contrato será considerado como já herdado pelo DONATÁRIO uma vez aberta a sucessão do DOADOR, vez que o DONATÁRIO é filho do DOADOR, e portanto, seu herdeiro necessário2.
+
+## CONDIÇÕES GERAIS
+
+**Cláusula 4ª.** O presente contrato passa a vigorar entre as partes a partir da assinatura.
+
+**Cláusula 5ª.** Este instrumento deve ser registrado no Cartório de Títulos e Documentos.
+
+## DO FORO
+
+**Cláusula 6ª.** Para dirimir quaisquer controvérsias oriundas do CONTRATO, as partes elegem o foro da comarca de (xxx).
+
+Por estarem assim justos e contratados, firmam o presente instrumento, em duas vias de igual teor, juntamente com 2 (duas) testemunhas.
+
+(Local, data e ano).
+
+(Nome e assinatura do Doador)
+
+(Nome e assinatura do Donatário)
+
+(Nome, RG e assinatura da Testemunha 1)
+
+(Nome, RG e assinatura da Testemunha 2)
+
+> ________
+> Nota:
+> 1. Art. 1.171, do Código Civil.
+> 2. Art. 1.721, do Código Civil.
+
+[Baixar cópia em .txt](./donwload/doa04.txt)
+
+[Voltar...](./index.md)
