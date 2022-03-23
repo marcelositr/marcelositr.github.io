@@ -60,6 +60,6 @@ Por estarem, assim justos e contratados, firmam o presente instrumento, em duas 
 
 (Nome, RG e assinatura da Testemunha 2)
 
-[Baixar cópia em .txt](./donwload/doa03.txt)
+[Baixar cópia em .txt](../donwload/doa03.txt)
 
-[Voltar...](./index.md)
+[Voltar...](../index.md)
