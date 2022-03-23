@@ -55,4 +55,4 @@ Por estarem assim justos e contratados, firmam o presente instrumento, em duas v
 
 [Baixar cópia em .txt](../donwload/doa01.txt)
 
-[Voltar...](./index.md)
+[Voltar...](../index.md)
