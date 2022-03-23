@@ -34,6 +34,6 @@ DONATÁRIO: (Nome do Donatário), (Nacionalidade), (Profissão), (Estado Civil),
 
 (Nome, RG e assinatura da Testemunha 2)
 
-[Baixar cópia em .txt](./donwload/doa11.txt)
+[Baixar cópia em .txt](../donwload/doa11.txt)
 
-[Voltar...](./index.md)
+[Voltar...](../index.md)
