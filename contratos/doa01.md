@@ -53,6 +53,6 @@ Por estarem assim justos e contratados, firmam o presente instrumento, em duas v
 > 1. Art. 1.180, do Código Civil.
 > 2. Art. 1.181, parágrafo único, do Código Civil.
 
-[Baixar cópia em .txt](./donwload/doa01.txt)
+[Baixar cópia em .txt](../donwload/doa01.txt)
 
 [Voltar...](./index.md)
