@@ -58,9 +58,9 @@ E, por estarem justos e contratados, assinam o presente instrumento em 2 (duas) 
 
 (Nome, RG e assinatura da Testemunha 2)
 
-[Baixar cópia em .txt](./donwload/doa08.txt)
+[Baixar cópia em .txt](../donwload/doa08.txt)
 
-[Voltar...](./index.md)
+[Voltar...](../index.md)
 
 > Nota:
 > 1. Art. 1.180, do Código Civil.
