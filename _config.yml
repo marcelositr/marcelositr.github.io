@@ -1,7 +1,8 @@
 title: Marcelo Trindade
 logo: /assets/img/logo.png
 description: Administrador de empresas e programador, 37 anos, brasileiro.
-show_downloads: false
+#show_downloads: false
+show_downloads: true
 google_analytics: G-CV9B770Y4Q
 #theme: jekyll-theme-minimal
 theme: jekyll-theme-midnight
