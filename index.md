@@ -34,4 +34,6 @@ Demais contratos podem ser baixados [aqui](./donwload/txt_contratos-v2.zip).
 
 [**GPG KEY: BD54 37BA 1AA7 35F2 2E52 EADC 3827 1A10 682E 7E56**](./gpg/gpg_marcelostrindade.asc)
 
+[Facebook](https://www.facebook.com/marcelositr) - [Instagram](https://instagram.com/marcelositr) - [Twitter](https://twitter.com/marcelositr) - [e-Mail](mailto:marcelo@strindade.com.br)
+
 ##### Este trabalho está licenciado a [Creative Commons Atribuição 4.0 Internacional (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/).
