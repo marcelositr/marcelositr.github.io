@@ -32,12 +32,11 @@ Demais contratos podem ser baixados [aqui](./donwload/txt_contratos-v2.zip).
 
 > Todos os contratos são resultado de pesquisas realizadas na web. Se você possui os direitos autorais de qualquer um dos documentos postados aqui, envie-me um [e-mail](mailto:marcelo@strindade.com.br) para solicitar sua remoção.
 
-```
-**GnuPG Pub RSA 4096**
 
-[**30C1 317E 4701 D991 18D3 7584 0582 FD0C 4EE3 0326**](./gpg/gpg-marcelodasilvatrindade-public.txt)
-```
+##### **GnuPG Pub RSA 4096**
 
-[Facebook](https://www.facebook.com/marcelositr) - [Instagram](https://instagram.com/marcelositr) - [Twitter](https://twitter.com/marcelositr) - [e-Mail](mailto:marcelo@strindade.com.br)
+##### [**30C1 317E 4701 D991 18D3 7584 0582 FD0C 4EE3 0326**](./gpg/gpg-marcelodasilvatrindade-public.txt)
 
-##### Este trabalho está licenciado a [Creative Commons Atribuição 4.0 Internacional (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/).
+###### [Facebook](https://www.facebook.com/marcelositr) - [Instagram](https://instagram.com/marcelositr) - [Twitter](https://twitter.com/marcelositr) - [e-Mail](mailto:marcelo@strindade.com.br)
+
+###### Este trabalho está licenciado a [Creative Commons Atribuição 4.0 Internacional (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/).
