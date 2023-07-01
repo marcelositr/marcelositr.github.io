@@ -1,4 +1,4 @@
-# strindade.com.br
+# marcelositr
 
 ## Modelos de Contratos
 
@@ -28,7 +28,7 @@ Os contratos acima poderão ser baixados atravéz desde [link](./donwload/txt_co
 
 Demais contratos podem ser baixados [aqui](./donwload/txt_contratos-v2.zip).
 
-> Todos os contratos são resultado de pesquisas realizadas na web. Se você possui os direitos autorais de qualquer um dos documentos postados aqui, envie-me um [e-mail](mailto:marcelo@strindade.com.br) para solicitar sua remoção, junatamente com a devida documentção comprobatório da da autenticidade do mesmo!
+> Todos os contratos são resultado de pesquisas realizadas na web. Se você possui os direitos autorais de qualquer um dos documentos postados aqui, envie-me um [e-mail](mailto:marcelost@riseup.net) para solicitar sua remoção, junatamente com a devida documentção comprobatório da da autenticidade do mesmo!
 
 
 ##### **GnuPG Pub RSA 4096**
