@@ -20,11 +20,11 @@ Nesta página, tenho alguns modelos de contrato de doação que podem ser usados
 
 - Acordo de Confidencialidade e Segredo. [Visualizar](./contratos/sig01.md)
 
-## Download
+## Downloads
 
 Os contratos acima poderão ser baixados "todos" atravéz desde [link](./donwload/txt_contratos-v1.zip).
 
-Demais contratos podem ser baixados [aqui](./donwload/txt_contratos-v2.zip). São mais de 300+ modelos de documentos disponibilizados gratuitamente.
+Demais contratos podem ser baixados [aqui](./donwload/txt_contratos-v2.zip). São mais de 300 modelos de documentos disponibilizados gratuitamente. A lista de todos documentos podem ser acessados [aqui]./contratos/lista.md
 
 > Todos os contratos são resultado de pesquisas realizadas na web. Se você possui os direitos autorais de qualquer um dos documentos postados aqui, envie-me um [e-mail](mailto:marcelost@riseup.net) para solicitar sua remoção, juntamente com a devida documentção comprobatório da autenticidade do mesmo!
 
