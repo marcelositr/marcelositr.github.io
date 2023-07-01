@@ -1,32 +1,22 @@
-# Modelos de Contratos
+# Olá! Bem-vindo(a) à minha página pessoal!
 
-Nesta página, tenho alguns modelos de contrato de doação que podem ser usados para fazer os respectivos contratos individuais. Use-os como fonte de pesquisa, apresente os termos e modelos para o responsável que está elaborando o seu, depois pergunte, discuta e melhore.
+Eu sou Marcelo Trindade, um profissional dedicado e entusiasta da Administração. Ao longo da minha carreira, adquiri uma ampla experiência e conhecimentos sólidos nessa área tão dinâmica e desafiadora. Trabalhar com estratégias, processos e pessoas é algo que me motiva diariamente, e estou sempre em busca de novas formas de aprimorar meu desempenho e contribuir para o sucesso das organizações em que trabalho.
 
-## Contratos de Doação:
+Além da Administração, tenho dois hobbies que me trazem imensa satisfação. O primeiro é a Meliponicultura, que consiste na criação de abelhas nativas sem ferrão. Essas pequenas criaturas fascinantes desempenham um papel fundamental na preservação do meio ambiente e na polinização das plantas. Através da meliponicultura, tenho a oportunidade de contribuir para a conservação dessas espécies e, ao mesmo tempo, desfrutar de produtos naturais e deliciosos, como o mel de abelhas sem ferrão.
 
-- Com Encargo. [Visualizar](./contratos/doa01.md)
-- Com Reversão. [Visualizar](./contratos/doa02.md)
-- Condicional. [Visualizar](./contratos/doa03.md)
-- De Pai para Filho. [Visualizar](./contratos/doa05.md)
-- De Pai para Filho Com Adiantamento da Legítima. [Visualizar](./contratos/doa04.md)
-- Outras Avenças. [Visualizar](./contratos/doa06.md)
-- Outras Avenças com ITCMD. [Visualizar](./contratos/doa07.md)
-- Outras Avenças com Adiantamento da Legítima. [Visualizar](./contratos/doa08.md)
-- Outras Avenças com adiantamento da Legítima e ITCMD. [Visualizar](./contratos/doa09.md)
-- Remuneratória. [Visualizar](./contratos/doa10.md)
-- Puro Simples. [Visualizar](./contratos/doa11.md)
+Meu segundo hobby é o Raioamadorismo. Essa atividade envolve a operação de rádios de comunicação e a exploração do espectro eletromagnético. Além de ser um hobby emocionante e tecnologicamente empolgante, o raioamadorismo me permite conhecer pessoas de todo o mundo, trocar experiências e informações, além de desenvolver habilidades técnicas valiosas.
 
-## Contrato de Sigilo:
+Ao compartilhar minha experiência e interesses com você nesta página, espero criar uma conexão genuína e inspirar outros profissionais e entusiastas em suas jornadas. Acredito que a diversidade de interesses e paixões enriquece nossa vida pessoal e profissional, permitindo-nos explorar diferentes perspectivas e expandir nossos horizontes.
 
-- Acordo de Confidencialidade e Segredo. [Visualizar](./contratos/sig01.md)
+Sinta-se à vontade para explorar os conteúdos e informações disponíveis aqui. Estou sempre aberto a novas oportunidades, projetos desafiadores e parcerias colaborativas. Se você busca um profissional de administração comprometido, criativo e apaixonado, ou se compartilha algum dos meus hobbies e gostaria de trocar experiências, ficarei feliz em conectar-me com você.
 
-## Downloads
+Agradeço por visitar minha página e por dedicar seu tempo para conhecer um pouco mais sobre mim. Se tiver alguma pergunta ou quiser saber mais detalhes sobre minha experiência profissional ou hobbies, não hesite em entrar em contato. Deixarei no link à baixo modelos de contratos que poderão ser utilizados gratuitamente.
 
-Os contratos acima poderão ser baixados "todos" atravéz desde [link](./donwload/txt_contratos-v1.zip).
+Atenciosamente,
 
-Outros modelos de documentos podem ser baixados [aqui](./donwload/txt_contratos-v2.zip). São mais de 300 modelos de documentos disponibilizados gratuitamente. A lista de todos documentos podem ser acessados neste [índice](./donwload/lista.md)
+Marcelo Trindade
 
-> Todos os contratos são resultado de pesquisas realizadas na web. Se você possui os direitos autorais de qualquer um dos documentos postados aqui, envie-me um [e-mail](mailto:marcelost@riseup.net) para solicitar sua remoção, juntamente com a devida documentção comprobatório da autenticidade do mesmo!
+# [Modelos de Contratos](./ctr.md)
 
 ##### **GnuPG Pub RSA 4096**
 
