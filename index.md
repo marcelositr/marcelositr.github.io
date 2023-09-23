@@ -27,6 +27,10 @@ Revogado em 2023-09-23<p>
 
 ##### [Download Chave Pública](./gpg/gpg-marcelodasilvatrindade-public.txt)
 
+##### **SSH Pub RSA 4096**
+
+##### [Download Chave Pública](./ssh/ssh-marcelodasilvatrindade-public.txt)
+
 ##### [Facebook](https://www.facebook.com/marcelositr) - [Instagram](https://instagram.com/marcelositr) - [Twitter](https://twitter.com/marcelositr) - [e-Mail](mailto:marcelost@riseup.net)
 
 ##### Este trabalho está licenciado a [Creative Commons Atribuição 4.0 Internacional (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/).
