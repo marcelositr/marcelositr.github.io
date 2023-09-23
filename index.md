@@ -23,7 +23,7 @@ Marcelo Trindade
 <code>66E9 CDFC 3C3A EFCC 464F B03D 138C 03DE D278 7FE8</code>
 
 <p>Revogado em 2023-09-23
-<p>~~<code>30C1 317E 4701 D991 18D3 7584 0582 FD0C 4EE3 0326</code>~~
+~~30C1 317E 4701 D991 18D3 7584 0582 FD0C 4EE3 0326~~
 
 ##### [Download Chave Pública](./gpg/gpg-marcelodasilvatrindade-public.txt)
 
