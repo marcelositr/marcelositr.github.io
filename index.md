@@ -18,19 +18,15 @@ Marcelo Trindade
 
 # [Modelos de Contratos](./ctr.md)
 
-##### **GnuPG Pub RSA 4096**
+# [Download Chave Pública GPG](./gpg/gpg-marcelodasilvatrindade-public.txt)
 
-66E9 CDFC 3C3A EFCC 464F B03D 138C 03DE D278 7FE8
+<code>66E9 CDFC 3C3A EFCC 464F B03D 138C 03DE D278 7FE8</code>
 
-Revogado em 2023-09-23
+~~Revogado em 2023-09-23~~
 
 ~~30C1 317E 4701 D991 18D3 7584 0582 FD0C 4EE3 0326~~
 
-##### [Download Chave Pública GPG](./gpg/gpg-marcelodasilvatrindade-public.txt)
-
-##### **SSH Pub RSA 4096**
-
-##### [Download Chave Pública SSH](./ssh/ssh-marcelodasilvatrindade-public.txt)
+# [Download Chave Pública SSH](./ssh/ssh-marcelodasilvatrindade-public.txt)
 
 ##### [Facebook](https://www.facebook.com/marcelositr) - [Instagram](https://instagram.com/marcelositr) - [Twitter](https://twitter.com/marcelositr) - [e-Mail](mailto:marcelost@riseup.net)
 
