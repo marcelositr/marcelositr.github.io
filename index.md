@@ -16,8 +16,6 @@ Atenciosamente,
 
 Marcelo Trindade
 
-# [Modelos de Contratos](./ctr.md)
-
 # [Download Chave Pública GPG](./gpg/gpg-marcelodasilvatrindade-public.txt)
 
 <code>66E9 CDFC 3C3A EFCC 464F B03D 138C 03DE D278 7FE8</code>
@@ -27,6 +25,10 @@ Marcelo Trindade
 ~~30C1 317E 4701 D991 18D3 7584 0582 FD0C 4EE3 0326~~
 
 # [Download Chave Pública SSH](./ssh/ssh-marcelodasilvatrindade-public.txt)
+
+<code>ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQC4gzYZkxKduuFsmqRd9Hp49Dqb3iHmhSHWSMuspfXjDZqTRQmOowZV3qmGTRo6ShMP+01lMHaBWtfaQqNzPLVKYGODM8O1QYTSUaIP64KXWGVZFNKPmLu3VrNwXfSX5uup4n4QTftFDEC/Bu3cQNixwdZdEkLblILLYFxJgD9kZADbR6hOcKvC/Tioiv04+Oh1TmG99+xAoWD6fau9Uwad7MoIKM5Gl6qOWyL3UNcnznylMgs4L46Cr1v/sxj4+gAn95AFdEWTwkSN8qC37OCrXvjp3rbQrytvmd3v7emnReSNhkBPz0Dvt6km/RCxEm0AfA5zgxbM+doBPHoTED8NEgrz//LKe3D+Kvdz/c1WBYOu0BmozKblUfq7EFAD5IWC10FBoMytyquTjbHCVFTjVI+/IEfSda/5nyaxUfWkX0KdX6dckVU01yvxHdGcsdXuDesgq+bs8kpRfPr0v+t0y441OcuuM6tuClxxO12qmCayDaa1NXeOqlSbGZJDYDEdUrm76+A+99BGuGsEN6Lfqy7qpuAHfh3r9q7hg+PtVJHtdWS1zhPgLokmowl69nKr7vi3yV5ee3YnMJ6zPEcth3yohFxM8U+EobQarp300EgD3+Z7u2TmGBS6zqaMlLYGeVLj7XN54+e8qZQESs5vb25sKwJ2SxLtmao8EYM0yQ== marcelost@desktop-m9</code>
+
+# [Modelos de Contratos](./ctr.md)
 
 ##### [Facebook](https://www.facebook.com/marcelositr) - [Instagram](https://instagram.com/marcelositr) - [Twitter](https://twitter.com/marcelositr) - [e-Mail](mailto:marcelost@riseup.net)
 
