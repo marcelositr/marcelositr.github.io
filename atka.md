@@ -7,9 +7,9 @@ Ei, humano! Que legal que você me encontrou! Eu sou o Atka, o aventureiro de qu
 Olá, eu sou um Husky Siberiano, o peludo encantador que ama um carinho na barriga e puxar trenós... ou tentar, porque cá entre nós, puxar a coleira é mais a minha vibe! E olha, se eu parecer um pouco desgrenhado, é porque, sabe como é, troco todo meu pelo duas vezes por ano. Vai um desabafo: o aspirador tem sido o melhor amigo do meu humano!
 
 ## Detalhes Relevantes:
-Nome: Atka
++ **Nome:** Atka
 
-Raça: Husky Siberiano
++ **Raça:** Husky Siberiano
 
 + **Cor da Coleira:** Verde Camuflado
 
