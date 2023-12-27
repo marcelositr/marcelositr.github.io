@@ -2,7 +2,7 @@
 
 [img]
 
-Ei, humano! Que legal que você me encontrou! Eu sou o Atka, o aventureiro de quatro patas que acabou se perdendo por aí. Este QR Code na minha coleira te truxe até minha página, onde você pode ajudar a encontrar meu lar doce lar. Vamos nessa?
+Ei, humano! Que legal que você me encontrou! Eu sou o Atka, o aventureiro de quatro patas que acabou se perdendo por aí. Este QR Code na minha coleira te trou-se até minha página, onde você pode ajudar a encontrar meu lar doce lar. Vamos nessa?
 
 Olá, eu sou um Husky Siberiano, o peludo encantador que ama um carinho na barriga e puxar trenós... ou tentar, porque cá entre nós, puxar a coleira é mais a minha vibe! E olha, se eu parecer um pouco desgrenhado, é porque, sabe como é, troco todo meu pelo duas vezes por ano. Vai um desabafo: o aspirador tem sido o melhor amigo do meu humano!
 
@@ -15,9 +15,9 @@ Olá, eu sou um Husky Siberiano, o peludo encantador que ama um carinho na barri
 
 + **Sinais Distintivos:** Tenho olhos azuis, uma mancha na patinha direita e uma personalidade que é só amor e brincadeira.
 
-+ **Contato em Caso de Achado:** Se você quer me ver abanando o rabo em casa novamente, manda um salve pro meu humano, beleza? Aqui está o e-mail ou número de telefone: marcelost@riseup.net (11) 9 5186-3024.
++ **Contato em Caso de Achado:** Se você quer me ver abanando o rabo em casa novamente, manda um salve pro meu humano, beleza? Aqui está o e-mail e número de telefone, o nome dele é Marcelo: marcelost@riseup.net (11) 9 5186-3024.
 
-+ **Probleminhas:** Eu tenho um probleminha que nunca entendi direito, por isso fui adotado, é que as vezes eu tenho convulsões, há e minha mãe descobriram que ela é diabetica turante minha gestação, então mesmo que eu faça cara de pidão, não me ofereça doces, e cá entre nós, eu até gostaria muito, mas realmente não posso!
++ **Probleminhas:** Eu tenho um probleminha que nunca entendi direito, por isso fui adotado, é que as vezes eu tenho convulsões, se ocorrer apenas me contenha até eu melhorar. E uma outra questão, caso você esteja comendo algo doce eu vou fazer de pidão,mas não de ofereça, pois tenho tendencia a diabetes, até minha raçãozinha acabou sendo especial.
 
 Trocar pelo duas vezes por ano pode ser uma bagunça. Mas olha, é só um pouco de pelo. Posso apostar que você já lidou com coisas piores!
 Sou um mestre em escavação! Se você me vê com uma pá improvisada, é porque estou tentando descobrir um novo mundo no jardim. Desculpa, vizinho!
