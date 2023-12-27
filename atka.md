@@ -17,7 +17,7 @@ Olá, eu sou um Husky Siberiano, o peludo encantador que ama um carinho na barri
 
 + **Contato em Caso de Achado:** Se você quer me ver abanando o rabo em casa novamente, manda um salve pro meu humano, beleza? Aqui está o e-mail ou número de telefone: marcelost@riseup.net (11) 9 5186-3024.
 
-+ **Probleminhas:** Eu tenho um probleminha que nunca entendi direito, por isso fui adotado, é que as vezes eu tenho convulsões, há e minha mãe descobriram que ela é diabetica turante minha gestação, então mesmo que eu faça cara de pidão, não me ofereça doces, e cá entre nós, minha ração não é uma das mais saborosas! 
++ **Probleminhas:** Eu tenho um probleminha que nunca entendi direito, por isso fui adotado, é que as vezes eu tenho convulsões, há e minha mãe descobriram que ela é diabetica turante minha gestação, então mesmo que eu faça cara de pidão, não me ofereça doces, e cá entre nós, eu até gostaria muito, mas realmente não posso!
 
 Trocar pelo duas vezes por ano pode ser uma bagunça. Mas olha, é só um pouco de pelo. Posso apostar que você já lidou com coisas piores!
 Sou um mestre em escavação! Se você me vê com uma pá improvisada, é porque estou tentando descobrir um novo mundo no jardim. Desculpa, vizinho!
