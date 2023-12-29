@@ -13,7 +13,7 @@ Olá, eu sou um Husky Siberiano, o peludo encantador que ama um carinho na barri
 
 + **Cor da Coleira:** Verde Camuflado
 
-+ **Sinais Distintivos:** Tenho olhos azuis, uma mancha na patinha direita e uma personalidade que é só amor e brincadeira.
++ **Sinais Distintivos:** Tenho olhos castanhos, quatro unhas pretas e uma branca na patinha direita e uma personalidade que é só amor e brincadeira.
 
 + **Contato em Caso de Achado:** Se você quer me ver abanando o rabo em casa novamente, manda um salve pro meu humano, beleza? Aqui está o número de telefone, o nome dele é Marcelo: (11) 9 5186-3024, e a Dna da Pensão chama Fátima (16) 9 9122-3317
 
