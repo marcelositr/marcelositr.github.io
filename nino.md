@@ -15,7 +15,7 @@ Olá, eu sou um Husky Siberiano, o peludo encantador que ama um carinho na barri
 
 + **Sinais Distintivos:** Tenho olhos azuis, uma mancha na patinha direita e uma personalidade que é só amor e brincadeira.
 
-+ **Contato em Caso de Achado:** Se você quer me ver abanando o rabo em casa novamente, manda um salve pro meu humano, beleza? Aqui está o e-mail e número de telefone, o nome dele é Marcelo: marcelost@riseup.net (11) 9 5186-3024.
++ **Contato em Caso de Achado:** Se você quer me ver abanando o rabo em casa novamente, manda um salve pro meu humano, beleza? Aqui está o número de telefone, o nome dele é Marcelo: (11) 9 5186-3024, e a Dna da Pensão chama Fátima (16) 9 9122-3317
 
 + **Probleminhas:** Eu tenho um probleminha que nunca entendi direito, por isso fui adotado, é que as vezes eu tenho convulsões, se ocorrer apenas me contenha até eu melhorar. E uma outra questão, caso você esteja comendo algo doce eu vou fazer de pidão,mas não de ofereça, pois tenho tendencia a diabetes, até minha raçãozinha acabou sendo especial.
 
