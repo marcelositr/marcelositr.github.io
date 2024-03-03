@@ -26,6 +26,8 @@ Marcelo Trindade
 
 ### [Download Chave Pública SSH](./ssh/ssh-marcelodasilvatrindade-public.txt)
 
+<code>SHA256:s8MzLCCmKuFgZ09MNtp/WEHNmBYgGQI6bckXhe/SqLo</code>
+
 # [Modelos de Contratos](./ctr.md)
 
 ##### [Facebook](https://www.facebook.com/marcelositr) - [Instagram](https://instagram.com/marcelositr) - [Twitter](https://twitter.com/marcelositr) - [e-Mail](mailto:marcelost@riseup.net)
