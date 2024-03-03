@@ -18,11 +18,11 @@ Marcelo Trindade
 
 # [Download Chave Pública GPG](./gpg/gpg-marcelodasilvatrindade-public.txt)
 
-<code>66E9 CDFC 3C3A EFCC 464F B03D 138C 03DE D278 7FE8</code>
+<code>4B42 1478 F494 2E79 7A8B 37F0 5EC9 6F8E 28DF ABEB</code>
 
-~~Revogado em 2023-09-23~~
+# [Download Chave Revogação 2024-03-02](./gpg/gpg-marcelodasilvatrindade-revoke.txt)
 
-~~30C1 317E 4701 D991 18D3 7584 0582 FD0C 4EE3 0326~~
+~~66E9 CDFC 3C3A EFCC 464F B03D 138C 03DE D278 7FE8~~
 
 # [Download Chave Pública SSH](./ssh/ssh-marcelodasilvatrindade-public.txt)
 
