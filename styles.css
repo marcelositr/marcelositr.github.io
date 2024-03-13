@@ -1,0 +1,152 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #1a1a1a; /* Cor de fundo para modo noturno */
+    color: #fff; /* Cor do texto para modo noturno */
+}
+
+.container {
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+}
+
+header {
+    background-color: #333; /* Cor de fundo do cabeçalho */
+    color: #fff;
+    padding: 20px 0;
+}
+
+.logo {
+    float: left;
+}
+
+.logo h1 {
+    margin: 0;
+}
+
+nav {
+    float: right;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.menu-icon {
+    display: block;
+    cursor: pointer;
+    float: left;
+    margin-left: 20px;
+}
+
+.menu-icon .bar {
+    width: 25px;
+    height: 3px;
+    background-color: #fff;
+    margin: 5px 0;
+}
+
+.mobile-nav {
+    display: none;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.9); /* Cor de fundo do menu móvel */
+    z-index: 1000;
+}
+
+.mobile-nav.active {
+    display: block;
+}
+
+.mobile-nav ul {
+    list-style-type: none;
+    padding: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.mobile-nav ul li {
+    margin-top: 20px;
+}
+
+.mobile-nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 24px;
+}
+
+main {
+    padding: 20px 0;
+    margin-left: 10%;
+    margin-right: 10%;
+    text-align: justify;
+}
+
+footer {
+    background-color: #333; /* Cor de fundo do rodapé */
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+}
+
+/* Estilos para telas com largura até 768px (tablet) */
+@media screen and (max-width: 768px) {
+    /* Estilos específicos para telas menores */
+}
+
+/* Estilos para telas com largura até 480px (celular) */
+@media screen and (max-width: 480px) {
+    /* Estilos específicos para telas de celular */
+}
+
+/* Cursor Piscante */
+.cursor {
+    display: inline-block;
+    position: relative;
+    animation: blinkCursor 1s infinite;
+    text-align: left; /* Alinhar à esquerda */
+}
+
+@keyframes blinkCursor {
+    from, to {
+        border-right: 3px solid #FFFFFF; /* Branco */
+    }
+    50% {
+        border-right: none;
+    }
+}
+
+span {
+    white-space: nowrap;
+}
+
+/* Links não visitados */
+a:link {
+    color: #fff; /* Define a cor do link não visitado como branco */
+    text-decoration: none; /* Remove a sublinhado padrão dos links */
+}
+
+/* Links visitados */
+a:visited {
+    color: #fff; /* Define a cor do link visitado como branco */
+    text-decoration: none; /* Remove a sublinhado padrão dos links */
+}
