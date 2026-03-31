@@ -1,0 +1,10 @@
+Contact: mailto:marcelost@riseup.net
+Contact: https://keys.openpgp.org/search?q=marcelost@riseup.net
+
+Encryption: https://devnux.com.br/key.asc
+
+Preferred-Languages: pt, en
+
+Canonical: https://devnux.com.br/.well-known/security.txt
+
+Policy: https://devnux.com.br/.well-known/openpgpkey/policy
