@@ -1,8 +1,0 @@
-Marcelo da Silva Trindade OpenPGP Key
-
-Fingerprint:
-2514 971D C587 7593 DB00 4C8F 5103 5BAC 279B 6036
-
-Location:
-https://devnux.com.br/key.asc
-https://keys.openpgp.org
