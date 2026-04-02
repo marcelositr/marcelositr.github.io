@@ -1,12 +1,16 @@
-OpenPGP key fingerprint:
+Marcelo da Silva Trindade OpenPGP information
 
+Fingerprint:
 2514 971D C587 7593 DB00 4C8F 5103 5BAC 279B 6036
 
 Public key:
 https://devnux.com.br/key.asc
 
-OpenPGP policy:
-https://devnux.com.br/.well-known/openpgpkey/policy
+WKD:
+https://devnux.com.br/.well-known/openpgpkey/
+
+Keyserver:
+https://keys.openpgp.org
 
 Security contact:
 https://devnux.com.br/.well-known/security.txt
