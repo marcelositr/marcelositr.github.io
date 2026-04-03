@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Infrastructure Access Gateway</title>
+<link rel="stylesheet" href="css/login.css">
+<link rel="icon" href="https://github.com/marcelositr.png">
+<link rel="apple-touch-icon" href="https://github.com/marcelositr.png">
+</head>
+<body>
+
+<div class="login-container">
+<!--  <img src="https://github.com/marcelositr.png" alt="Marcelo Trindade" class="avatar"> -->
+  <h1>Infrastructure Access Gateway</h1>
+  <p class="subtitle">Restricted system access</p>
+
+  <form id="loginForm">
+    <input type="text" placeholder="Username" required>
+    <input type="password" placeholder="Password" required>
+    <button id="loginBtn">Authenticate</button>
+  </form>
+
+  <div id="status" class="message"></div>
+
+  <div class="security-info">
+    <div id="attempts"></div>
+    <div id="time"></div>
+    <div id="fingerprint"></div>
+  </div>
+
+  <div class="footer">
+    Authorized node • Security layer active • v2.8
+  </div>
+</div>
+
+<script src="js/auth.js"></script>
+</body>
+</html>

@@ -21,9 +21,16 @@ header img.perfil {
   margin-bottom: 1rem;
 }
 
-header h1 { color: #FF9800; margin-bottom: 0.5rem; font-family: 'Poppins', sans-serif; }
+header h1 { 
+  color: #FF9800; 
+  margin-bottom: 0.5rem; 
+  font-family: 'Poppins', sans-serif; 
+}
 
-header p { margin-bottom: 1rem; }
+header p { 
+  margin-bottom: 1rem; 
+  text-align: center; /* mantém centralizado no header */
+}
 
 nav {
   position: sticky;
@@ -61,9 +68,23 @@ section.visible {
   transition-delay: 0s;
 }
 
-h2 { color: #FF9800; margin-bottom: 1rem; font-family: 'Poppins', sans-serif; }
+h2 { 
+  color: #FF9800; 
+  margin-bottom: 1rem; 
+  font-family: 'Poppins', sans-serif; 
+}
 
-a { color: #4FD1C5; text-decoration: none; transition: color .2s; }
+/* Apenas os parágrafos do main ficam justificados */
+main p { 
+  text-align: justify; 
+  margin-bottom: 1rem;
+}
+
+a { 
+  color: #4FD1C5; 
+  text-decoration: none; 
+  transition: color .2s; 
+}
 a:hover { color: #FF9800; }
 
 footer {

@@ -1,0 +1,113 @@
+/* reset minimal */
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: #121214;
+  color: #E6E6E6;
+  line-height: 1.6;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.login-container {
+  background: #18181B;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.5);
+  width: 100%;
+  max-width: 380px;
+  text-align: center;
+}
+
+.login-container img.avatar {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  margin-bottom: 1rem;
+  border: 2px solid #FF9800;
+}
+
+.login-container h1 {
+  font-family: 'Poppins', sans-serif;
+  color: #FF9800;
+  margin-bottom: 1rem;
+}
+
+.login-container form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.login-container input[type="text"],
+.login-container input[type="password"] {
+  padding: 0.8rem 1rem;
+  border-radius: 6px;
+  border: none;
+  background: #121214;
+  color: #E6E6E6;
+  font-size: 1rem;
+  transition: background 0.2s, box-shadow 0.2s;
+}
+
+.login-container input[type="text"]:focus,
+.login-container input[type="password"]:focus {
+  outline: none;
+  background: #1A1A1D;
+  box-shadow: 0 0 0 2px #FF9800;
+}
+
+.login-container button {
+  padding: 0.8rem 1rem;
+  border-radius: 6px;
+  border: none;
+  background: #FF9800;
+  color: #121214;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.login-container button:hover {
+  background: #E68A00;
+}
+
+.login-container .message {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  color: #4FD1C5;
+}
+
+/* Smooth transition for visibility */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  visibility: hidden;
+  transition: opacity 0.6s ease, transform 0.6s ease, visibility 0s linear 0.6s;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+  visibility: visible;
+  transition-delay: 0s;
+}
+
+/* Responsividade */
+@media screen and (max-width: 400px) {
+  .login-container {
+    padding: 1.5rem;
+  }
+
+  .login-container h1 {
+    font-size: 1.5rem;
+  }
+
+  .login-container input,
+  .login-container button {
+    font-size: 0.95rem;
+  }
+}
