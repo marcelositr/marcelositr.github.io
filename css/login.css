@@ -1,4 +1,3 @@
-/* reset minimal */
 * { margin:0; padding:0; box-sizing:border-box; }
 
 body {
@@ -20,6 +19,16 @@ body {
   width: 100%;
   max-width: 380px;
   text-align: center;
+  opacity: 0;
+  transform: translateY(20px);
+  visibility: hidden;
+  transition: opacity 0.6s ease, transform 0.6s ease, visibility 0s linear 0.6s;
+}
+
+.login-container.visible {
+  opacity: 1;
+  transform: translateY(0);
+  visibility: visible;
 }
 
 .login-container img.avatar {
@@ -53,8 +62,7 @@ body {
   transition: background 0.2s, box-shadow 0.2s;
 }
 
-.login-container input[type="text"]:focus,
-.login-container input[type="password"]:focus {
+.login-container input:focus {
   outline: none;
   background: #1A1A1D;
   box-shadow: 0 0 0 2px #FF9800;
@@ -68,46 +76,18 @@ body {
   color: #121214;
   font-weight: bold;
   cursor: pointer;
-  transition: background 0.2s;
+  transition: background 0.2s, transform 0.2s;
 }
 
 .login-container button:hover {
   background: #E68A00;
+  transform: translateY(-1px);
 }
 
-.login-container .message {
-  margin-top: 1rem;
-  font-size: 0.9rem;
-  color: #4FD1C5;
-}
+.login-container .message { margin-top: 1rem; font-size: 0.9rem; color: #4FD1C5; }
 
-/* Smooth transition for visibility */
-.fade-in {
-  opacity: 0;
-  transform: translateY(20px);
-  visibility: hidden;
-  transition: opacity 0.6s ease, transform 0.6s ease, visibility 0s linear 0.6s;
-}
-
-.fade-in.visible {
-  opacity: 1;
-  transform: translateY(0);
-  visibility: visible;
-  transition-delay: 0s;
-}
-
-/* Responsividade */
 @media screen and (max-width: 400px) {
-  .login-container {
-    padding: 1.5rem;
-  }
-
-  .login-container h1 {
-    font-size: 1.5rem;
-  }
-
-  .login-container input,
-  .login-container button {
-    font-size: 0.95rem;
-  }
+  .login-container { padding: 1.5rem; }
+  .login-container h1 { font-size: 1.5rem; }
+  .login-container input, .login-container button { font-size: 0.95rem; }
 }

@@ -1,12 +1,13 @@
-// Fade-in sections ao scroll
 document.addEventListener("DOMContentLoaded", () => {
   const sections = document.querySelectorAll("section");
 
   const observer = new IntersectionObserver((entries, obs) => {
     entries.forEach(entry => {
       if(entry.isIntersecting){
-        entry.target.classList.add("visible");
-        obs.unobserve(entry.target); // anima só 1 vez
+        // delay incremental
+        const index = Array.from(sections).indexOf(entry.target);
+        setTimeout(() => entry.target.classList.add("visible"), index * 150);
+        obs.unobserve(entry.target);
       }
     });
   }, { threshold: 0.2 });
