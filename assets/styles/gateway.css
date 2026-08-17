@@ -125,11 +125,8 @@ button, input { font: inherit; }
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow);
-  opacity: 0;
-  transform: translateY(8px);
-  transition: opacity 280ms ease, transform 280ms ease;
+  animation: gateway-enter 280ms ease both;
 }
-.login-container.visible { opacity: 1; transform: none; }
 
 .service-bar,
 .gateway-footer {
@@ -200,6 +197,8 @@ form button {
 form button:hover:not(:disabled) { background: var(--accent-strong); border-color: var(--accent-strong); transform: translateY(-1px); }
 form button:focus-visible, form input:focus-visible, a:focus-visible { outline: 2px solid var(--accent-strong); outline-offset: 4px; }
 form button:disabled { cursor: wait; opacity: .65; }
+.button-arrow { flex: 0 0 auto; font-family: var(--font-mono); transition: transform var(--ease); }
+form button:hover:not(:disabled) .button-arrow { transform: translateX(2px); }
 
 .auth-result {
   min-height: 6rem;
@@ -256,6 +255,11 @@ body[data-risk="restricted"] #risk { color: var(--danger); }
 .gateway-footer { border-top: 1px solid var(--border-soft); color: #5f6b78; }
 .admin-shell { display: none; }
 .auth-state-degraded, .auth-state-failover, .auth-state-restricted { }
+
+@keyframes gateway-enter {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: none; }
+}
 
 @media (max-width: 900px) {
   body { place-items: start center; }
