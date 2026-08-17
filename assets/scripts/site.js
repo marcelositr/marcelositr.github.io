@@ -1,21 +1,24 @@
-document.addEventListener("DOMContentLoaded", () => {
-  const sections = Array.from(document.querySelectorAll("section"));
+document.addEventListener('DOMContentLoaded', () => {
+  const storageKey = 'devnux.language';
 
-  if (!("IntersectionObserver" in window) || window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-    return;
-  }
+  document.querySelectorAll('[data-language]').forEach(link => {
+    link.addEventListener('click', () => {
+      const language = link.dataset.language;
+      if (['pt', 'en', 'es'].includes(language)) localStorage.setItem(storageKey, language);
+    });
+  });
 
-  sections.forEach(section => section.classList.add("reveal-ready"));
+  const sections = Array.from(document.querySelectorAll('main section'));
+  if (!("IntersectionObserver" in window) || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
+  sections.forEach(section => section.classList.add('reveal-ready'));
   const observer = new IntersectionObserver((entries, obs) => {
     entries.forEach(entry => {
       if (!entry.isIntersecting) return;
-
-      const index = sections.indexOf(entry.target);
-      setTimeout(() => entry.target.classList.add("visible"), index * 120);
+      entry.target.classList.add('visible');
       obs.unobserve(entry.target);
     });
-  }, { threshold: 0.15 });
+  }, { threshold: 0.12 });
 
   sections.forEach(section => observer.observe(section));
 });
