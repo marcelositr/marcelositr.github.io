@@ -10,10 +10,12 @@ const runtime = Object.freeze({
 
 const form = document.getElementById("loginForm");
 const btn = document.getElementById("loginBtn");
+const btnLabel = document.getElementById("loginBtnLabel");
 const username = document.getElementById("username");
 const password = document.getElementById("password");
 const statusBox = document.getElementById("status");
 const statusCode = document.getElementById("statusCode");
+const serviceNode = document.getElementById("serviceNode");
 
 const fields = {
   node: document.getElementById("node"),
@@ -40,10 +42,6 @@ function initialize() {
 
   renderSession();
   setInterval(renderSession, 1000);
-
-  requestAnimationFrame(() => {
-    document.querySelector(".login-container")?.classList.add("visible");
-  });
 
   console.info(`%c${record(0x3001)}`, "font-weight:bold");
   console.info(`${record(0x3006)} ${session.node}.`);
@@ -99,6 +97,7 @@ function renderSession() {
   fields.request.textContent = session.requestId;
   fields.signature.textContent = session.signature;
 
+  if (serviceNode) serviceNode.textContent = `${GATEWAY.region} / ${session.node}`;
   document.body.dataset.risk = session.risk.toLowerCase();
 }
 
@@ -123,7 +122,7 @@ function setBusy(value) {
   btn.disabled = value;
   username.disabled = value;
   password.disabled = value;
-  btn.textContent = value ? record(0x10d1) : record(0x10d2);
+  btnLabel.textContent = value ? record(0x10d1) : record(0x10d2);
 }
 
 function setStatus(message, state = "neutral") {
