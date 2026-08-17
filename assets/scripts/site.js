@@ -10,6 +10,21 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  document.querySelectorAll('[data-age][data-birth]').forEach(node => {
+    const [year, month] = node.dataset.birth.split('-').map(Number);
+    if (!year || !month) return;
+
+    const now = new Date();
+    const age = now.getFullYear() - year - ((now.getMonth() + 1) < month ? 1 : 0);
+    const lang = document.documentElement.lang.toLowerCase();
+    const unit = lang.startsWith('en') ? 'years' : lang.startsWith('es') ? 'años' : 'anos';
+    node.textContent = `${age} ${unit}`;
+  });
+
+  document.querySelectorAll('[data-current-year]').forEach(node => {
+    node.textContent = String(new Date().getFullYear());
+  });
+
   const header = document.querySelector('.site-header');
   const updateHeader = () => header?.classList.toggle('is-scrolled', window.scrollY > 12);
   updateHeader();

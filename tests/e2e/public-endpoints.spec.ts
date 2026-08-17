@@ -21,10 +21,13 @@ test('security.txt está publicado e tem validade', async ({ request }) => {
   expect(body).toContain('Encryption: https://devnux.com.br/gpg.asc');
 });
 
-test('sitemap lista as páginas localizadas', async ({ request }) => {
+test('sitemap lista todas as áreas localizadas', async ({ request }) => {
   const response = await request.get('/sitemap.xml');
   expect(response.ok()).toBeTruthy();
   const body = await response.text();
+  expect(body).toContain('https://devnux.com.br/pt/meio-ambiente/');
+  expect(body).toContain('https://devnux.com.br/en/technology/');
+  expect(body).toContain('https://devnux.com.br/es/medio-ambiente/');
   expect(body).toContain('https://devnux.com.br/pt/radio/');
   expect(body).toContain('https://devnux.com.br/en/meliponiculture/');
   expect(body).toContain('https://devnux.com.br/es/meliponicultura/');
