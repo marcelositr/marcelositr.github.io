@@ -4,15 +4,16 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Marcelo Trindade | Engenharia Ambiental e Tecnologia</title>
-<meta name="description" content="Site pessoal de Marcelo Trindade: engenharia ambiental, GNU/Linux, radioamadorismo, meliponicultura e identidade digital pública.">
+<meta name="description" content="Presença pessoal e técnica de Marcelo Trindade: engenharia ambiental, sistemas abertos, GNU/Linux, radioamadorismo, meliponicultura e identidade digital pública.">
 <meta name="robots" content="index, follow">
+<meta name="theme-color" content="#0a0e13">
 <link rel="canonical" href="https://devnux.com.br/pt/">
 <link rel="alternate" hreflang="pt-BR" href="https://devnux.com.br/pt/">
 <link rel="alternate" hreflang="en" href="https://devnux.com.br/en/">
 <link rel="alternate" hreflang="es" href="https://devnux.com.br/es/">
 <link rel="alternate" hreflang="x-default" href="https://devnux.com.br/">
-<meta property="og:title" content="Marcelo Trindade">
-<meta property="og:description" content="Engenharia ambiental, tecnologia, GNU/Linux, radioamadorismo e meliponicultura.">
+<meta property="og:title" content="Marcelo Trindade · DevNux">
+<meta property="og:description" content="Engenharia ambiental, tecnologia, sistemas abertos, radioamadorismo e meliponicultura.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://devnux.com.br/pt/">
 <meta property="og:image" content="https://devnux.com.br/assets/images/social-preview.png">
@@ -26,46 +27,81 @@
 </head>
 <body>
 <header class="site-header" id="topo">
-  <div class="header-inner">
-    <div class="identity">
-      <img src="https://github.com/marcelositr.png" alt="Marcelo Trindade" class="perfil">
-      <div><p class="eyebrow">devnux.com.br</p><h1>Marcelo Trindade</h1><p>Engenheiro Ambiental · Tecnólogo em Meio Ambiente</p></div>
+  <div class="site-header__inner">
+    <a class="brand" href="/pt/" aria-label="DevNux - início"><span class="brand__name">DEVNUX</span><span class="brand__domain">devnux.com.br</span></a>
+    <div class="header-actions">
+      <nav class="language-nav" aria-label="Idioma"><a href="/pt/" data-language="pt" aria-current="page">PT</a><a href="/en/" data-language="en">EN</a><a href="/es/" data-language="es">ES</a></nav>
+      <a class="restricted-link" href="/gateway/">Acesso restrito</a>
     </div>
-    <nav class="language-nav" aria-label="Idioma"><a href="/pt/" data-language="pt" aria-current="page">PT</a><a href="/en/" data-language="en">EN</a><a href="/es/" data-language="es">ES</a></nav>
   </div>
-  <nav class="main-nav" aria-label="Navegação principal"><a href="#sobre">Sobre</a><a href="#interesses">Interesses</a><a href="#tecnologia">Tecnologia</a><a href="#identidade">Identidade digital</a><a href="#contato">Contato</a><a href="/gateway/">Área restrita</a></nav>
+  <nav class="primary-nav" aria-label="Navegação principal"><a href="#perfil">Perfil</a><a href="#interesses">Interesses</a><a href="#tecnologia">Tecnologia</a><a href="#identidade">Identidade</a><a href="#contato">Contato</a></nav>
 </header>
 <main class="content-shell">
-  <section class="hero" id="sobre">
-    <p class="eyebrow">Presença pessoal na web</p>
-    <h2>Meio ambiente, tecnologia e experimentação.</h2>
-    <p>Sou Marcelo Trindade, engenheiro ambiental e tecnólogo em meio ambiente. Este site é meu ponto de referência pessoal na web para projetos, interesses técnicos, comunicação e identidade criptográfica pública.</p>
-    <p>Minha trajetória cruza meio ambiente e tecnologia. Tenho interesse por sistemas simples, software livre, automação e experimentação, mas também por atividades que aproximam observação ecológica e comunicação, como a meliponicultura e o radioamadorismo.</p>
+  <section class="hero-home" id="perfil">
+    <div class="hero-grid">
+      <div class="hero-copy">
+        <p class="section-label">Marcelo Trindade / DevNux</p>
+        <h1>Meio ambiente, tecnologia e sistemas abertos.</h1>
+        <p class="hero-role">Engenheiro Ambiental · Tecnólogo em Meio Ambiente</p>
+        <p class="hero-summary">Uma presença pessoal e técnica na web, reunindo formação ambiental, tecnologia, comunicação e interesses que atravessam o mundo físico e o digital.</p>
+      </div>
+      <aside class="profile-panel" aria-label="Resumo de identidade">
+        <img src="https://github.com/marcelositr.png" alt="Marcelo Trindade" class="profile-photo">
+        <dl class="profile-meta">
+          <div><dt>Identidade</dt><dd>Marcelo Trindade</dd></div>
+          <div><dt>Ambiente técnico</dt><dd>GNU/Linux · Open source</dd></div>
+          <div><dt>Rádio</dt><dd>PU2OMT</dd></div>
+          <div><dt>Chaves públicas</dt><dd>OpenPGP · SSH</dd></div>
+        </dl>
+      </aside>
+    </div>
   </section>
+
+  <section>
+    <div class="section-grid">
+      <header class="section-heading"><p class="section-index">01 / Perfil</p><h2>Conhecimento ambiental, curiosidade técnica e ferramentas abertas.</h2></header>
+      <div class="prose"><p>Minha formação está ligada ao meio ambiente; a tecnologia ocupa meu cotidiano como ferramenta, ambiente de estudo e espaço de experimentação.</p><p>Tenho preferência por sistemas que possam ser compreendidos, documentados e adaptados. Este site funciona como ponto de referência para minha identidade pública na web, interesses técnicos e canais de comunicação.</p></div>
+    </div>
+  </section>
+
   <section id="interesses">
-    <div class="section-heading"><p class="eyebrow">Áreas de interesse</p><h2>Dois mundos que merecem espaço próprio</h2></div>
-    <div class="card-grid">
-      <article class="feature-card"><span class="feature-kicker">Ecologia</span><h3>Meliponicultura</h3><p>Abelhas nativas sem ferrão, biodiversidade, observação e manejo responsável.</p><a class="text-link" href="/pt/meliponicultura/">Conhecer esta área →</a></article>
-      <article class="feature-card"><span class="feature-kicker">PU2OMT</span><h3>Radioamadorismo</h3><p>Comunicação, eletrônica, VHF/UHF, DMR, repetidoras, propagação e integração com software.</p><a class="text-link" href="/pt/radio/">Conhecer minha estação →</a></article>
+    <header class="section-heading"><p class="section-index">02 / Interesses</p><h2>Ecologia e comunicação em espaços próprios.</h2></header>
+    <div class="interest-grid">
+      <article class="interest-panel interest-panel--nature"><p class="feature-kicker">Ecologia</p><h3>Meliponicultura</h3><p>Abelhas nativas sem ferrão, ciclos de floração, biodiversidade e manejo responsável como exercício constante de observação ambiental.</p><ul class="tag-list"><li>Biodiversidade</li><li>Observação</li><li>Manejo</li></ul><a class="panel-link" href="/pt/meliponicultura/">Entrar nesta área <span>↗</span></a></article>
+      <article class="interest-panel interest-panel--radio"><p class="feature-kicker">PU2OMT</p><h3>Radioamadorismo</h3><p>RF, VHF/UHF, DMR, repetidoras, propagação e integração entre rádio, redes e software em um laboratório técnico permanente.</p><ul class="tag-list"><li>VHF/UHF</li><li>DMR</li><li>Infraestrutura</li></ul><a class="panel-link" href="/pt/radio/">Ver radioamadorismo <span>↗</span></a></article>
     </div>
   </section>
+
   <section id="tecnologia">
-    <div class="section-heading"><p class="eyebrow">Tecnologia</p><h2>GNU/Linux e software livre</h2></div>
-    <p>Utilizo GNU/Linux como ambiente principal de trabalho e experimentação, com preferência por sistemas simples, ferramentas abertas e automação. Tenho interesse em sistemas Unix-like, redes, criptografia, infraestrutura e desenvolvimento open source.</p>
-  </section>
-  <section id="identidade">
-    <div class="section-heading"><p class="eyebrow">Identidade digital</p><h2>Chaves públicas</h2></div>
-    <div class="detail-grid">
-      <article><h3>OpenPGP</h3><p><a href="/gpg.asc">279B6036</a></p><code>2514 971D C587 7593 DB00 4C8F 5103 5BAC 279B 6036</code></article>
-      <article><h3>SSH</h3><p><a href="/ssh.pub">openpgp:0x38DF437B</a></p><p class="muted">Chave pública de autenticação.</p></article>
+    <div class="section-grid">
+      <header class="section-heading"><p class="section-index">03 / Tecnologia</p><h2>Sistemas abertos como ambiente de uso e experimentação.</h2></header>
+      <div class="prose"><p>GNU/Linux é meu ambiente principal de trabalho e experimentação, com preferência por ferramentas abertas, automação e infraestrutura que possa ser entendida de ponta a ponta.</p><div class="technical-grid"><div class="technical-item"><span>Sistemas</span><strong>GNU/Linux · Unix-like</strong></div><div class="technical-item"><span>Infraestrutura</span><strong>Redes · serviços · automação</strong></div><div class="technical-item"><span>Identidade</span><strong>Criptografia · OpenPGP · SSH</strong></div><div class="technical-item"><span>Desenvolvimento</span><strong>Open source · documentação técnica</strong></div></div></div>
     </div>
   </section>
+
+  <section id="identidade">
+    <div class="section-grid">
+      <header class="section-heading"><p class="section-index">04 / Identidade digital</p><h2>Chaves públicas e referências verificáveis.</h2></header>
+      <div class="identity-stack">
+        <article class="identity-record"><div class="record-head"><h3>OpenPGP</h3><span>Public key</span></div><dl class="record-grid"><dt>Key ID</dt><dd><a href="/gpg.asc">279B6036</a></dd><dt>Fingerprint</dt><dd>2514 971D C587 7593 DB00 4C8F 5103 5BAC 279B 6036</dd><dt>Endpoint</dt><dd><a href="/gpg.asc">/gpg.asc</a></dd></dl></article>
+        <article class="identity-record"><div class="record-head"><h3>SSH</h3><span>Authentication key</span></div><dl class="record-grid"><dt>Identity</dt><dd><a href="/ssh.pub">openpgp:0x38DF437B</a></dd><dt>Endpoint</dt><dd><a href="/ssh.pub">/ssh.pub</a></dd></dl></article>
+      </div>
+    </div>
+  </section>
+
   <section id="contato">
-    <div class="section-heading"><p class="eyebrow">Contato</p><h2>Onde me encontrar</h2></div>
-    <ul class="contact-list"><li>Mail <a href="mailto:marcelost@riseup.net">marcelost@riseup.net</a></li><li>Matrix <a href="https://matrix.to/#/@marcelositr:matrix.org" target="_blank" rel="noopener noreferrer">@marcelositr:matrix.org</a></li><li>XMPP <a href="xmpp:marcelositr@envs.net">marcelositr@envs.net</a> · <a href="xmpp:marcelositr@xmpp.jp">marcelositr@xmpp.jp</a></li><li>IRC <a href="irc://brasirc.com.br/marcelositr">brasirc.com.br</a> · <a href="irc://hackint.org/marcelositr">hackint.org</a> · <a href="irc://irc.libera.chat/marcelositr">libera.chat</a></li></ul>
+    <div class="section-grid">
+      <header class="section-heading"><p class="section-index">05 / Contato</p><h2>Canais diretos.</h2></header>
+      <div class="contact-grid">
+        <article class="contact-card"><h3>Mail</h3><p><a href="mailto:marcelost@riseup.net">marcelost@riseup.net</a></p></article>
+        <article class="contact-card"><h3>Matrix</h3><p><a href="https://matrix.to/#/@marcelositr:matrix.org" target="_blank" rel="noopener noreferrer">@marcelositr:matrix.org</a></p></article>
+        <article class="contact-card"><h3>XMPP</h3><p><a href="xmpp:marcelositr@envs.net">marcelositr@envs.net</a></p><p><a href="xmpp:marcelositr@xmpp.jp">marcelositr@xmpp.jp</a></p></article>
+        <article class="contact-card"><h3>IRC</h3><p><a href="irc://brasirc.com.br/marcelositr">brasirc.com.br</a></p><p><a href="irc://hackint.org/marcelositr">hackint.org</a> · <a href="irc://irc.libera.chat/marcelositr">libera.chat</a></p></article>
+      </div>
+    </div>
   </section>
 </main>
-<footer>© 2019 - 2026 Marcelo Trindade · <a href="https://devnux.com.br">devnux.com.br</a></footer>
+<footer class="site-footer"><div class="footer-inner"><div class="footer-brand"><strong>DEVNUX</strong><span>Marcelo Trindade</span></div><p class="footer-meta">© 2019–2026 · <a href="https://devnux.com.br">devnux.com.br</a></p></div></footer>
 <script src="/assets/scripts/site.js"></script>
 </body>
 </html>
