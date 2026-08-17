@@ -1,118 +1,108 @@
+import { resolveRecord as record } from "./catalog.js";
+
+const CAPABILITIES = Object.freeze({
+  MFA: 0x01,
+  LEGACY_DIRECTORY: 0x02,
+  AUDIT_REPLICATION: 0x08,
+  ADAPTIVE_AUTH: 0x10,
+  INTERACTIVE_ADMIN: 0x40,
+});
+
 export const POLICY = Object.freeze({
   maxFailures: 6,
   cooldownSeconds: 24,
-  requireMFA: true,
-  allowLegacyProvider: true,
-  interactiveAdminAccess: false,
+  capabilityMask: 0x1b,
+  revision: 184,
 });
 
-const STANDARD_FAILURES = [
+const FLOW_TABLE = Object.freeze([
   {
-    provider: "PRIMARY",
-    code: "ERR_AUTH_POLICY_4032",
-    steps: [
-      ["Establishing secure session...", 520],
-      ["Validating credentials...", 760],
-      ["Evaluating access policy...", 620],
-      ["Authentication denied.", 0],
-    ],
+    provider: 0x2101,
+    code: 0x2001,
+    steps: [[0x1041, 520], [0x1042, 760], [0x1043, 620], [0x1044, 0]],
   },
   {
-    provider: "PRIMARY",
-    code: "ERR_REALM_MISMATCH",
-    steps: [
-      ["Establishing secure session...", 430],
-      ["Resolving identity realm...", 670],
-      ["Applying directory policy...", 780],
-      ["Unknown principal or invalid credentials.", 0],
-    ],
+    provider: 0x2101,
+    code: 0x2002,
+    steps: [[0x1041, 430], [0x1051, 670], [0x1052, 780], [0x1053, 0]],
   },
   {
-    provider: "FAILOVER",
-    code: "ERR_IDP_UNAVAILABLE",
-    steps: [
-      ["Contacting primary identity provider...", 620],
-      ["Primary provider unavailable. Selecting failover...", 840],
-      ["Synchronizing authentication context...", 720],
-      ["Authentication failed.", 0],
-    ],
+    provider: 0x2102,
+    code: 0x2003,
+    steps: [[0x1061, 620], [0x1062, 840], [0x1063, 720], [0x1064, 0]],
   },
-];
+]);
 
-const LEGACY_FLOW = {
-  provider: "LDAP_COMPAT",
-  code: "ERR_LEGACY_ROTATION_REQUIRED",
-  steps: [
-    ["Legacy credential signature detected.", 650],
-    ["Migrating authentication context...", 880],
-    ["Legacy provider accepted authentication context.", 760],
-    ["Credential rotation service unavailable.", 0],
-  ],
-};
-
-const MFA_FLOW = {
-  provider: "PRIMARY",
-  code: "ERR_MFA_CHALLENGE_EXPIRED",
-  steps: [
-    ["Primary authentication completed.", 560],
-    ["Requesting second factor approval...", 820],
-    ["Waiting for authenticator response...", 1900],
-    ["MFA challenge expired.", 0],
-  ],
-};
-
-const PRIVILEGED_FLOW = {
-  provider: "PRIMARY",
-  code: "ERR_PRIVILEGED_SCOPE_DENIED",
-  steps: [
-    ["Credentials accepted.", 580],
-    ["Loading administrative session...", 720],
-    ["Applying privileged access policy...", 840],
-    ["Requesting privileged token...", 920],
-    ["Privileged token rejected by policy.", 0],
-  ],
-};
+const SPECIAL_FLOWS = Object.freeze({
+  legacy: {
+    provider: 0x2103,
+    code: 0x2004,
+    steps: [[0x1071, 650], [0x1072, 880], [0x1073, 760], [0x1074, 0]],
+  },
+  mfa: {
+    provider: 0x2101,
+    code: 0x2005,
+    steps: [[0x1081, 560], [0x1082, 820], [0x1083, 1900], [0x1084, 0]],
+  },
+  privileged: {
+    provider: 0x2101,
+    code: 0x2006,
+    steps: [[0x1091, 580], [0x1092, 720], [0x1093, 840], [0x1094, 920], [0x1095, 0]],
+  },
+});
 
 export function selectFlow(failures) {
   if (failures >= POLICY.maxFailures) {
-    return {
-      provider: "POLICY_ENGINE",
-      code: "ERR_SESSION_RESTRICTED",
+    return hydrate({
+      provider: 0x2104,
+      code: 0x2007,
       cooldown: POLICY.cooldownSeconds,
-      steps: [
-        ["Adaptive abuse protection triggered.", 520],
-        ["Session placed in restricted mode.", 0],
-      ],
-    };
+      steps: [[0x10a1, 520], [0x10a2, 0]],
+    });
   }
 
-  const roll = Math.floor(Math.random() * 12);
+  const roll = randomIndex(12);
 
-  if (roll === 0) return PRIVILEGED_FLOW;
-  if (roll <= 2) return MFA_FLOW;
-  if (roll <= 4) return LEGACY_FLOW;
+  if (roll === 0) return hydrate(SPECIAL_FLOWS.privileged);
+  if (roll <= 2 && capability("MFA")) return hydrate(SPECIAL_FLOWS.mfa);
+  if (roll <= 4 && capability("LEGACY_DIRECTORY")) return hydrate(SPECIAL_FLOWS.legacy);
 
-  return STANDARD_FAILURES[Math.floor(Math.random() * STANDARD_FAILURES.length)];
+  return hydrate(FLOW_TABLE[randomIndex(FLOW_TABLE.length)]);
 }
 
 export function providerHealth(provider) {
-  switch (provider) {
-    case "LDAP_COMPAT":
-      return "DEGRADED";
-    case "FAILOVER":
-      return "FAILOVER";
-    case "POLICY_ENGINE":
-      return "RESTRICTED";
-    default:
-      return "ONLINE";
-  }
+  if (provider === record(0x2103)) return record(0x2202);
+  if (provider === record(0x2102)) return record(0x2102);
+  if (provider === record(0x2104)) return record(0x2203);
+  return record(0x2201);
 }
 
-/*
- * The gateway has three kinds of users:
- * 1. authorized users
- * 2. unauthorized users
- * 3. people reading this comment hoping there is a password here
- */
+export function scopeAvailable(scope) {
+  const bit = {
+    "interactive-admin": CAPABILITIES.INTERACTIVE_ADMIN,
+    "mfa": CAPABILITIES.MFA,
+    "legacy-directory": CAPABILITIES.LEGACY_DIRECTORY,
+  }[scope];
 
-export const privilegedToken = null;
+  return Boolean(bit && (POLICY.capabilityMask & bit));
+}
+
+function capability(name) {
+  const bit = CAPABILITIES[name];
+  return Boolean(bit && (POLICY.capabilityMask & bit));
+}
+
+function hydrate(flow) {
+  return {
+    ...flow,
+    provider: record(flow.provider),
+    code: record(flow.code),
+    steps: flow.steps.map(([id, delay]) => [record(id), delay]),
+  };
+}
+
+function randomIndex(limit) {
+  const buffer = new Uint32Array(1);
+  crypto.getRandomValues(buffer);
+  return buffer[0] % limit;
+}
