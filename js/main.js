@@ -1,16 +1,21 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const sections = document.querySelectorAll("section");
+  const sections = Array.from(document.querySelectorAll("section"));
+
+  if (!("IntersectionObserver" in window) || window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    return;
+  }
+
+  sections.forEach(section => section.classList.add("reveal-ready"));
 
   const observer = new IntersectionObserver((entries, obs) => {
     entries.forEach(entry => {
-      if(entry.isIntersecting){
-        // delay incremental
-        const index = Array.from(sections).indexOf(entry.target);
-        setTimeout(() => entry.target.classList.add("visible"), index * 150);
-        obs.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.2 });
+      if (!entry.isIntersecting) return;
 
-  sections.forEach(sec => observer.observe(sec));
+      const index = sections.indexOf(entry.target);
+      setTimeout(() => entry.target.classList.add("visible"), index * 120);
+      obs.unobserve(entry.target);
+    });
+  }, { threshold: 0.15 });
+
+  sections.forEach(section => observer.observe(section));
 });

@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.devnux.com.br/sitemap.xml
+Sitemap: https://devnux.com.br/sitemap.xml
