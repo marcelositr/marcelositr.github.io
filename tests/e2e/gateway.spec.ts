@@ -3,6 +3,9 @@ import { test, expect } from '@playwright/test';
 test('gateway inicializa sessão e processa uma tentativa', async ({ page }) => {
   await page.goto('/gateway/');
   await expect(page).toHaveTitle(/DevNux Infrastructure Gateway/);
+  await expect(page.locator('.gateway-brand__name')).toHaveText('DEVNUX');
+  await expect(page.getByRole('heading', { name: 'Restricted systems gateway.' })).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'Authenticate' })).toBeVisible();
   await expect(page.locator('#sessionId')).not.toHaveText('initializing');
 
   await page.locator('#username').fill('operator');
