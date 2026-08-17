@@ -1,52 +1,101 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
-
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Infrastructure Access Gateway</title>
+<title>DevNux Infrastructure Gateway</title>
 
 <meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
-<link rel="canonical" href="https://devnux.com.br/">
 <meta name="googlebot" content="noindex, nofollow">
 <meta name="bingbot" content="noindex, nofollow">
+<meta name="application-name" content="DevNux Infrastructure Gateway">
+<meta name="environment" content="production">
+<meta name="gateway-region" content="br-south">
+<meta name="policy-revision" content="184">
+<link rel="canonical" href="https://devnux.com.br/login.html">
 
 <link rel="stylesheet" href="css/login.css">
 <link rel="icon" href="https://devnux.com.br/img/favicon.png">
 <link rel="apple-touch-icon" href="https://devnux.com.br/img/preview.png">
 </head>
 
-<body>
+<!--
+  DevNux Infrastructure Gateway
 
-<div class="login-container fade-in">
-  <h1>Infrastructure Access Gateway</h1>
-  <p class="subtitle">Restricted system access</p>
+  TODO:
+  - complete legacy realm migration
+  - retire compatibility provider after credential rotation window
+  - move privileged console bundle behind administrative policy
+-->
 
-  <form id="loginForm">
-    <input type="text" placeholder="Username" required>
-    <input type="password" placeholder="Password" required>
-    <button id="loginBtn">Authenticate</button>
+<body data-node="pending" data-realm="internal" data-policy="184">
+<main class="login-container" aria-labelledby="gateway-title">
+  <div class="service-bar">
+    <span class="service-state"><span class="status-dot" aria-hidden="true"></span>Production</span>
+    <span>br-south</span>
+  </div>
+
+  <header class="gateway-header">
+    <p class="eyebrow">DevNux Infrastructure</p>
+    <h1 id="gateway-title">Access Gateway</h1>
+    <p class="subtitle">Restricted administrative access</p>
+  </header>
+
+  <!-- Authentication is delegated. Never validate credentials in this document. -->
+  <form id="loginForm" autocomplete="off">
+    <label for="username">Username</label>
+    <input id="username" type="text" placeholder="principal" autocomplete="off" autocapitalize="none" spellcheck="false" required>
+
+    <label for="password">Password</label>
+    <input id="password" type="password" placeholder="credential" autocomplete="off" required>
+
+    <button id="loginBtn" type="submit">Authenticate</button>
   </form>
 
-  <div id="status" class="message"></div>
+  <section class="auth-result" aria-live="polite" aria-atomic="true">
+    <div id="status" class="message" data-state="neutral">Secure session established.</div>
+    <div id="statusCode" class="status-code"></div>
+  </section>
 
-  <div class="security-info">
-    <div id="attempts"></div>
-    <div id="time"></div>
-    <div id="fingerprint"></div>
-  </div>
+  <section class="session-panel" aria-label="Session information">
+    <h2>Session</h2>
+    <dl class="session-grid">
+      <div><dt>Node</dt><dd id="node">pending</dd></div>
+      <div><dt>Realm</dt><dd id="realm">internal</dd></div>
+      <div><dt>Session ID</dt><dd id="sessionId">initializing</dd></div>
+      <div><dt>Age</dt><dd id="sessionAge">00:00</dd></div>
+      <div><dt>Risk</dt><dd id="risk">LOW</dd></div>
+      <div><dt>Failures</dt><dd id="attempts">0</dd></div>
+      <div><dt>Provider</dt><dd id="provider">PRIMARY</dd></div>
+      <div><dt>Provider state</dt><dd id="providerHealth">ONLINE</dd></div>
+      <div><dt>Request ID</dt><dd id="requestId">initializing</dd></div>
+      <div><dt>Client signature</dt><dd id="clientSignature">initializing</dd></div>
+    </dl>
+  </section>
 
-  <div class="footer">
-    Authorized node • Security layer active • v2.8
-  </div>
-</div>
+  <section class="backend-panel" aria-label="Infrastructure status">
+    <div><span>Identity Provider</span><strong>ONLINE</strong></div>
+    <div><span>Policy Engine</span><strong>ONLINE</strong></div>
+    <div><span>Directory Service</span><strong class="degraded">DEGRADED</strong></div>
+    <div><span>Audit Service</span><strong>ONLINE</strong></div>
+  </section>
 
-<script src="js/auth.js"></script>
-<script>
-  // fade-in micro delay
-  window.addEventListener("load", () => {
-    document.querySelector(".login-container").classList.add("visible");
-  });
-</script>
+  <footer class="gateway-footer">
+    <span>Gateway 2.8.14</span>
+    <span>Policy 184</span>
+    <span>Authorized personnel only</span>
+  </footer>
+</main>
+
+<template id="privileged-session-template">
+  <!-- instantiated only after privileged token validation -->
+  <section class="admin-shell">
+    <h2>Administrative Console</h2>
+    <p>Loading privileged session...</p>
+  </section>
+</template>
+
+<!-- If you are reading this, the frontend is not the interesting part. -->
+<script type="module" src="js/gateway.js"></script>
 </body>
 </html>
