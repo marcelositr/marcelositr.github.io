@@ -14,10 +14,20 @@ jobs:
       - name: Checkout Repo
         uses: actions/checkout@v5
 
+      - name: Start Static Server
+        run: |
+          python3 -m http.server 4173 --bind 127.0.0.1 > /tmp/devnux-http.log 2>&1 &
+          for i in {1..20}; do
+            curl -fsS http://127.0.0.1:4173/ >/dev/null && exit 0
+            sleep 1
+          done
+          cat /tmp/devnux-http.log
+          exit 1
+
       - name: Run Lighthouse CI
         uses: treosh/lighthouse-ci-action@v12
         with:
           urls: |
-            https://devnux.com.br/
+            http://127.0.0.1:4173/
           uploadArtifacts: true
           temporaryPublicStorage: true
