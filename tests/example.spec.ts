@@ -32,3 +32,16 @@ test('security.txt está publicado e tem validade', async ({ request }) => {
   expect(body).toContain('Expires:');
   expect(body).toContain('Encryption: https://devnux.com.br/gpg.asc');
 });
+
+test('gateway inicializa sessão e processa uma tentativa', async ({ page }) => {
+  await page.goto('/login.html');
+  await expect(page).toHaveTitle(/DevNux Infrastructure Gateway/);
+  await expect(page.locator('#sessionId')).not.toHaveText('initializing');
+
+  await page.locator('#username').fill('operator');
+  await page.locator('#password').fill('credential');
+  await page.locator('#loginBtn').click();
+
+  await expect(page.locator('#statusCode')).not.toHaveText('', { timeout: 12000 });
+  await expect(page.locator('#attempts')).toHaveText('1');
+});
