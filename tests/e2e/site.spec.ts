@@ -8,19 +8,27 @@ test('raiz seleciona idioma do navegador', async ({ browser }) => {
   await context.close();
 });
 
-test('versões localizadas carregam identidade visual e conteúdo próprio', async ({ page }) => {
+test('versões localizadas carregam a nova apresentação editorial', async ({ page }) => {
   await page.goto('/pt/');
   await expect(page.locator('html')).toHaveAttribute('lang', 'pt-BR');
-  await expect(page.getByRole('heading', { name: 'Meio ambiente, tecnologia e sistemas abertos.' })).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'Curiosidade aplicada ao mundo real.' })).toBeVisible();
+  await expect(page.getByText('Ituverava · SP · Brasil', { exact: true })).toBeVisible();
   await expect(page.locator('.brand__name')).toHaveText('DEVNUX');
 
   await page.goto('/en/');
   await expect(page.locator('html')).toHaveAttribute('lang', 'en');
-  await expect(page.getByRole('heading', { name: 'Environment, technology and open systems.' })).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'Curiosity applied to the real world.' })).toBeVisible();
 
   await page.goto('/es/');
   await expect(page.locator('html')).toHaveAttribute('lang', 'es');
-  await expect(page.getByRole('heading', { name: 'Medio ambiente, tecnología y sistemas abiertos.' })).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'Curiosidad aplicada al mundo real.' })).toBeVisible();
+});
+
+test('idade é calculada a partir de mês e ano sem expor dia', async ({ page }) => {
+  await page.goto('/pt/');
+  const age = page.locator('[data-age]');
+  await expect(age).toHaveAttribute('data-birth', '1985-12');
+  await expect(age).toHaveText(/\d+ anos/);
 });
 
 test('idioma manual é persistido', async ({ page }) => {
@@ -35,18 +43,23 @@ test('acesso restrito permanece disponível', async ({ page }) => {
   await expect(page.getByRole('link', { name: 'Acesso restrito' })).toHaveAttribute('href', '/gateway/');
 });
 
-test('radio e meliponicultura têm páginas dedicadas', async ({ page }) => {
+test('quatro áreas editoriais têm páginas dedicadas', async ({ page }) => {
+  await page.goto('/pt/meio-ambiente/');
+  await expect(page.getByRole('heading', { name: 'Meio ambiente', exact: true })).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'Sem água, nada vem depois.' })).toBeVisible();
+  await page.goto('/pt/tecnologia/');
+  await expect(page.getByRole('heading', { name: 'Tecnologia', exact: true })).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'Resolver, entender, afinar.' })).toBeVisible();
   await page.goto('/pt/radio/');
   await expect(page.getByRole('heading', { name: 'Radioamadorismo', exact: true })).toBeVisible();
-  await expect(page.getByText('PU2OMT', { exact: true }).first()).toBeVisible();
-
+  await expect(page.getByText('GG69CP', { exact: true })).toBeVisible();
   await page.goto('/pt/meliponicultura/');
   await expect(page.getByRole('heading', { name: 'Meliponicultura', exact: true })).toBeVisible();
-  await expect(page.getByRole('heading', { name: 'Manejo responsável' })).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'Interferir só quando existe motivo.' })).toBeVisible();
 });
 
-test('páginas publicam alternates hreflang', async ({ page }) => {
-  await page.goto('/pt/radio/');
-  await expect(page.locator('link[rel="alternate"][hreflang="en"]')).toHaveAttribute('href', 'https://devnux.com.br/en/radio/');
-  await expect(page.locator('link[rel="alternate"][hreflang="es"]')).toHaveAttribute('href', 'https://devnux.com.br/es/radio/');
+test('páginas publicam alternates hreflang equivalentes', async ({ page }) => {
+  await page.goto('/pt/meio-ambiente/');
+  await expect(page.locator('link[rel="alternate"][hreflang="en"]')).toHaveAttribute('href', 'https://devnux.com.br/en/environment/');
+  await expect(page.locator('link[rel="alternate"][hreflang="es"]')).toHaveAttribute('href', 'https://devnux.com.br/es/medio-ambiente/');
 });

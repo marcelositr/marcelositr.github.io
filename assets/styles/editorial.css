@@ -1,0 +1,55 @@
+/* Editorial layer
+   Content-specific refinements kept separate from the core DevNux design system. */
+
+body.page-theme-technical { --page-accent: var(--technical); }
+
+.editorial-prose p + p { margin-top: .35rem; }
+.editorial-prose a { text-decoration: underline; text-decoration-color: rgba(146, 206, 203, .35); text-underline-offset: .2em; }
+.editorial-prose a:hover { text-decoration-color: currentColor; }
+
+.section-heading--flow {
+  position: static;
+  max-width: 44rem;
+}
+
+.interest-grid--four {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.interest-grid--four .interest-panel {
+  min-height: 21rem;
+}
+
+.interest-panel--technical {
+  --panel-accent: var(--technical);
+}
+
+.principle-grid--four {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.principle-grid--four .principle-card {
+  min-height: 14rem;
+}
+
+[data-age] {
+  font-variant-numeric: tabular-nums;
+}
+
+@media (max-width: 760px) {
+  .interest-grid--four,
+  .principle-grid--four {
+    grid-template-columns: 1fr;
+  }
+
+  .interest-grid--four .interest-panel,
+  .principle-grid--four .principle-card {
+    min-height: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .primary-nav {
+    gap-inline: 1rem;
+  }
+}
