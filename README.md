@@ -2,6 +2,24 @@
 
 Personal static site published with GitHub Pages.
 
+## Structure
+
+```text
+assets/
+├── images/
+├── scripts/
+│   └── gateway/
+└── styles/
+
+gateway/
+└── index.html
+
+tests/
+└── e2e/
+```
+
+The repository keeps public endpoints and platform convention files at the root while grouping presentation assets, gateway runtime modules, and end-to-end tests by responsibility.
+
 ## Public cryptographic identity
 
 - OpenPGP public key: `https://devnux.com.br/gpg.asc`
