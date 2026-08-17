@@ -4,7 +4,10 @@ Fingerprint:
 2514 971D C587 7593 DB00 4C8F 5103 5BAC 279B 6036
 
 Public key:
-https://devnux.com.br/key.asc
+https://devnux.com.br/gpg.asc
+
+SSH public key:
+https://devnux.com.br/ssh.pub
 
 Keyserver:
 https://keys.openpgp.org
