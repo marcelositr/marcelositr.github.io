@@ -1,12 +1,11 @@
 import { GATEWAY, createSession, registerFailure, sessionAge } from "./session.js";
-import { POLICY, providerHealth, selectFlow, privilegedToken } from "./policy.js";
+import { POLICY, providerHealth, selectFlow, scopeAvailable } from "./policy.js";
+import { resolveRecord as record } from "./catalog.js";
 
-const features = Object.freeze({
-  adaptiveAuth: true,
-  legacyDirectory: true,
-  mfaFallback: true,
+const runtime = Object.freeze({
+  adaptiveAuth: scopeAvailable("mfa"),
+  legacyDirectory: scopeAvailable("legacy-directory"),
   auditReplication: true,
-  privilegedSessions: false,
 });
 
 const form = document.getElementById("loginForm");
@@ -46,19 +45,18 @@ function initialize() {
     document.querySelector(".login-container")?.classList.add("visible");
   });
 
-  console.info("%cDevNux Infrastructure Gateway", "font-weight:bold");
-  console.info(`Client runtime initialized on ${session.node}.`);
-  console.info(`Policy revision ${GATEWAY.policyRevision}; realm ${GATEWAY.realm}.`);
-  console.info("Authentication provider is not exposed to the browser runtime.");
-  console.warn("Administrative interfaces are not part of the public client bundle.");
+  console.info(`%c${record(0x3001)}`, "font-weight:bold");
+  console.info(`${record(0x3006)} ${session.node}.`);
+  console.info(`${record(0x3007)} ${POLICY.revision}; ${record(0x3008)} ${GATEWAY.realm}.`);
+  console.info(record(0x3004));
+  console.warn(record(0x3005));
 }
 
 form.addEventListener("submit", async event => {
   event.preventDefault();
   if (busy) return;
 
-  // Credential fields are deliberately not copied into application state.
-  // The browser owns their transient form lifetime.
+  // Credential values are never copied into runtime state.
   password.value = "";
 
   busy = true;
@@ -108,13 +106,13 @@ async function runCooldown(seconds) {
   setBusy(true);
 
   for (let remaining = seconds; remaining > 0; remaining -= 1) {
-    setStatus(`Session restricted. Retry window: 00:${String(remaining).padStart(2, "0")}`, "warning");
+    setStatus(`${record(0x10c1)} 00:${String(remaining).padStart(2, "0")}`, "warning");
     await sleep(1000);
   }
 
-  session.provider = "PRIMARY";
-  setStatus("Session restored with limited privileges.", "neutral");
-  statusCode.textContent = `POLICY_REV_${GATEWAY.policyRevision} · ${session.requestId}`;
+  session.provider = record(0x2101);
+  setStatus(record(0x10b1), "neutral");
+  statusCode.textContent = `${record(0x2301)}${POLICY.revision} · ${session.requestId}`;
   renderSession();
   setBusy(false);
   busy = false;
@@ -125,7 +123,7 @@ function setBusy(value) {
   btn.disabled = value;
   username.disabled = value;
   password.disabled = value;
-  btn.textContent = value ? "Authenticating..." : "Authenticate";
+  btn.textContent = value ? record(0x10d1) : record(0x10d2);
 }
 
 function setStatus(message, state = "neutral") {
@@ -138,19 +136,17 @@ function sleep(ms) {
 }
 
 function jitter(max) {
-  return Math.floor(Math.random() * max);
+  const sample = new Uint32Array(1);
+  crypto.getRandomValues(sample);
+  return sample[0] % max;
 }
 
 function normalizePrincipal(value) {
-  // Changing normalization rules may invalidate legacy identities.
   return value.trim();
 }
 
 function mountAdministrativeConsole() {
-  if (!features.privilegedSessions || !POLICY.interactiveAdminAccess || !privilegedToken) {
-    return false;
-  }
-  return true;
+  return runtime.adaptiveAuth && scopeAvailable("interactive-admin");
 }
 
 void normalizePrincipal;
