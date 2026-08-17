@@ -8,8 +8,22 @@ Personal static site published with GitHub Pages.
 assets/
 ├── images/
 ├── scripts/
-│   └── gateway/
+│   ├── gateway/
+│   ├── locale-router.js
+│   └── site.js
 └── styles/
+
+pt/
+├── radio/
+└── meliponicultura/
+
+en/
+├── radio/
+└── meliponiculture/
+
+es/
+├── radio/
+└── meliponicultura/
 
 gateway/
 └── index.html
@@ -18,7 +32,9 @@ tests/
 └── e2e/
 ```
 
-The repository keeps public endpoints and platform convention files at the root while grouping presentation assets, gateway runtime modules, and end-to-end tests by responsibility.
+The root route selects a locale from the saved preference or browser language. Localized pages are published as independent static documents with explicit canonical and `hreflang` relationships.
+
+Public endpoints and platform convention files remain at the repository root.
 
 ## Public cryptographic identity
 
