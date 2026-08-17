@@ -4,7 +4,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>DevNux Infrastructure Gateway</title>
-
 <meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
 <meta name="googlebot" content="noindex, nofollow">
 <meta name="bingbot" content="noindex, nofollow">
@@ -12,8 +11,8 @@
 <meta name="environment" content="production">
 <meta name="gateway-region" content="br-south">
 <meta name="policy-revision" content="184">
+<meta name="theme-color" content="#0a0e13">
 <link rel="canonical" href="https://devnux.com.br/gateway/">
-
 <link rel="stylesheet" href="/assets/styles/gateway.css">
 <link rel="icon" href="/assets/images/favicon.png">
 <link rel="apple-touch-icon" href="/assets/images/social-preview.png">
@@ -29,63 +28,92 @@
 -->
 
 <body data-node="pending" data-realm="internal" data-policy="184">
-<main class="login-container" aria-labelledby="gateway-title">
-  <div class="service-bar">
-    <span class="service-state"><span class="status-dot" aria-hidden="true"></span>Production</span>
-    <span>br-south</span>
-  </div>
+<div class="gateway-shell">
+  <aside class="gateway-context" aria-label="Gateway context">
+    <a class="gateway-brand" href="/" aria-label="DevNux public site">
+      <span class="gateway-brand__name">DEVNUX</span>
+      <span class="gateway-brand__domain">devnux.com.br</span>
+    </a>
 
-  <header class="gateway-header">
-    <p class="eyebrow">DevNux Infrastructure</p>
-    <h1 id="gateway-title">Access Gateway</h1>
-    <p class="subtitle">Restricted administrative access</p>
-  </header>
+    <div class="context-copy">
+      <p class="context-label">Infrastructure / Access control</p>
+      <h1>Restricted systems gateway.</h1>
+      <p>Policy-controlled access surface for internal DevNux infrastructure and administrative services.</p>
+    </div>
 
-  <!-- Authentication is delegated. Never validate credentials in this document. -->
-  <form id="loginForm" autocomplete="off">
-    <label for="username">Username</label>
-    <input id="username" type="text" placeholder="principal" autocomplete="off" autocapitalize="none" spellcheck="false" required>
-
-    <label for="password">Password</label>
-    <input id="password" type="password" placeholder="credential" autocomplete="off" required>
-
-    <button id="loginBtn" type="submit">Authenticate</button>
-  </form>
-
-  <section class="auth-result" aria-live="polite" aria-atomic="true">
-    <div id="status" class="message" data-state="neutral">Secure session established.</div>
-    <div id="statusCode" class="status-code"></div>
-  </section>
-
-  <section class="session-panel" aria-label="Session information">
-    <h2>Session</h2>
-    <dl class="session-grid">
-      <div><dt>Node</dt><dd id="node">pending</dd></div>
-      <div><dt>Realm</dt><dd id="realm">internal</dd></div>
-      <div><dt>Session ID</dt><dd id="sessionId">initializing</dd></div>
-      <div><dt>Age</dt><dd id="sessionAge">00:00</dd></div>
-      <div><dt>Risk</dt><dd id="risk">LOW</dd></div>
-      <div><dt>Failures</dt><dd id="attempts">0</dd></div>
-      <div><dt>Provider</dt><dd id="provider">PRIMARY</dd></div>
-      <div><dt>Provider state</dt><dd id="providerHealth">ONLINE</dd></div>
-      <div><dt>Request ID</dt><dd id="requestId">initializing</dd></div>
-      <div><dt>Client signature</dt><dd id="clientSignature">initializing</dd></div>
+    <dl class="context-records">
+      <div><dt>Environment</dt><dd><span class="status-dot" aria-hidden="true"></span>Production</dd></div>
+      <div><dt>Region</dt><dd>br-south</dd></div>
+      <div><dt>Policy</dt><dd>REV-184</dd></div>
+      <div><dt>Gateway</dt><dd>2.8.14</dd></div>
     </dl>
-  </section>
 
-  <section class="backend-panel" aria-label="Infrastructure status">
-    <div><span>Identity Provider</span><strong>ONLINE</strong></div>
-    <div><span>Policy Engine</span><strong>ONLINE</strong></div>
-    <div><span>Directory Service</span><strong class="degraded">DEGRADED</strong></div>
-    <div><span>Audit Service</span><strong>ONLINE</strong></div>
-  </section>
+    <p class="context-footnote">Public client · privileged interfaces excluded</p>
+  </aside>
 
-  <footer class="gateway-footer">
-    <span>Gateway 2.8.14</span>
-    <span>Policy 184</span>
-    <span>Authorized personnel only</span>
-  </footer>
-</main>
+  <main class="login-container" aria-labelledby="gateway-title">
+    <div class="service-bar">
+      <span class="service-state"><span class="status-dot" aria-hidden="true"></span>Operational</span>
+      <span id="serviceNode">br-south / edge</span>
+    </div>
+
+    <header class="gateway-header">
+      <p class="eyebrow">Identity &amp; policy</p>
+      <h2 id="gateway-title">Authenticate</h2>
+      <p class="subtitle">Administrative credentials are evaluated against the active infrastructure policy.</p>
+    </header>
+
+    <!-- Authentication is delegated. Never validate credentials in this document. -->
+    <form id="loginForm" autocomplete="off">
+      <div class="field-group">
+        <label for="username">Principal</label>
+        <input id="username" type="text" placeholder="username" autocomplete="off" autocapitalize="none" spellcheck="false" required>
+      </div>
+
+      <div class="field-group">
+        <label for="password">Credential</label>
+        <input id="password" type="password" placeholder="password" autocomplete="off" required>
+      </div>
+
+      <button id="loginBtn" type="submit"><span>Authenticate</span><span aria-hidden="true">→</span></button>
+    </form>
+
+    <section class="auth-result" aria-live="polite" aria-atomic="true">
+      <p class="panel-label">Authentication state</p>
+      <div id="status" class="message" data-state="neutral">Secure session established.</div>
+      <div id="statusCode" class="status-code"></div>
+    </section>
+
+    <section class="session-panel" aria-label="Session information">
+      <div class="panel-heading"><p class="panel-label">Session context</p><span>live</span></div>
+      <dl class="session-grid">
+        <div><dt>Node</dt><dd id="node">pending</dd></div>
+        <div><dt>Realm</dt><dd id="realm">internal</dd></div>
+        <div><dt>Session ID</dt><dd id="sessionId">initializing</dd></div>
+        <div><dt>Age</dt><dd id="sessionAge">00:00</dd></div>
+        <div><dt>Risk</dt><dd id="risk">LOW</dd></div>
+        <div><dt>Failures</dt><dd id="attempts">0</dd></div>
+        <div><dt>Provider</dt><dd id="provider">PRIMARY</dd></div>
+        <div><dt>Provider state</dt><dd id="providerHealth">ONLINE</dd></div>
+        <div class="session-grid__wide"><dt>Request ID</dt><dd id="requestId">initializing</dd></div>
+        <div class="session-grid__wide"><dt>Client signature</dt><dd id="clientSignature">initializing</dd></div>
+      </dl>
+    </section>
+
+    <section class="backend-panel" aria-label="Infrastructure status">
+      <div><span>Identity Provider</span><strong>ONLINE</strong></div>
+      <div><span>Policy Engine</span><strong>ONLINE</strong></div>
+      <div><span>Directory Service</span><strong class="degraded">DEGRADED</strong></div>
+      <div><span>Audit Service</span><strong>ONLINE</strong></div>
+    </section>
+
+    <footer class="gateway-footer">
+      <span>DX / GATEWAY-2.8.14</span>
+      <span>POLICY-184</span>
+      <span>AUTHORIZED ACCESS ONLY</span>
+    </footer>
+  </main>
+</div>
 
 <template id="privileged-session-template">
   <!-- instantiated only after privileged token validation -->
