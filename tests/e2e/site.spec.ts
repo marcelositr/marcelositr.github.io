@@ -38,6 +38,68 @@ test('idioma manual é persistido', async ({ page }) => {
   expect(await page.evaluate(() => localStorage.getItem('devnux.language'))).toBe('en');
 });
 
+test('troca de idioma preserva a página temática equivalente', async ({ page }) => {
+  await page.goto('/pt/meio-ambiente/');
+  await page.locator('.language-nav a[data-language="en"]').click();
+  await expect(page).toHaveURL(/\/en\/environment\/$/);
+  await page.locator('.language-nav a[data-language="es"]').click();
+  await expect(page).toHaveURL(/\/es\/medio-ambiente\/$/);
+});
+
+test('menu global mantém a mesma arquitetura entre home, área e caderno', async ({ page }) => {
+  const expectedPt = [
+    'Início',
+    'Sobre',
+    'Meio ambiente',
+    'Tecnologia',
+    'Radioamadorismo',
+    'Meliponicultura',
+    'Caderno',
+    'Identidade',
+    'Contato'
+  ];
+
+  for (const path of ['/pt/', '/pt/radio/', '/caderno/', '/caderno/2026/por-que-este-caderno-existe/']) {
+    await page.goto(path);
+    await expect(page.locator('.primary-nav a')).toHaveText(expectedPt);
+  }
+});
+
+test('menus em inglês e espanhol usam nomes profissionais e Caderno como nome próprio', async ({ page }) => {
+  await page.goto('/en/');
+  await expect(page.locator('.primary-nav a')).toHaveText([
+    'Home', 'About', 'Environment', 'Technology', 'Amateur radio', 'Meliponiculture', 'Caderno · PT-BR', 'Identity', 'Contact'
+  ]);
+
+  await page.goto('/es/');
+  await expect(page.locator('.primary-nav a')).toHaveText([
+    'Inicio', 'Sobre mí', 'Medio ambiente', 'Tecnología', 'Radioafición', 'Meliponicultura', 'Caderno · PT-BR', 'Identidad', 'Contacto'
+  ]);
+});
+
+test('caderno é explicitamente PT-BR e não oferece uma falsa tradução', async ({ page }) => {
+  await page.goto('/caderno/');
+  await expect(page.locator('.language-nav')).toHaveCount(0);
+  await expect(page.getByRole('link', { name: 'Caderno', exact: true })).toHaveAttribute('aria-current', 'page');
+});
+
+test('títulos seguem uma convenção consistente por área', async ({ page }) => {
+  await page.goto('/pt/');
+  await expect(page).toHaveTitle('Marcelo Trindade | DevNux');
+
+  await page.goto('/en/environment/');
+  await expect(page).toHaveTitle('Environment | Marcelo Trindade · DevNux');
+
+  await page.goto('/es/radio/');
+  await expect(page).toHaveTitle('Radioafición | Marcelo Trindade · PU2OMT');
+
+  await page.goto('/caderno/');
+  await expect(page).toHaveTitle('Caderno | Marcelo Trindade · DevNux');
+
+  await page.goto('/caderno/2026/por-que-este-caderno-existe/');
+  await expect(page).toHaveTitle('Por que este caderno existe | Caderno · DevNux');
+});
+
 test('acesso restrito permanece disponível', async ({ page }) => {
   await page.goto('/pt/');
   await expect(page.getByRole('link', { name: 'Acesso restrito' })).toHaveAttribute('href', '/gateway/');

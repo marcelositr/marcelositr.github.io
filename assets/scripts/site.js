@@ -2,6 +2,126 @@ document.documentElement.classList.add('js');
 
 document.addEventListener('DOMContentLoaded', () => {
   const storageKey = 'devnux.language';
+  const htmlLang = document.documentElement.lang.toLowerCase();
+  const langCode = htmlLang.startsWith('en') ? 'en' : htmlLang.startsWith('es') ? 'es' : 'pt';
+
+  const routes = {
+    pt: {
+      home: '/pt/',
+      about: '/pt/#sobre',
+      environment: '/pt/meio-ambiente/',
+      technology: '/pt/tecnologia/',
+      radio: '/pt/radio/',
+      meliponiculture: '/pt/meliponicultura/',
+      notebook: '/caderno/',
+      identity: '/pt/#identidade',
+      contact: '/pt/#contato'
+    },
+    en: {
+      home: '/en/',
+      about: '/en/#about',
+      environment: '/en/environment/',
+      technology: '/en/technology/',
+      radio: '/en/radio/',
+      meliponiculture: '/en/meliponiculture/',
+      notebook: '/caderno/',
+      identity: '/en/#identity',
+      contact: '/en/#contact'
+    },
+    es: {
+      home: '/es/',
+      about: '/es/#sobre',
+      environment: '/es/medio-ambiente/',
+      technology: '/es/tecnologia/',
+      radio: '/es/radio/',
+      meliponiculture: '/es/meliponicultura/',
+      notebook: '/caderno/',
+      identity: '/es/#identidad',
+      contact: '/es/#contacto'
+    }
+  };
+
+  const labels = {
+    pt: {
+      home: 'Início',
+      about: 'Sobre',
+      environment: 'Meio ambiente',
+      technology: 'Tecnologia',
+      radio: 'Radioamadorismo',
+      meliponiculture: 'Meliponicultura',
+      notebook: 'Caderno',
+      identity: 'Identidade',
+      contact: 'Contato'
+    },
+    en: {
+      home: 'Home',
+      about: 'About',
+      environment: 'Environment',
+      technology: 'Technology',
+      radio: 'Amateur radio',
+      meliponiculture: 'Meliponiculture',
+      notebook: 'Caderno · PT-BR',
+      identity: 'Identity',
+      contact: 'Contact'
+    },
+    es: {
+      home: 'Inicio',
+      about: 'Sobre mí',
+      environment: 'Medio ambiente',
+      technology: 'Tecnología',
+      radio: 'Radioafición',
+      meliponiculture: 'Meliponicultura',
+      notebook: 'Caderno · PT-BR',
+      identity: 'Identidad',
+      contact: 'Contacto'
+    }
+  };
+
+  const sectionFromPath = path => {
+    if (/^\/caderno(?:\/|$)/.test(path)) return 'notebook';
+    if (/\/(meio-ambiente|environment|medio-ambiente)\//.test(path)) return 'environment';
+    if (/\/(tecnologia|technology)\//.test(path)) return 'technology';
+    if (/\/radio\//.test(path)) return 'radio';
+    if (/\/(meliponicultura|meliponiculture)\//.test(path)) return 'meliponiculture';
+    if (/^\/(pt|en|es)\/$/.test(path)) return 'home';
+    return null;
+  };
+
+  const currentSection = sectionFromPath(location.pathname);
+
+  const primaryNav = document.querySelector('.primary-nav');
+  if (primaryNav && currentSection) {
+    const order = ['home', 'about', 'environment', 'technology', 'radio', 'meliponiculture', 'notebook', 'identity', 'contact'];
+    primaryNav.replaceChildren();
+    primaryNav.setAttribute('aria-label', langCode === 'en' ? 'Primary navigation' : langCode === 'es' ? 'Navegación principal' : 'Navegação principal');
+
+    order.forEach(key => {
+      const link = document.createElement('a');
+      link.href = routes[langCode][key];
+      link.textContent = labels[langCode][key];
+      if (key === currentSection) link.setAttribute('aria-current', 'page');
+      if (key === 'notebook' && langCode !== 'pt') link.lang = 'pt-BR';
+      primaryNav.append(link);
+    });
+  }
+
+  const languageNav = document.querySelector('.language-nav');
+  if (languageNav && currentSection === 'notebook') {
+    languageNav.remove();
+  } else if (languageNav && currentSection) {
+    const languageNames = { pt: 'PT', en: 'EN', es: 'ES' };
+    languageNav.replaceChildren();
+    languageNav.setAttribute('aria-label', langCode === 'en' ? 'Language' : 'Idioma');
+
+    ['pt', 'en', 'es'].forEach(language => {
+      const link = document.createElement('a');
+      link.href = routes[language][currentSection];
+      link.dataset.language = language;
+      link.textContent = languageNames[language];
+      if (language === langCode) link.setAttribute('aria-current', 'page');
+      languageNav.append(link);
+    });
+  }
 
   document.querySelectorAll('[data-language]').forEach(link => {
     link.addEventListener('click', () => {
@@ -9,6 +129,41 @@ document.addEventListener('DOMContentLoaded', () => {
       if (['pt', 'en', 'es'].includes(language)) localStorage.setItem(storageKey, language);
     });
   });
+
+  const pageTitles = {
+    home: {
+      pt: 'Marcelo Trindade | DevNux',
+      en: 'Marcelo Trindade | DevNux',
+      es: 'Marcelo Trindade | DevNux'
+    },
+    environment: {
+      pt: 'Meio ambiente | Marcelo Trindade · DevNux',
+      en: 'Environment | Marcelo Trindade · DevNux',
+      es: 'Medio ambiente | Marcelo Trindade · DevNux'
+    },
+    technology: {
+      pt: 'Tecnologia | Marcelo Trindade · DevNux',
+      en: 'Technology | Marcelo Trindade · DevNux',
+      es: 'Tecnología | Marcelo Trindade · DevNux'
+    },
+    radio: {
+      pt: 'Radioamadorismo | Marcelo Trindade · PU2OMT',
+      en: 'Amateur radio | Marcelo Trindade · PU2OMT',
+      es: 'Radioafición | Marcelo Trindade · PU2OMT'
+    },
+    meliponiculture: {
+      pt: 'Meliponicultura | Marcelo Trindade · DevNux',
+      en: 'Meliponiculture | Marcelo Trindade · DevNux',
+      es: 'Meliponicultura | Marcelo Trindade · DevNux'
+    }
+  };
+
+  if (currentSection === 'notebook') {
+    const articleTitle = document.querySelector('.notebook-article h1')?.textContent?.trim();
+    document.title = articleTitle ? `${articleTitle} | Caderno · DevNux` : 'Caderno | Marcelo Trindade · DevNux';
+  } else if (currentSection && pageTitles[currentSection]) {
+    document.title = pageTitles[currentSection][langCode];
+  }
 
   document.querySelectorAll('[data-age][data-birth]').forEach(node => {
     const [year, month] = node.dataset.birth.split('-').map(Number);
@@ -22,11 +177,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
   document.querySelectorAll('[data-current-year]').forEach(node => { node.textContent = String(new Date().getFullYear()); });
 
-  const langCode = document.documentElement.lang.toLowerCase().startsWith('en') ? 'en' : document.documentElement.lang.toLowerCase().startsWith('es') ? 'es' : 'pt';
   const textFor = value => typeof value === 'string' ? value : (value?.[langCode] || value?.pt || value?.en || '');
   const galleryKey = (() => {
     const path = location.pathname;
-    if (/\/(meio-ambiente|environment)\//.test(path)) return 'environment';
+    if (/\/(meio-ambiente|environment|medio-ambiente)\//.test(path)) return 'environment';
     if (/\/(tecnologia|technology)\//.test(path)) return 'technology';
     if (/\/radio\//.test(path)) return 'radio';
     if (/\/(meliponicultura|meliponiculture)\//.test(path)) return 'meliponiculture';
@@ -47,14 +201,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const main = document.querySelector('main.content-shell, main.notebook-shell');
     if (!main || !items.length) return;
 
-    const labels = {
+    const galleryLabels = {
       pt: ['Imagem / registro', 'Registros visuais', 'Imagens próprias ligadas a esta área.'],
       en: ['Image / record', 'Visual notes', 'My own images connected to this area.'],
       es: ['Imagen / registro', 'Registros visuales', 'Imágenes propias relacionadas con esta área.']
     }[langCode];
     const section = document.createElement('section');
     section.className = 'media-section';
-    section.innerHTML = `<header class="section-heading section-heading--flow"><p class="section-index">${labels[0]}</p><h2>${labels[1]}</h2><p>${labels[2]}</p></header>`;
+    section.innerHTML = `<header class="section-heading section-heading--flow"><p class="section-index">${galleryLabels[0]}</p><h2>${galleryLabels[1]}</h2><p>${galleryLabels[2]}</p></header>`;
     const gallery = document.createElement('div');
     gallery.className = 'media-gallery';
     items.forEach(item => {
