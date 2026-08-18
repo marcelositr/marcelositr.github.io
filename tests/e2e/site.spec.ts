@@ -80,7 +80,7 @@ test('menus em inglês e espanhol usam nomes profissionais e Caderno como nome p
 test('caderno é explicitamente PT-BR e não oferece uma falsa tradução', async ({ page }) => {
   await page.goto('/caderno/');
   await expect(page.locator('.language-nav')).toHaveCount(0);
-  await expect(page.getByRole('link', { name: 'Caderno' })).toHaveAttribute('aria-current', 'page');
+  await expect(page.getByRole('link', { name: 'Caderno', exact: true })).toHaveAttribute('aria-current', 'page');
 });
 
 test('títulos seguem uma convenção consistente por área', async ({ page }) => {
