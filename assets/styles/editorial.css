@@ -38,12 +38,13 @@ body.page-theme-technical { --page-accent: var(--technical); }
 .notebook-date { color: var(--muted); font: 600 .72rem/1.5 var(--font-mono); }
 .notebook-item h2 { margin: 0 0 .35rem; font-size: 1.35rem; letter-spacing: -.02em; }
 .notebook-item p { margin: 0; }
-.notebook-tools { display: flex; flex-wrap: wrap; gap: .7rem 1.2rem; margin-top: 1.4rem; font: 600 .75rem/1.5 var(--font-mono); }
+.notebook-tools { display: flex; flex-wrap: wrap; gap: .35rem .7rem; margin-top: 1.4rem; font: 600 .75rem/1.5 var(--font-mono); }
+.notebook-tools a { min-height: 2.75rem; padding: .55rem .25rem; display: inline-flex; align-items: center; }
 .notebook-article { padding: clamp(4rem,8vw,7rem) 0; }
 .notebook-article header { margin-bottom: 2.5rem; }
 .notebook-article h1 { max-width: 14ch; margin: .65rem 0 1rem; font-size: clamp(2.7rem,7vw,4.8rem); line-height: 1; }
 .notebook-article .prose { margin-left: auto; margin-right: auto; }
-.notebook-back { display: inline-block; margin-top: 2rem; font: 600 .78rem/1.5 var(--font-mono); }
+.notebook-back { min-height: 2.75rem; display: inline-flex; align-items: center; margin-top: 2rem; font: 600 .78rem/1.5 var(--font-mono); }
 
 .media-section { padding-top: clamp(3rem,6vw,5rem) !important; }
 .media-gallery { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 1rem; margin-top: 2rem; }
@@ -51,12 +52,24 @@ body.page-theme-technical { --page-accent: var(--technical); }
 .media-figure img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
 .media-figure figcaption { padding: .9rem 1rem 1rem; color: var(--text-soft); font-size: .87rem; }
 
-@media (max-width: 1000px) { .thinking-loop { grid-template-columns: repeat(2,minmax(0,1fr)); } }
+@media (max-width: 1024px) {
+  .thinking-loop { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  .notebook-shell { width: min(100% - 2.5rem, 54rem); }
+}
+
 @media (max-width: 760px) {
   .interest-grid--four, .principle-grid--four, .media-gallery { grid-template-columns: 1fr; }
   .interest-grid--four .interest-panel, .principle-grid--four .principle-card { min-height: auto; }
   .notebook-callout { grid-template-columns: 1fr; }
   .notebook-item { grid-template-columns: 1fr; gap: .35rem; }
+  .notebook-shell { width: min(100% - 2rem, 54rem); }
 }
-@media (max-width: 560px) { .thinking-loop { grid-template-columns: 1fr; } .thinking-loop li { min-height: auto; } }
-@media (max-width: 480px) { .primary-nav { gap-inline: 1rem; } }
+
+@media (max-width: 560px) {
+  .thinking-loop { grid-template-columns: 1fr; }
+  .thinking-loop li { min-height: auto; }
+  .notebook-hero { padding-top: 4.5rem; }
+  .notebook-hero h1 { font-size: clamp(2.6rem, 12vw, 4rem); }
+  .notebook-article { padding-top: 4.5rem; }
+  .notebook-article h1 { font-size: clamp(2.45rem, 11vw, 3.8rem); }
+}
