@@ -100,6 +100,29 @@ test('títulos seguem uma convenção consistente por área', async ({ page }) =
   await expect(page).toHaveTitle('Por que este caderno existe | Caderno · DevNux');
 });
 
+test('footer pública é única, usa 2025 como origem e ano corrente dinâmico', async ({ page }) => {
+  const currentYear = new Date().getFullYear();
+  const expectedCopyright = `© 2025–${currentYear} Marcelo Trindade · devnux.com.br`;
+
+  for (const path of ['/pt/', '/en/environment/', '/es/radio/', '/caderno/', '/caderno/2026/por-que-este-caderno-existe/']) {
+    await page.goto(path);
+    const footer = page.locator('.site-footer');
+    await expect(footer.locator('.footer-brand strong')).toHaveText('DEVNUX');
+    await expect(footer.locator('.footer-brand span')).toHaveText('Marcelo Trindade');
+    await expect(footer.getByRole('link', { name: 'RSS', exact: true })).toHaveAttribute('href', '/caderno/feed.xml');
+    await expect(footer.getByRole('link', { name: 'humans.txt', exact: true })).toHaveAttribute('href', '/humans.txt');
+    await expect(footer.getByRole('link', { name: 'vCard', exact: true })).toHaveAttribute('href', '/marcelo.vcf');
+    await expect(footer.getByRole('link', { name: 'Security', exact: true })).toHaveAttribute('href', '/.well-known/security.txt');
+    await expect(footer.locator('.footer-meta')).toContainText(expectedCopyright);
+  }
+});
+
+test('gateway preserva footer própria e isolada', async ({ page }) => {
+  await page.goto('/gateway/');
+  await expect(page.locator('.site-footer')).toHaveCount(0);
+  await expect(page.locator('.gateway-footer')).toContainText('AUTHORIZED ACCESS ONLY');
+});
+
 test('acesso restrito permanece disponível', async ({ page }) => {
   await page.goto('/pt/');
   await expect(page.getByRole('link', { name: 'Acesso restrito' })).toHaveAttribute('href', '/gateway/');

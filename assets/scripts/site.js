@@ -165,6 +165,17 @@ document.addEventListener('DOMContentLoaded', () => {
     document.title = pageTitles[currentSection][langCode];
   }
 
+  const publicFooter = document.querySelector('.site-footer');
+  if (publicFooter) {
+    const currentYear = new Date().getFullYear();
+    const copyrightYears = currentYear > 2025 ? `2025–${currentYear}` : '2025';
+    const footerInner = publicFooter.querySelector('.footer-inner');
+
+    if (footerInner) {
+      footerInner.innerHTML = `<div class="footer-brand"><strong>DEVNUX</strong><span>Marcelo Trindade</span></div><p class="footer-meta"><a href="/caderno/feed.xml">RSS</a> · <a href="/humans.txt">humans.txt</a> · <a href="/marcelo.vcf">vCard</a> · <a href="/.well-known/security.txt">Security</a><br>© ${copyrightYears} Marcelo Trindade · <a href="https://devnux.com.br">devnux.com.br</a></p>`;
+    }
+  }
+
   document.querySelectorAll('[data-age][data-birth]').forEach(node => {
     const [year, month] = node.dataset.birth.split('-').map(Number);
     if (!year || !month) return;
