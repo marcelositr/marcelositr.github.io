@@ -28,6 +28,9 @@ body.page-theme-technical { --page-accent: var(--technical); }
 .notebook-link { align-self: end; }
 
 .notebook-shell { width: min(100% - 3rem, 54rem); margin-inline: auto; }
+.notebook-shell > section { border-bottom: 1px solid var(--border-soft); }
+.notebook-shell > section:not(.notebook-hero) { padding-block: clamp(3rem,6vw,5rem); }
+.notebook-shell > section:last-child { border-bottom: 0; }
 .notebook-hero { padding: clamp(5rem,10vw,8rem) 0 3rem; }
 .notebook-hero h1 { margin: .7rem 0 1rem; font-size: clamp(3rem,8vw,5.6rem); line-height: .96; }
 .notebook-list { margin: 0; padding: 0; list-style: none; border-top: 1px solid var(--border); }
