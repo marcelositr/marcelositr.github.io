@@ -1,0 +1,40 @@
+{
+  "profile": {
+    "src": "",
+    "alt": {
+      "pt": "Marcelo Trindade",
+      "en": "Marcelo Trindade",
+      "es": "Marcelo Trindade"
+    }
+  },
+  "galleries": {
+    "environment": [
+      {"slot":"environment-01","src":"","alt":{"pt":"","en":"","es":""},"caption":{"pt":"","en":"","es":""}},
+      {"slot":"environment-02","src":"","alt":{"pt":"","en":"","es":""},"caption":{"pt":"","en":"","es":""}},
+      {"slot":"environment-03","src":"","alt":{"pt":"","en":"","es":""},"caption":{"pt":"","en":"","es":""}},
+      {"slot":"environment-04","src":"","alt":{"pt":"","en":"","es":""},"caption":{"pt":"","en":"","es":""}}
+    ],
+    "technology": [
+      {"slot":"technology-01","src":"","alt":{"pt":"","en":"","es":""},"caption":{"pt":"","en":"","es":""}},
+      {"slot":"technology-02","src":"","alt":{"pt":"","en":"","es":""},"caption":{"pt":"","en":"","es":""}},
+      {"slot":"technology-03","src":"","alt":{"pt":"","en":"","es":""},"caption":{"pt":"","en":"","es":""}},
+      {"slot":"technology-04","src":"","alt":{"pt":"","en":"","es":""},"caption":{"pt":"","en":"","es":""}}
+    ],
+    "radio": [
+      {"slot":"radio-01","src":"","alt":{"pt":"","en":"","es":""},"caption":{"pt":"","en":"","es":""}},
+      {"slot":"radio-02","src":"","alt":{"pt":"","en":"","es":""},"caption":{"pt":"","en":"","es":""}},
+      {"slot":"radio-03","src":"","alt":{"pt":"","en":"","es":""},"caption":{"pt":"","en":"","es":""}},
+      {"slot":"radio-04","src":"","alt":{"pt":"","en":"","es":""},"caption":{"pt":"","en":"","es":""}}
+    ],
+    "meliponiculture": [
+      {"slot":"meliponiculture-01","src":"","alt":{"pt":"","en":"","es":""},"caption":{"pt":"","en":"","es":""}},
+      {"slot":"meliponiculture-02","src":"","alt":{"pt":"","en":"","es":""},"caption":{"pt":"","en":"","es":""}},
+      {"slot":"meliponiculture-03","src":"","alt":{"pt":"","en":"","es":""},"caption":{"pt":"","en":"","es":""}},
+      {"slot":"meliponiculture-04","src":"","alt":{"pt":"","en":"","es":""},"caption":{"pt":"","en":"","es":""}}
+    ],
+    "notebook": [
+      {"slot":"notebook-01","src":"","alt":{"pt":"","en":"","es":""},"caption":{"pt":"","en":"","es":""}},
+      {"slot":"notebook-02","src":"","alt":{"pt":"","en":"","es":""},"caption":{"pt":"","en":"","es":""}}
+    ]
+  }
+}

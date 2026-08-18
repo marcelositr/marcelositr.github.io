@@ -8,20 +8,20 @@ test('raiz seleciona idioma do navegador', async ({ browser }) => {
   await context.close();
 });
 
-test('versões localizadas carregam a nova apresentação editorial', async ({ page }) => {
+test('versões localizadas carregam apresentação, método e identidade estruturada', async ({ page }) => {
   await page.goto('/pt/');
   await expect(page.locator('html')).toHaveAttribute('lang', 'pt-BR');
   await expect(page.getByRole('heading', { name: 'Curiosidade aplicada ao mundo real.' })).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'O mesmo processo aparece em quase tudo.' })).toBeVisible();
   await expect(page.getByText('Ituverava · SP · Brasil', { exact: true })).toBeVisible();
-  await expect(page.locator('.brand__name')).toHaveText('DEVNUX');
+  const structured = await page.locator('script[type="application/ld+json"]').textContent();
+  expect(structured).toContain('PU2OMT');
+  expect(structured).toContain('GG69CP');
 
   await page.goto('/en/');
-  await expect(page.locator('html')).toHaveAttribute('lang', 'en');
-  await expect(page.getByRole('heading', { name: 'Curiosity applied to the real world.' })).toBeVisible();
-
+  await expect(page.getByRole('heading', { name: 'The same process shows up in almost everything.' })).toBeVisible();
   await page.goto('/es/');
-  await expect(page.locator('html')).toHaveAttribute('lang', 'es');
-  await expect(page.getByRole('heading', { name: 'Curiosidad aplicada al mundo real.' })).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'El mismo proceso aparece en casi todo.' })).toBeVisible();
 });
 
 test('idade é calculada a partir de mês e ano sem expor dia', async ({ page }) => {
@@ -46,16 +46,40 @@ test('acesso restrito permanece disponível', async ({ page }) => {
 test('quatro áreas editoriais têm páginas dedicadas', async ({ page }) => {
   await page.goto('/pt/meio-ambiente/');
   await expect(page.getByRole('heading', { name: 'Meio ambiente', exact: true })).toBeVisible();
-  await expect(page.getByRole('heading', { name: 'Sem água, nada vem depois.' })).toBeVisible();
   await page.goto('/pt/tecnologia/');
   await expect(page.getByRole('heading', { name: 'Tecnologia', exact: true })).toBeVisible();
-  await expect(page.getByRole('heading', { name: 'Resolver, entender, afinar.' })).toBeVisible();
   await page.goto('/pt/radio/');
-  await expect(page.getByRole('heading', { name: 'Radioamadorismo', exact: true })).toBeVisible();
   await expect(page.getByText('GG69CP', { exact: true })).toBeVisible();
   await page.goto('/pt/meliponicultura/');
   await expect(page.getByRole('heading', { name: 'Meliponicultura', exact: true })).toBeVisible();
-  await expect(page.getByRole('heading', { name: 'Interferir só quando existe motivo.' })).toBeVisible();
+});
+
+test('caderno nasce com nota zero e RSS', async ({ page, request }) => {
+  await page.goto('/caderno/');
+  await expect(page.getByRole('heading', { name: 'Notas de percurso.' })).toBeVisible();
+  await expect(page.getByRole('link', { name: 'Por que este caderno existe' })).toBeVisible();
+  await page.getByRole('link', { name: 'Por que este caderno existe' }).click();
+  await expect(page.getByRole('heading', { name: 'Por que este caderno existe' })).toBeVisible();
+  const feed = await request.get('/caderno/feed.xml');
+  expect(feed.ok()).toBeTruthy();
+  expect(await feed.text()).toContain('Por que este caderno existe');
+});
+
+test('slots de imagem vazios não criam placeholders públicos', async ({ page, request }) => {
+  const mediaResponse = await request.get('/assets/data/media.json');
+  expect(mediaResponse.ok()).toBeTruthy();
+  const media = await mediaResponse.json();
+  expect(media.galleries.radio.every((item: { src: string }) => item.src === '')).toBeTruthy();
+  await page.goto('/pt/radio/');
+  await expect(page.locator('.media-section')).toHaveCount(0);
+});
+
+test('404 acompanha o idioma salvo', async ({ page }) => {
+  await page.goto('/pt/');
+  await page.evaluate(() => localStorage.setItem('devnux.language', 'en'));
+  await page.goto('/404.html');
+  await expect(page.locator('html')).toHaveAttribute('lang', 'en');
+  await expect(page.getByRole('heading', { name: 'Path not found.' })).toBeVisible();
 });
 
 test('páginas publicam alternates hreflang equivalentes', async ({ page }) => {

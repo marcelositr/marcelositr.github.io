@@ -1,0 +1,13 @@
+/* HUMAN */
+Marcelo Trindade
+Location: Ituverava/SP, Brazil
+Amateur radio: PU2OMT / GG69CP
+Contact: marcelost@riseup.net
+Site: https://devnux.com.br/
+
+/* SITE */
+Handmade with: HTML, CSS, JavaScript
+Hosting: GitHub Pages
+Languages: PT-BR, EN, ES
+Open standards: OpenPGP, SSH, RSS, vCard
+Framework: none, because none was needed.
