@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const storageKey = 'devnux.language';
   const htmlLang = document.documentElement.lang.toLowerCase();
   const langCode = htmlLang.startsWith('en') ? 'en' : htmlLang.startsWith('es') ? 'es' : 'pt';
+  const siteHeader = document.querySelector('.site-header');
 
   const routes = {
     pt: {
@@ -77,6 +78,12 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   };
 
+  const interfaceLabels = {
+    pt: { openMenu: 'Abrir menu', closeMenu: 'Fechar menu', restricted: 'Acesso restrito' },
+    en: { openMenu: 'Open menu', closeMenu: 'Close menu', restricted: 'Restricted access' },
+    es: { openMenu: 'Abrir menú', closeMenu: 'Cerrar menú', restricted: 'Acceso restringido' }
+  }[langCode];
+
   const sectionFromPath = path => {
     if (/^\/caderno(?:\/|$)/.test(path)) return 'notebook';
     if (/\/(meio-ambiente|environment|medio-ambiente)\//.test(path)) return 'environment';
@@ -121,6 +128,59 @@ document.addEventListener('DOMContentLoaded', () => {
       if (language === langCode) link.setAttribute('aria-current', 'page');
       languageNav.append(link);
     });
+  }
+
+  if (siteHeader && primaryNav) {
+    const headerActions = siteHeader.querySelector('.header-actions');
+    primaryNav.id ||= 'primary-navigation';
+    siteHeader.classList.add('has-responsive-nav');
+
+    const mobileRestricted = document.createElement('a');
+    mobileRestricted.className = 'mobile-restricted-link';
+    mobileRestricted.href = '/gateway/';
+    mobileRestricted.textContent = interfaceLabels.restricted;
+    primaryNav.append(mobileRestricted);
+
+    if (headerActions) {
+      const menuButton = document.createElement('button');
+      menuButton.type = 'button';
+      menuButton.className = 'nav-toggle';
+      menuButton.setAttribute('aria-controls', primaryNav.id);
+      menuButton.setAttribute('aria-expanded', 'false');
+      menuButton.setAttribute('aria-label', interfaceLabels.openMenu);
+      menuButton.innerHTML = '<span class="nav-toggle__icon" aria-hidden="true"></span>';
+      headerActions.append(menuButton);
+
+      const setMenuState = open => {
+        primaryNav.classList.toggle('is-open', open);
+        menuButton.setAttribute('aria-expanded', String(open));
+        menuButton.setAttribute('aria-label', open ? interfaceLabels.closeMenu : interfaceLabels.openMenu);
+        document.documentElement.classList.toggle('nav-open', open);
+      };
+
+      menuButton.addEventListener('click', () => {
+        setMenuState(menuButton.getAttribute('aria-expanded') !== 'true');
+      });
+
+      primaryNav.addEventListener('click', event => {
+        if (event.target.closest('a')) setMenuState(false);
+      });
+
+      document.addEventListener('keydown', event => {
+        if (event.key === 'Escape' && menuButton.getAttribute('aria-expanded') === 'true') {
+          setMenuState(false);
+          menuButton.focus();
+        }
+      });
+
+      document.addEventListener('click', event => {
+        if (menuButton.getAttribute('aria-expanded') === 'true' && !siteHeader.contains(event.target)) setMenuState(false);
+      });
+
+      const desktopQuery = window.matchMedia('(min-width: 1025px)');
+      const closeOnDesktop = event => { if (event.matches) setMenuState(false); };
+      desktopQuery.addEventListener?.('change', closeOnDesktop);
+    }
   }
 
   document.querySelectorAll('[data-language]').forEach(link => {
@@ -243,8 +303,7 @@ document.addEventListener('DOMContentLoaded', () => {
     main.append(section);
   }).catch(() => {});
 
-  const header = document.querySelector('.site-header');
-  const updateHeader = () => header?.classList.toggle('is-scrolled', window.scrollY > 12);
+  const updateHeader = () => siteHeader?.classList.toggle('is-scrolled', window.scrollY > 12);
   updateHeader();
   window.addEventListener('scroll', updateHeader, { passive: true });
 
