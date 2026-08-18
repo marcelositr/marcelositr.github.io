@@ -2,7 +2,7 @@
   "name": "devnux-tests",
   "version": "1.0.0",
   "devDependencies": {
-    "@playwright/test": "^1.50.0"
+    "@playwright/test": "^1.62.1"
   },
   "scripts": {
     "test": "playwright test"
