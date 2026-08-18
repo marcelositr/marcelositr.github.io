@@ -1,0 +1,11 @@
+BEGIN:VCARD
+VERSION:4.0
+FN:Marcelo Trindade
+N:Trindade;Marcelo;;;
+EMAIL;TYPE=internet:marcelost@riseup.net
+URL:https://devnux.com.br/
+ADR:;;;Ituverava;SP;;Brazil
+NOTE:Environmental Engineer and Environmental Technologist. Amateur radio PU2OMT\, grid GG69CP.
+X-HAM-CALLSIGN:PU2OMT
+X-MAIDENHEAD:GG69CP
+END:VCARD
