@@ -61,18 +61,18 @@ test('menu global mantém a mesma arquitetura entre home, área e caderno', asyn
 
   for (const path of ['/pt/', '/pt/radio/', '/caderno/', '/caderno/2026/por-que-este-caderno-existe/']) {
     await page.goto(path);
-    await expect(page.locator('.primary-nav a')).toHaveText(expectedPt);
+    await expect(page.locator('.primary-nav > a:not(.mobile-restricted-link)')).toHaveText(expectedPt);
   }
 });
 
 test('menus em inglês e espanhol usam nomes profissionais e Caderno como nome próprio', async ({ page }) => {
   await page.goto('/en/');
-  await expect(page.locator('.primary-nav a')).toHaveText([
+  await expect(page.locator('.primary-nav > a:not(.mobile-restricted-link)')).toHaveText([
     'Home', 'About', 'Environment', 'Technology', 'Amateur radio', 'Meliponiculture', 'Caderno · PT-BR', 'Identity', 'Contact'
   ]);
 
   await page.goto('/es/');
-  await expect(page.locator('.primary-nav a')).toHaveText([
+  await expect(page.locator('.primary-nav > a:not(.mobile-restricted-link)')).toHaveText([
     'Inicio', 'Sobre mí', 'Medio ambiente', 'Tecnología', 'Radioafición', 'Meliponicultura', 'Caderno · PT-BR', 'Identidad', 'Contacto'
   ]);
 });
