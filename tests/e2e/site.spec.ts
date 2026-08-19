@@ -85,7 +85,7 @@ test('caderno é explicitamente PT-BR e não oferece uma falsa tradução', asyn
 
 test('títulos seguem uma convenção consistente por área', async ({ page }) => {
   await page.goto('/pt/');
-  await expect(page).toHaveTitle('Marcelo Trindade | DevNux');
+  await expect(page).toHaveTitle('Marcelo Trindade | Meio ambiente, tecnologia e DevNux');
 
   await page.goto('/en/environment/');
   await expect(page).toHaveTitle('Environment | Marcelo Trindade · DevNux');
@@ -98,6 +98,37 @@ test('títulos seguem uma convenção consistente por área', async ({ page }) =
 
   await page.goto('/caderno/2026/por-que-este-caderno-existe/');
   await expect(page).toHaveTitle('Por que este caderno existe | Caderno · DevNux');
+});
+
+test('raiz e home PT publicam metadados sociais completos e preview otimizado', async ({ page, request }) => {
+  const rootResponse = await request.get('/');
+  expect(rootResponse.ok()).toBeTruthy();
+  const rootHtml = await rootResponse.text();
+  expect(rootHtml).toContain('<meta property="og:title"');
+  expect(rootHtml).toContain('<meta property="og:image" content="https://devnux.com.br/assets/images/social-preview.png">');
+  expect(rootHtml).toContain('<meta name="twitter:card" content="summary_large_image">');
+  expect(rootHtml).toContain('<meta name="twitter:image" content="https://devnux.com.br/assets/images/social-preview.png">');
+
+  await page.goto('/pt/');
+  await expect(page.locator('meta[property="og:title"]')).toHaveAttribute('content', 'Marcelo Trindade | Meio ambiente, tecnologia e DevNux');
+  await expect(page.locator('meta[property="og:image:width"]')).toHaveAttribute('content', '1200');
+  await expect(page.locator('meta[property="og:image:height"]')).toHaveAttribute('content', '630');
+  await expect(page.locator('meta[property="og:image:alt"]')).toHaveAttribute('content', /DevNux/);
+  await expect(page.locator('meta[name="twitter:card"]')).toHaveAttribute('content', 'summary_large_image');
+  await expect(page.locator('meta[name="twitter:title"]')).toHaveAttribute('content', 'Marcelo Trindade | Meio ambiente, tecnologia e DevNux');
+  await expect(page.locator('meta[name="twitter:image"]')).toHaveAttribute('content', 'https://devnux.com.br/assets/images/social-preview.png');
+
+  const imageResponse = await request.get('/assets/images/social-preview.png');
+  expect(imageResponse.ok()).toBeTruthy();
+  expect((await imageResponse.body()).byteLength).toBeLessThan(1_000_000);
+
+  const dimensions = await page.evaluate(() => new Promise<number[]>((resolve, reject) => {
+    const image = new Image();
+    image.onload = () => resolve([image.naturalWidth, image.naturalHeight]);
+    image.onerror = () => reject(new Error('social preview failed to load'));
+    image.src = '/assets/images/social-preview.png';
+  }));
+  expect(dimensions).toEqual([1200, 630]);
 });
 
 test('footer pública é única, usa 2025 como origem e ano corrente dinâmico', async ({ page }) => {
