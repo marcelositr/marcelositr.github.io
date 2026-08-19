@@ -192,7 +192,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const pageTitles = {
     home: {
-      pt: 'Marcelo Trindade | DevNux',
+      pt: 'Marcelo Trindade | Meio ambiente, tecnologia e DevNux',
       en: 'Marcelo Trindade | DevNux',
       es: 'Marcelo Trindade | DevNux'
     },
