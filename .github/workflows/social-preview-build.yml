@@ -27,7 +27,7 @@ jobs:
       - name: Install Pillow
         run: python -m pip install --disable-pip-version-check pillow
 
-      - name: Build 1200x630 JPEG
+      - name: Build optimized 1200x630 PNG
         run: |
           python - <<'PY'
           from PIL import Image, ImageOps
@@ -39,22 +39,18 @@ jobs:
               method=Image.Resampling.LANCZOS,
               centering=(0.5, 0.5),
           )
-          preview.save(
-              'assets/images/social-preview.jpg',
-              'JPEG',
-              quality=85,
-              optimize=True,
-              progressive=True,
-          )
+          preview = preview.quantize(colors=256, method=Image.Quantize.MEDIANCUT)
+          preview.save('assets/images/social-preview.png', 'PNG', optimize=True)
           PY
+          rm -f assets/images/social-preview.jpg
 
       - name: Commit generated asset
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add assets/images/social-preview.jpg
+          git add -A assets/images/social-preview.png assets/images/social-preview.jpg
           if git diff --cached --quiet; then
             exit 0
           fi
-          git commit -m 'Generate optimized social preview'
+          git commit -m 'Optimize social preview image'
           git push origin HEAD:agent/social-metadata-polish
