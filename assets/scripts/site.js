@@ -8,74 +8,23 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const routes = {
     pt: {
-      home: '/pt/',
-      about: '/pt/#sobre',
-      environment: '/pt/meio-ambiente/',
-      technology: '/pt/tecnologia/',
-      radio: '/pt/radio/',
-      meliponiculture: '/pt/meliponicultura/',
-      notebook: '/caderno/',
-      identity: '/pt/#identidade',
-      contact: '/pt/#contato'
+      home: '/pt/', now: '/pt/agora/', trails: '/pt/#trilhas', experiments: '/pt/experimentos/', notebook: '/caderno/', archive: '/pt/arquivo/', identity: '/pt/identidade/',
+      environment: '/pt/meio-ambiente/', technology: '/pt/tecnologia/', radio: '/pt/radio/', meliponiculture: '/pt/meliponicultura/'
     },
     en: {
-      home: '/en/',
-      about: '/en/#about',
-      environment: '/en/environment/',
-      technology: '/en/technology/',
-      radio: '/en/radio/',
-      meliponiculture: '/en/meliponiculture/',
-      notebook: '/caderno/',
-      identity: '/en/#identity',
-      contact: '/en/#contact'
+      home: '/en/', now: '/en/now/', trails: '/en/#trails', experiments: '/en/experiments/', notebook: '/caderno/', archive: '/en/archive/', identity: '/en/identity/',
+      environment: '/en/environment/', technology: '/en/technology/', radio: '/en/radio/', meliponiculture: '/en/meliponiculture/'
     },
     es: {
-      home: '/es/',
-      about: '/es/#sobre',
-      environment: '/es/medio-ambiente/',
-      technology: '/es/tecnologia/',
-      radio: '/es/radio/',
-      meliponiculture: '/es/meliponicultura/',
-      notebook: '/caderno/',
-      identity: '/es/#identidad',
-      contact: '/es/#contacto'
+      home: '/es/', now: '/es/ahora/', trails: '/es/#trails', experiments: '/es/experimentos/', notebook: '/caderno/', archive: '/es/archivo/', identity: '/es/identidad/',
+      environment: '/es/medio-ambiente/', technology: '/es/tecnologia/', radio: '/es/radio/', meliponiculture: '/es/meliponicultura/'
     }
   };
 
   const labels = {
-    pt: {
-      home: 'Início',
-      about: 'Sobre',
-      environment: 'Meio ambiente',
-      technology: 'Tecnologia',
-      radio: 'Radioamadorismo',
-      meliponiculture: 'Meliponicultura',
-      notebook: 'Caderno',
-      identity: 'Identidade',
-      contact: 'Contato'
-    },
-    en: {
-      home: 'Home',
-      about: 'About',
-      environment: 'Environment',
-      technology: 'Technology',
-      radio: 'Amateur radio',
-      meliponiculture: 'Meliponiculture',
-      notebook: 'Caderno · PT-BR',
-      identity: 'Identity',
-      contact: 'Contact'
-    },
-    es: {
-      home: 'Inicio',
-      about: 'Sobre mí',
-      environment: 'Medio ambiente',
-      technology: 'Tecnología',
-      radio: 'Radioafición',
-      meliponiculture: 'Meliponicultura',
-      notebook: 'Caderno · PT-BR',
-      identity: 'Identidad',
-      contact: 'Contacto'
-    }
+    pt: { home: 'Início', now: 'Agora', trails: 'Trilhas', experiments: 'Experimentos', notebook: 'Caderno', archive: 'Arquivo', identity: 'Identidade' },
+    en: { home: 'Home', now: 'Now', trails: 'Trails', experiments: 'Experiments', notebook: 'Caderno · PT-BR', archive: 'Archive', identity: 'Identity' },
+    es: { home: 'Inicio', now: 'Ahora', trails: 'Rutas', experiments: 'Experimentos', notebook: 'Caderno · PT-BR', archive: 'Archivo', identity: 'Identidad' }
   };
 
   const interfaceLabels = {
@@ -90,15 +39,27 @@ document.addEventListener('DOMContentLoaded', () => {
     if (/\/(tecnologia|technology)\//.test(path)) return 'technology';
     if (/\/radio\//.test(path)) return 'radio';
     if (/\/(meliponicultura|meliponiculture)\//.test(path)) return 'meliponiculture';
+    if (/\/(agora|now|ahora)\//.test(path)) return 'now';
+    if (/\/(experimentos|experiments)\//.test(path)) return 'experiments';
+    if (/\/(arquivo|archive|archivo)\//.test(path)) return 'archive';
+    if (/\/(identidade|identity|identidad)\//.test(path)) return 'identity';
     if (/^\/(pt|en|es)\/$/.test(path)) return 'home';
     return null;
   };
 
   const currentSection = sectionFromPath(location.pathname);
+  const trailSections = new Set(['environment', 'technology', 'radio', 'meliponiculture']);
+  const activeNavKey = trailSections.has(currentSection) ? 'trails' : currentSection;
+
+  document.querySelectorAll('link[rel="icon"]').forEach(link => {
+    link.href = '/assets/images/favicon.png?v=2';
+    link.type = 'image/png';
+    link.setAttribute('sizes', '256x256');
+  });
 
   const primaryNav = document.querySelector('.primary-nav');
   if (primaryNav && currentSection) {
-    const order = ['home', 'about', 'environment', 'technology', 'radio', 'meliponiculture', 'notebook', 'identity', 'contact'];
+    const order = ['home', 'now', 'trails', 'experiments', 'notebook', 'archive', 'identity'];
     primaryNav.replaceChildren();
     primaryNav.setAttribute('aria-label', langCode === 'en' ? 'Primary navigation' : langCode === 'es' ? 'Navegación principal' : 'Navegação principal');
 
@@ -106,7 +67,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const link = document.createElement('a');
       link.href = routes[langCode][key];
       link.textContent = labels[langCode][key];
-      if (key === currentSection) link.setAttribute('aria-current', 'page');
+      if (key === activeNavKey) link.setAttribute('aria-current', 'page');
       if (key === 'notebook' && langCode !== 'pt') link.lang = 'pt-BR';
       primaryNav.append(link);
     });
@@ -122,7 +83,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     ['pt', 'en', 'es'].forEach(language => {
       const link = document.createElement('a');
-      link.href = routes[language][currentSection];
+      const targetKey = routes[language][currentSection] ? currentSection : 'home';
+      link.href = routes[language][targetKey];
       link.dataset.language = language;
       link.textContent = languageNames[language];
       if (language === langCode) link.setAttribute('aria-current', 'page');
@@ -158,28 +120,19 @@ document.addEventListener('DOMContentLoaded', () => {
         document.documentElement.classList.toggle('nav-open', open);
       };
 
-      menuButton.addEventListener('click', () => {
-        setMenuState(menuButton.getAttribute('aria-expanded') !== 'true');
-      });
-
-      primaryNav.addEventListener('click', event => {
-        if (event.target.closest('a')) setMenuState(false);
-      });
-
+      menuButton.addEventListener('click', () => setMenuState(menuButton.getAttribute('aria-expanded') !== 'true'));
+      primaryNav.addEventListener('click', event => { if (event.target.closest('a')) setMenuState(false); });
       document.addEventListener('keydown', event => {
         if (event.key === 'Escape' && menuButton.getAttribute('aria-expanded') === 'true') {
           setMenuState(false);
           menuButton.focus();
         }
       });
-
       document.addEventListener('click', event => {
         if (menuButton.getAttribute('aria-expanded') === 'true' && !siteHeader.contains(event.target)) setMenuState(false);
       });
-
       const desktopQuery = window.matchMedia('(min-width: 1025px)');
-      const closeOnDesktop = event => { if (event.matches) setMenuState(false); };
-      desktopQuery.addEventListener?.('change', closeOnDesktop);
+      desktopQuery.addEventListener?.('change', event => { if (event.matches) setMenuState(false); });
     }
   }
 
@@ -191,31 +144,15 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   const pageTitles = {
-    home: {
-      pt: 'DEVNUX | Marcelo Trindade',
-      en: 'DEVNUX | Marcelo Trindade',
-      es: 'DEVNUX | Marcelo Trindade'
-    },
-    environment: {
-      pt: 'Meio ambiente | DEVNUX',
-      en: 'Environment | DEVNUX',
-      es: 'Medio ambiente | DEVNUX'
-    },
-    technology: {
-      pt: 'Tecnologia | DEVNUX',
-      en: 'Technology | DEVNUX',
-      es: 'Tecnología | DEVNUX'
-    },
-    radio: {
-      pt: 'Radioamadorismo | DEVNUX',
-      en: 'Amateur radio | DEVNUX',
-      es: 'Radioafición | DEVNUX'
-    },
-    meliponiculture: {
-      pt: 'Meliponicultura | DEVNUX',
-      en: 'Meliponiculture | DEVNUX',
-      es: 'Meliponicultura | DEVNUX'
-    }
+    home: { pt: 'DEVNUX | Marcelo Trindade', en: 'DEVNUX | Marcelo Trindade', es: 'DEVNUX | Marcelo Trindade' },
+    now: { pt: 'Agora | DEVNUX', en: 'Now | DEVNUX', es: 'Ahora | DEVNUX' },
+    experiments: { pt: 'Experimentos | DEVNUX', en: 'Experiments | DEVNUX', es: 'Experimentos | DEVNUX' },
+    archive: { pt: 'Arquivo | DEVNUX', en: 'Archive | DEVNUX', es: 'Archivo | DEVNUX' },
+    identity: { pt: 'Identidade | DEVNUX', en: 'Identity | DEVNUX', es: 'Identidad | DEVNUX' },
+    environment: { pt: 'Meio ambiente | DEVNUX', en: 'Environment | DEVNUX', es: 'Medio ambiente | DEVNUX' },
+    technology: { pt: 'Tecnologia | DEVNUX', en: 'Technology | DEVNUX', es: 'Tecnología | DEVNUX' },
+    radio: { pt: 'Radioamadorismo | DEVNUX', en: 'Amateur radio | DEVNUX', es: 'Radioafición | DEVNUX' },
+    meliponiculture: { pt: 'Meliponicultura | DEVNUX', en: 'Meliponiculture | DEVNUX', es: 'Meliponicultura | DEVNUX' }
   };
 
   if (currentSection === 'notebook') {
@@ -230,9 +167,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const currentYear = new Date().getFullYear();
     const copyrightYears = currentYear > 2025 ? `2025–${currentYear}` : '2025';
     const footerInner = publicFooter.querySelector('.footer-inner');
-
     if (footerInner) {
-      footerInner.innerHTML = `<div class="footer-brand"><strong>DEVNUX</strong><span>Marcelo Trindade</span></div><p class="footer-meta"><a href="/caderno/feed.xml">RSS</a> · <a href="/humans.txt">humans.txt</a> · <a href="/marcelo.vcf">vCard</a> · <a href="/.well-known/security.txt">Security</a><br>© ${copyrightYears} Marcelo Trindade · <a href="https://devnux.com.br">devnux.com.br</a></p>`;
+      footerInner.innerHTML = `<div class="footer-brand"><strong>DEVNUX</strong><span>Marcelo Trindade</span></div><p class="footer-meta"><a href="mailto:marcelost@riseup.net">Mail</a> · <a href="/caderno/feed.xml">RSS</a> · <a href="/humans.txt">humans.txt</a> · <a href="/marcelo.vcf">vCard</a> · <a href="/.well-known/security.txt">Security</a><br>© ${copyrightYears} Marcelo Trindade · <a href="https://devnux.com.br">devnux.com.br</a></p>`;
     }
   }
 
@@ -241,8 +177,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!year || !month) return;
     const now = new Date();
     const age = now.getFullYear() - year - ((now.getMonth() + 1) < month ? 1 : 0);
-    const lang = document.documentElement.lang.toLowerCase();
-    const unit = lang.startsWith('en') ? 'years' : lang.startsWith('es') ? 'años' : 'anos';
+    const unit = langCode === 'en' ? 'years' : langCode === 'es' ? 'años' : 'anos';
     node.textContent = `${age} ${unit}`;
   });
 
@@ -259,49 +194,52 @@ document.addEventListener('DOMContentLoaded', () => {
     return null;
   })();
 
-  fetch('/assets/data/media.json', { cache: 'no-store' }).then(response => response.ok ? response.json() : null).then(media => {
-    if (!media) return;
-    if (media.profile?.src) {
-      document.querySelectorAll('[data-profile-photo]').forEach(img => {
-        img.src = media.profile.src;
-        if (media.profile.alt) img.alt = textFor(media.profile.alt);
-      });
-    }
-
-    const items = galleryKey ? (media.galleries?.[galleryKey] || []).filter(item => item.src) : [];
-    const main = document.querySelector('main.content-shell, main.notebook-shell');
-    if (!main || !items.length) return;
-
-    const galleryLabels = {
-      pt: ['Imagem / registro', 'Registros visuais', 'Imagens próprias ligadas a esta área.'],
-      en: ['Image / record', 'Visual notes', 'My own images connected to this area.'],
-      es: ['Imagen / registro', 'Registros visuales', 'Imágenes propias relacionadas con esta área.']
-    }[langCode];
-    const section = document.createElement('section');
-    section.className = 'media-section';
-    section.innerHTML = `<header class="section-heading section-heading--flow"><p class="section-index">${galleryLabels[0]}</p><h2>${galleryLabels[1]}</h2><p>${galleryLabels[2]}</p></header>`;
-    const gallery = document.createElement('div');
-    gallery.className = 'media-gallery';
-    items.forEach(item => {
-      const figure = document.createElement('figure');
-      figure.className = 'media-figure';
-      const img = document.createElement('img');
-      img.src = item.src;
-      img.alt = textFor(item.alt);
-      img.loading = 'lazy';
-      img.decoding = 'async';
-      figure.append(img);
-      const caption = textFor(item.caption);
-      if (caption) {
-        const figcaption = document.createElement('figcaption');
-        figcaption.textContent = caption;
-        figure.append(figcaption);
+  fetch('/assets/data/media.json', { cache: 'no-store' })
+    .then(response => response.ok ? response.json() : null)
+    .then(media => {
+      if (!media) return;
+      if (media.profile?.src) {
+        document.querySelectorAll('[data-profile-photo]').forEach(img => {
+          img.src = media.profile.src;
+          if (media.profile.alt) img.alt = textFor(media.profile.alt);
+        });
       }
-      gallery.append(figure);
-    });
-    section.append(gallery);
-    main.append(section);
-  }).catch(() => {});
+
+      const items = galleryKey ? (media.galleries?.[galleryKey] || []).filter(item => item.src) : [];
+      const main = document.querySelector('main.content-shell, main.notebook-shell');
+      if (!main || !items.length) return;
+
+      const galleryLabels = {
+        pt: ['Imagem / registro', 'Registros visuais', 'Imagens próprias ligadas a esta área.'],
+        en: ['Image / record', 'Visual notes', 'My own images connected to this area.'],
+        es: ['Imagen / registro', 'Registros visuales', 'Imágenes propias relacionadas con esta área.']
+      }[langCode];
+      const section = document.createElement('section');
+      section.className = 'media-section';
+      section.innerHTML = `<header class="section-heading section-heading--flow"><p class="section-index">${galleryLabels[0]}</p><h2>${galleryLabels[1]}</h2><p>${galleryLabels[2]}</p></header>`;
+      const gallery = document.createElement('div');
+      gallery.className = 'media-gallery';
+      items.forEach(item => {
+        const figure = document.createElement('figure');
+        figure.className = 'media-figure';
+        const img = document.createElement('img');
+        img.src = item.src;
+        img.alt = textFor(item.alt);
+        img.loading = 'lazy';
+        img.decoding = 'async';
+        figure.append(img);
+        const caption = textFor(item.caption);
+        if (caption) {
+          const figcaption = document.createElement('figcaption');
+          figcaption.textContent = caption;
+          figure.append(figcaption);
+        }
+        gallery.append(figure);
+      });
+      section.append(gallery);
+      main.append(section);
+    })
+    .catch(() => {});
 
   const updateHeader = () => siteHeader?.classList.toggle('is-scrolled', window.scrollY > 12);
   updateHeader();
