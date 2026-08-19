@@ -83,40 +83,61 @@ test('caderno é explicitamente PT-BR e não oferece uma falsa tradução', asyn
   await expect(page.getByRole('link', { name: 'Caderno', exact: true })).toHaveAttribute('aria-current', 'page');
 });
 
-test('títulos seguem uma convenção consistente por área', async ({ page }) => {
+test('títulos seguem a hierarquia de identidade do DevNux', async ({ page }) => {
   await page.goto('/pt/');
-  await expect(page).toHaveTitle('Marcelo Trindade | Meio ambiente, tecnologia e DevNux');
+  await expect(page).toHaveTitle('DEVNUX | Marcelo Trindade');
 
   await page.goto('/en/environment/');
-  await expect(page).toHaveTitle('Environment | Marcelo Trindade · DevNux');
+  await expect(page).toHaveTitle('Environment | DEVNUX');
 
   await page.goto('/es/radio/');
-  await expect(page).toHaveTitle('Radioafición | Marcelo Trindade · PU2OMT');
+  await expect(page).toHaveTitle('Radioafición | DEVNUX');
 
   await page.goto('/caderno/');
-  await expect(page).toHaveTitle('Caderno | Marcelo Trindade · DevNux');
+  await expect(page).toHaveTitle('Caderno | DEVNUX');
 
   await page.goto('/caderno/2026/por-que-este-caderno-existe/');
-  await expect(page).toHaveTitle('Por que este caderno existe | Caderno · DevNux');
+  await expect(page).toHaveTitle('Por que este caderno existe | Caderno · DEVNUX');
 });
 
-test('raiz e home PT publicam metadados sociais completos e preview otimizado', async ({ page, request }) => {
+test('raiz e homes localizadas publicam metadados sociais completos e consistentes', async ({ page, request }) => {
+  const brandTitle = 'DEVNUX | Marcelo Trindade';
+  const previewUrl = 'https://devnux.com.br/assets/images/social-preview.png';
+
   const rootResponse = await request.get('/');
   expect(rootResponse.ok()).toBeTruthy();
   const rootHtml = await rootResponse.text();
-  expect(rootHtml).toContain('<meta property="og:title"');
-  expect(rootHtml).toContain('<meta property="og:image" content="https://devnux.com.br/assets/images/social-preview.png">');
-  expect(rootHtml).toContain('<meta name="twitter:card" content="summary_large_image">');
-  expect(rootHtml).toContain('<meta name="twitter:image" content="https://devnux.com.br/assets/images/social-preview.png">');
+  expect(rootHtml).toContain(`<title>${brandTitle}</title>`);
+  expect(rootHtml).toContain(`<meta property="og:title" content="${brandTitle}">`);
+  expect(rootHtml).toContain('<meta property="og:locale:alternate" content="en_US">');
+  expect(rootHtml).toContain('<meta property="og:locale:alternate" content="es_ES">');
+  expect(rootHtml).toContain(`<meta name="twitter:title" content="${brandTitle}">`);
 
-  await page.goto('/pt/');
-  await expect(page.locator('meta[property="og:title"]')).toHaveAttribute('content', 'Marcelo Trindade | Meio ambiente, tecnologia e DevNux');
-  await expect(page.locator('meta[property="og:image:width"]')).toHaveAttribute('content', '1200');
-  await expect(page.locator('meta[property="og:image:height"]')).toHaveAttribute('content', '630');
-  await expect(page.locator('meta[property="og:image:alt"]')).toHaveAttribute('content', /DevNux/);
-  await expect(page.locator('meta[name="twitter:card"]')).toHaveAttribute('content', 'summary_large_image');
-  await expect(page.locator('meta[name="twitter:title"]')).toHaveAttribute('content', 'Marcelo Trindade | Meio ambiente, tecnologia e DevNux');
-  await expect(page.locator('meta[name="twitter:image"]')).toHaveAttribute('content', 'https://devnux.com.br/assets/images/social-preview.png');
+  const homes = [
+    { path: '/pt/', url: 'https://devnux.com.br/pt/', locale: 'pt_BR', alternates: ['en_US', 'es_ES'] },
+    { path: '/en/', url: 'https://devnux.com.br/en/', locale: 'en_US', alternates: ['pt_BR', 'es_ES'] },
+    { path: '/es/', url: 'https://devnux.com.br/es/', locale: 'es_ES', alternates: ['pt_BR', 'en_US'] }
+  ];
+
+  for (const home of homes) {
+    await page.goto(home.path);
+    await expect(page).toHaveTitle(brandTitle);
+    await expect(page.locator('meta[property="og:title"]')).toHaveAttribute('content', brandTitle);
+    await expect(page.locator('meta[property="og:url"]')).toHaveAttribute('content', home.url);
+    await expect(page.locator('meta[property="og:image"]')).toHaveAttribute('content', previewUrl);
+    await expect(page.locator('meta[property="og:image:type"]')).toHaveAttribute('content', 'image/png');
+    await expect(page.locator('meta[property="og:image:width"]')).toHaveAttribute('content', '1200');
+    await expect(page.locator('meta[property="og:image:height"]')).toHaveAttribute('content', '630');
+    await expect(page.locator('meta[property="og:image:alt"]')).toHaveAttribute('content', /DevNux/);
+    await expect(page.locator('meta[property="og:locale"]')).toHaveAttribute('content', home.locale);
+    expect(await page.locator('meta[property="og:locale:alternate"]').evaluateAll(nodes => nodes.map(node => node.getAttribute('content')))).toEqual(home.alternates);
+    await expect(page.locator('meta[property="og:site_name"]')).toHaveAttribute('content', 'DevNux');
+    await expect(page.locator('meta[name="twitter:card"]')).toHaveAttribute('content', 'summary_large_image');
+    await expect(page.locator('meta[name="twitter:title"]')).toHaveAttribute('content', brandTitle);
+    await expect(page.locator('meta[name="twitter:description"]')).toHaveAttribute('content', /.+/);
+    await expect(page.locator('meta[name="twitter:image"]')).toHaveAttribute('content', previewUrl);
+    await expect(page.locator('meta[name="twitter:image:alt"]')).toHaveAttribute('content', /DevNux/);
+  }
 
   const imageResponse = await request.get('/assets/images/social-preview.png');
   expect(imageResponse.ok()).toBeTruthy();

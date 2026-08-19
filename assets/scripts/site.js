@@ -191,36 +191,36 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   const pageTitles = {
-    home: {
-      pt: 'Marcelo Trindade | Meio ambiente, tecnologia e DevNux',
-      en: 'Marcelo Trindade | DevNux',
-      es: 'Marcelo Trindade | DevNux'
-    },
-    environment: {
-      pt: 'Meio ambiente | Marcelo Trindade · DevNux',
-      en: 'Environment | Marcelo Trindade · DevNux',
-      es: 'Medio ambiente | Marcelo Trindade · DevNux'
-    },
-    technology: {
-      pt: 'Tecnologia | Marcelo Trindade · DevNux',
-      en: 'Technology | Marcelo Trindade · DevNux',
-      es: 'Tecnología | Marcelo Trindade · DevNux'
-    },
-    radio: {
-      pt: 'Radioamadorismo | Marcelo Trindade · PU2OMT',
-      en: 'Amateur radio | Marcelo Trindade · PU2OMT',
-      es: 'Radioafición | Marcelo Trindade · PU2OMT'
-    },
-    meliponiculture: {
-      pt: 'Meliponicultura | Marcelo Trindade · DevNux',
-      en: 'Meliponiculture | Marcelo Trindade · DevNux',
-      es: 'Meliponicultura | Marcelo Trindade · DevNux'
-    }
-  };
+  home: {
+    pt: 'DEVNUX | Marcelo Trindade',
+    en: 'DEVNUX | Marcelo Trindade',
+    es: 'DEVNUX | Marcelo Trindade'
+  },
+  environment: {
+    pt: 'Meio ambiente | DEVNUX',
+    en: 'Environment | DEVNUX',
+    es: 'Medio ambiente | DEVNUX'
+  },
+  technology: {
+    pt: 'Tecnologia | DEVNUX',
+    en: 'Technology | DEVNUX',
+    es: 'Tecnología | DEVNUX'
+  },
+  radio: {
+    pt: 'Radioamadorismo | DEVNUX',
+    en: 'Amateur radio | DEVNUX',
+    es: 'Radioafición | DEVNUX'
+  },
+  meliponiculture: {
+    pt: 'Meliponicultura | DEVNUX',
+    en: 'Meliponiculture | DEVNUX',
+    es: 'Meliponicultura | DEVNUX'
+  }
+};
 
   if (currentSection === 'notebook') {
     const articleTitle = document.querySelector('.notebook-article h1')?.textContent?.trim();
-    document.title = articleTitle ? `${articleTitle} | Caderno · DevNux` : 'Caderno | Marcelo Trindade · DevNux';
+    document.title = articleTitle ? `${articleTitle} | Caderno · DEVNUX` : 'Caderno | DEVNUX';
   } else if (currentSection && pageTitles[currentSection]) {
     document.title = pageTitles[currentSection][langCode];
   }
