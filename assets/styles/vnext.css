@@ -1,0 +1,349 @@
+/* DevNux living archive layer */
+html { overflow-x: hidden; }
+body.vnext {
+  max-width: 100%;
+  overflow-x: hidden;
+  background:
+    radial-gradient(circle at 12% -10%, rgba(213, 154, 87, .055), transparent 26rem),
+    radial-gradient(circle at 88% 4%, rgba(120, 189, 185, .06), transparent 28rem),
+    linear-gradient(180deg, var(--bg) 0%, #090d12 100%);
+}
+
+.vnext-shell {
+  width: min(100% - 3rem, var(--container));
+  margin-inline: auto;
+  padding-block: clamp(3.5rem, 7vw, 7rem) 7rem;
+}
+
+.vnext-hero {
+  min-height: min(72vh, 47rem);
+  display: grid;
+  grid-template-columns: minmax(0, 1.55fr) minmax(16rem, .65fr);
+  gap: clamp(2.5rem, 8vw, 8rem);
+  align-items: end;
+  padding: clamp(1rem, 2vw, 2rem) 0 clamp(4rem, 8vw, 7.5rem);
+}
+
+.vnext-hero__copy { max-width: 54rem; }
+.vnext-eyebrow,
+.vnext-section-label,
+.vnext-meta,
+.vnext-status,
+.vnext-date,
+.vnext-type,
+.vnext-code {
+  font-family: var(--font-mono);
+  letter-spacing: .075em;
+}
+
+.vnext-eyebrow,
+.vnext-section-label,
+.vnext-type,
+.vnext-date {
+  color: var(--muted);
+  text-transform: uppercase;
+  font-size: .72rem;
+}
+
+.vnext-eyebrow { margin: 0 0 1.3rem; color: var(--technical-strong); }
+.vnext-hero h1 {
+  max-width: 14ch;
+  margin: 0;
+  font-size: clamp(3.15rem, 8vw, 7.4rem);
+  line-height: .92;
+  letter-spacing: -.065em;
+  font-weight: 730;
+}
+
+.vnext-manifesto {
+  max-width: 44rem;
+  margin: 2rem 0 0;
+  color: var(--text-soft);
+  font-size: clamp(1rem, 1.45vw, 1.22rem);
+  line-height: 1.75;
+}
+
+.vnext-profile {
+  align-self: end;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--border);
+}
+
+.vnext-profile__photo {
+  width: min(100%, 12.5rem);
+  aspect-ratio: 1;
+  object-fit: cover;
+  margin-bottom: 1.5rem;
+  border-radius: 2px;
+  filter: saturate(.86) contrast(1.04);
+}
+
+.vnext-profile dl { margin: 0; }
+.vnext-profile dl > div {
+  display: grid;
+  grid-template-columns: 6.4rem 1fr;
+  gap: 1rem;
+  padding: .65rem 0;
+  border-bottom: 1px solid var(--border-soft);
+}
+.vnext-profile dt {
+  color: var(--muted);
+  font: 550 .69rem/1.45 var(--font-mono);
+  text-transform: uppercase;
+  letter-spacing: .06em;
+}
+.vnext-profile dd { margin: 0; color: var(--text-soft); font-size: .88rem; }
+
+.vnext-ledger {
+  border-top: 1px solid var(--border);
+  padding: clamp(3rem, 6vw, 5.5rem) 0;
+}
+
+.vnext-section-head {
+  display: grid;
+  grid-template-columns: minmax(9rem, .34fr) minmax(0, 1fr);
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+.vnext-section-head h2 {
+  margin: 0;
+  max-width: 22ch;
+  font-size: clamp(1.7rem, 3.2vw, 3rem);
+  line-height: 1.08;
+  letter-spacing: -.035em;
+}
+.vnext-section-head p:not(.vnext-section-label) {
+  margin: .75rem 0 0;
+  max-width: 42rem;
+  color: var(--text-soft);
+}
+
+.vnext-row-list { border-bottom: 1px solid var(--border-soft); }
+.vnext-row {
+  display: grid;
+  grid-template-columns: minmax(7rem, .23fr) minmax(0, 1fr) auto;
+  gap: clamp(1.2rem, 3vw, 3rem);
+  align-items: start;
+  padding: 1.5rem 0;
+  border-top: 1px solid var(--border-soft);
+}
+.vnext-row:first-child { border-top-color: var(--border); }
+.vnext-row__label {
+  color: var(--technical-strong);
+  font: 600 .72rem/1.5 var(--font-mono);
+  text-transform: uppercase;
+  letter-spacing: .065em;
+}
+.vnext-row__body h3 { margin: 0 0 .35rem; font-size: 1.05rem; }
+.vnext-row__body p { margin: 0; max-width: 46rem; color: var(--text-soft); font-size: .92rem; }
+.vnext-row__body a { color: var(--text); }
+.vnext-row__body a:hover { color: var(--accent-strong); }
+
+.vnext-status {
+  white-space: nowrap;
+  color: var(--accent-strong);
+  font-size: .68rem;
+  text-transform: uppercase;
+}
+.vnext-status--cool { color: var(--technical-strong); }
+.vnext-status::before { content: '●'; padding-right: .45rem; font-size: .55rem; }
+
+.vnext-record {
+  display: grid;
+  grid-template-columns: 8.5rem 9.5rem minmax(0, 1fr) auto;
+  gap: 1.5rem;
+  align-items: baseline;
+  padding: 1.35rem 0;
+  border-top: 1px solid var(--border-soft);
+}
+.vnext-record:first-child { border-top-color: var(--border); }
+.vnext-record a { color: var(--text); font-weight: 620; }
+.vnext-record a:hover { color: var(--accent-strong); }
+.vnext-record__summary { margin-top: .3rem; color: var(--text-soft); font-size: .88rem; }
+.vnext-date, .vnext-type { font-size: .67rem; }
+.vnext-type { color: var(--technical-strong); }
+
+.vnext-trails {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  border-top: 1px solid var(--border);
+}
+.vnext-trail {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 1.5rem;
+  padding: 2rem 0;
+  border-bottom: 1px solid var(--border-soft);
+  color: var(--text);
+}
+.vnext-trail:nth-child(odd) { padding-right: clamp(1.5rem, 4vw, 4rem); border-right: 1px solid var(--border-soft); }
+.vnext-trail:nth-child(even) { padding-left: clamp(1.5rem, 4vw, 4rem); }
+.vnext-trail h3 { margin: 0 0 .5rem; font-size: clamp(1.2rem, 2vw, 1.55rem); }
+.vnext-trail p { margin: 0; color: var(--text-soft); font-size: .9rem; }
+.vnext-trail__arrow { color: var(--accent-strong); font: 500 1rem/1 var(--font-mono); }
+.vnext-trail:hover h3 { color: var(--accent-strong); }
+
+.vnext-callout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 2rem;
+  align-items: end;
+  padding: clamp(2rem, 5vw, 4rem) 0;
+  border-top: 1px solid var(--accent);
+  border-bottom: 1px solid var(--border-soft);
+}
+.vnext-callout h2 { margin: .4rem 0 .7rem; font-size: clamp(1.6rem, 3vw, 2.6rem); }
+.vnext-callout p { max-width: 44rem; margin: 0; color: var(--text-soft); }
+.vnext-action {
+  display: inline-flex;
+  align-items: center;
+  gap: .8rem;
+  color: var(--text);
+  font: 600 .78rem/1.2 var(--font-mono);
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  white-space: nowrap;
+}
+.vnext-action span { color: var(--accent-strong); }
+
+.vnext-page-head {
+  display: grid;
+  grid-template-columns: minmax(0, 1.3fr) minmax(14rem, .55fr);
+  gap: clamp(2rem, 7vw, 7rem);
+  align-items: end;
+  padding: clamp(2rem, 5vw, 4rem) 0 clamp(3.5rem, 7vw, 6.5rem);
+}
+.vnext-page-head h1 {
+  margin: .5rem 0 0;
+  font-size: clamp(3rem, 7vw, 6rem);
+  line-height: .95;
+  letter-spacing: -.06em;
+}
+.vnext-page-head__intro { color: var(--text-soft); font-size: 1rem; }
+.vnext-page-head__intro p { margin: .7rem 0 0; }
+
+.vnext-detail-grid {
+  display: grid;
+  grid-template-columns: minmax(10rem, .32fr) minmax(0, 1fr);
+  gap: clamp(2rem, 6vw, 6rem);
+  padding: 2.2rem 0;
+  border-top: 1px solid var(--border-soft);
+}
+.vnext-detail-grid:first-of-type { border-top-color: var(--border); }
+.vnext-detail-grid h2 { margin: 0; font-size: 1rem; font-family: var(--font-mono); letter-spacing: .03em; }
+.vnext-detail-grid__body { max-width: 48rem; }
+.vnext-detail-grid__body > :first-child { margin-top: 0; }
+.vnext-detail-grid__body > :last-child { margin-bottom: 0; }
+.vnext-detail-grid__body p { color: var(--text-soft); }
+
+.vnext-keyvals { margin: 0; }
+.vnext-keyvals > div {
+  display: grid;
+  grid-template-columns: 9.5rem minmax(0, 1fr);
+  gap: 1.5rem;
+  padding: .8rem 0;
+  border-bottom: 1px solid var(--border-soft);
+}
+.vnext-keyvals dt { color: var(--muted); font: 550 .7rem/1.5 var(--font-mono); text-transform: uppercase; letter-spacing: .05em; }
+.vnext-keyvals dd { margin: 0; color: var(--text-soft); overflow-wrap: anywhere; }
+.vnext-keyvals dd a { color: var(--text); }
+
+.vnext-inline-tags { display: flex; flex-wrap: wrap; gap: .45rem; margin-top: 1rem; }
+.vnext-inline-tags span {
+  padding: .28rem .48rem;
+  border: 1px solid var(--border);
+  border-radius: 2px;
+  color: var(--muted);
+  font: 500 .66rem/1.2 var(--font-mono);
+}
+
+.vnext-year {
+  display: grid;
+  grid-template-columns: 8rem minmax(0, 1fr);
+  gap: 2rem;
+  padding: 2rem 0 3rem;
+  border-top: 1px solid var(--border);
+}
+.vnext-year__number { font: 650 clamp(1.8rem, 3vw, 2.8rem)/1 var(--font-mono); color: var(--accent-strong); }
+.vnext-month h2 { margin: 0 0 1rem; font-size: 1rem; font-family: var(--font-mono); text-transform: uppercase; letter-spacing: .06em; }
+
+.vnext-note {
+  margin-top: 2rem;
+  max-width: 48rem;
+  padding-left: 1.2rem;
+  border-left: 2px solid var(--technical);
+  color: var(--text-soft);
+}
+
+@media (max-width: 900px) {
+  .vnext-hero,
+  .vnext-page-head { grid-template-columns: 1fr; }
+  .vnext-hero { min-height: auto; gap: 3rem; align-items: start; }
+  .vnext-profile { max-width: 28rem; }
+  .vnext-record { grid-template-columns: 7.5rem 8rem minmax(0, 1fr); }
+  .vnext-record .vnext-status { grid-column: 3; justify-self: start; }
+}
+
+@media (max-width: 720px) {
+  .vnext-shell { width: min(100% - 2rem, var(--container)); padding-top: 2.5rem; }
+  .vnext-hero { padding-bottom: 4rem; }
+  .vnext-hero h1 { font-size: clamp(3rem, 16vw, 5.2rem); }
+  .vnext-section-head,
+  .vnext-detail-grid,
+  .vnext-year { grid-template-columns: 1fr; gap: 1.2rem; }
+  .vnext-row { grid-template-columns: 1fr; gap: .55rem; }
+  .vnext-row .vnext-status { justify-self: start; }
+  .vnext-record { grid-template-columns: 1fr; gap: .35rem; }
+  .vnext-record .vnext-status { grid-column: auto; }
+  .vnext-trails { grid-template-columns: 1fr; }
+  .vnext-trail:nth-child(odd),
+  .vnext-trail:nth-child(even) { padding-inline: 0; border-right: 0; }
+  .vnext-callout { grid-template-columns: 1fr; align-items: start; }
+  .vnext-keyvals > div { grid-template-columns: 1fr; gap: .3rem; }
+}
+
+/* Compatibility with the existing responsive contract while the new hero uses the living-archive layout. */
+.vnext-profile.profile-panel {
+  display: block;
+  align-self: end;
+  padding: 1.25rem 0 0;
+  background: none;
+  border: 0;
+  border-top: 1px solid var(--border);
+  border-radius: 0;
+  box-shadow: none;
+}
+
+@media (min-width: 721px) and (max-width: 900px) {
+  .vnext-profile.profile-panel {
+    display: grid;
+    grid-template-columns: minmax(10rem, .6fr) minmax(0, 1fr);
+    gap: 1.5rem;
+    align-items: start;
+    max-width: 100%;
+  }
+  .vnext-profile.profile-panel .vnext-profile__photo { margin-bottom: 0; }
+}
+
+@media (max-width: 720px) {
+  .vnext-shell {
+    width: 100%;
+    max-width: var(--container);
+    padding-inline: 1rem;
+  }
+  .vnext-shell > section,
+  .vnext-hero > *,
+  .vnext-row > *,
+  .vnext-record > *,
+  .vnext-trail > *,
+  .vnext-callout > * {
+    min-width: 0;
+    max-width: 100%;
+  }
+  .vnext-profile dl > div { grid-template-columns: minmax(5.5rem, .38fr) minmax(0, 1fr); }
+  .vnext-profile dd { overflow-wrap: anywhere; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .vnext * { scroll-behavior: auto !important; }
+}
