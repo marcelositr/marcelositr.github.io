@@ -68,6 +68,7 @@ body.page-theme-technical { --page-accent: var(--technical); }
 @media (max-width: 560px) {
   .thinking-loop { grid-template-columns: 1fr; }
   .thinking-loop li { min-height: auto; }
+  .subpage-hero h1, .notebook-hero h1, .notebook-article h1 { overflow-wrap: anywhere; hyphens: auto; }
   .notebook-hero { padding-top: 4.5rem; }
   .notebook-hero h1 { font-size: clamp(2.6rem, 12vw, 4rem); }
   .notebook-article { padding-top: 4.5rem; }
