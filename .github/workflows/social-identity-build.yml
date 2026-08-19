@@ -1,0 +1,280 @@
+name: Temporary Social Identity Build
+
+on:
+  push:
+    branches:
+      - agent/social-identity-consistency
+    paths:
+      - .github/workflows/social-identity-build.yml
+
+permissions:
+  contents: write
+
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: agent/social-identity-consistency
+
+      - name: Apply title and social metadata conventions
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import re
+
+          BRAND = 'DEVNUX | Marcelo Trindade'
+
+          def read(path):
+              return Path(path).read_text(encoding='utf-8')
+
+          def write(path, text):
+              Path(path).write_text(text, encoding='utf-8')
+
+          def replace_once(text, old, new, label):
+              if old not in text:
+                  raise SystemExit(f'missing expected text: {label}')
+              return text.replace(old, new, 1)
+
+          # Root landing page: identity-first title, keeping the existing PT social description.
+          path = 'index.html'
+          text = read(path)
+          text = replace_once(text, '<title>Marcelo Trindade | DevNux</title>', f'<title>{BRAND}</title>', 'root title')
+          text = text.replace('content="Marcelo Trindade | Meio ambiente, tecnologia e DevNux"', f'content="{BRAND}"')
+          text = replace_once(
+              text,
+              '<meta property="og:locale" content="pt_BR">\n<meta property="og:site_name" content="DevNux">',
+              '<meta property="og:locale" content="pt_BR">\n<meta property="og:locale:alternate" content="en_US">\n<meta property="og:locale:alternate" content="es_ES">\n<meta property="og:site_name" content="DevNux">',
+              'root locale alternates',
+          )
+          write(path, text)
+
+          # PT home: same institutional title and complete locale relationships.
+          path = 'pt/index.html'
+          text = read(path)
+          text = text.replace('Marcelo Trindade | Meio ambiente, tecnologia e DevNux', BRAND)
+          text = replace_once(
+              text,
+              '<meta property="og:locale" content="pt_BR">\n<meta property="og:site_name" content="DevNux">',
+              '<meta property="og:locale" content="pt_BR">\n<meta property="og:locale:alternate" content="en_US">\n<meta property="og:locale:alternate" content="es_ES">\n<meta property="og:site_name" content="DevNux">',
+              'pt locale alternates',
+          )
+          write(path, text)
+
+          # EN home: add the same complete social layer, localized.
+          path = 'en/index.html'
+          text = read(path)
+          text = replace_once(
+              text,
+              '<title>Marcelo Trindade | Environment, technology and experimentation</title>',
+              f'<title>{BRAND}</title>',
+              'en title',
+          )
+          marker = '<link rel="alternate" type="application/rss+xml" title="DevNux Caderno" href="/caderno/feed.xml"><link rel="stylesheet" href="/assets/styles/site.css">'
+          social = (
+              '<link rel="alternate" type="application/rss+xml" title="DevNux Caderno" href="/caderno/feed.xml">'
+              f'<meta property="og:title" content="{BRAND}">'
+              '<meta property="og:description" content="Environment, technology, amateur radio and meliponiculture in Marcelo Trindade\'s personal and technical space.">'
+              '<meta property="og:type" content="website">'
+              '<meta property="og:url" content="https://devnux.com.br/en/">'
+              '<meta property="og:image" content="https://devnux.com.br/assets/images/social-preview.png">'
+              '<meta property="og:image:type" content="image/png">'
+              '<meta property="og:image:width" content="1200">'
+              '<meta property="og:image:height" content="630">'
+              '<meta property="og:image:alt" content="DevNux — environment, technology, amateur radio, meliponiculture and Caderno.">'
+              '<meta property="og:locale" content="en_US">'
+              '<meta property="og:locale:alternate" content="pt_BR">'
+              '<meta property="og:locale:alternate" content="es_ES">'
+              '<meta property="og:site_name" content="DevNux">'
+              '<meta name="twitter:card" content="summary_large_image">'
+              f'<meta name="twitter:title" content="{BRAND}">'
+              '<meta name="twitter:description" content="Environment, technology, amateur radio and meliponiculture in Marcelo Trindade\'s personal and technical space.">'
+              '<meta name="twitter:image" content="https://devnux.com.br/assets/images/social-preview.png">'
+              '<meta name="twitter:image:alt" content="DevNux — environment, technology, amateur radio, meliponiculture and Caderno.">'
+              '<link rel="stylesheet" href="/assets/styles/site.css">'
+          )
+          text = replace_once(text, marker, social, 'en social block')
+          write(path, text)
+
+          # ES home: same social layer, localized.
+          path = 'es/index.html'
+          text = read(path)
+          text = replace_once(
+              text,
+              '<title>Marcelo Trindade | Medio ambiente, tecnología y experimentación</title>',
+              f'<title>{BRAND}</title>',
+              'es title',
+          )
+          marker = '<link rel="alternate" type="application/rss+xml" title="DevNux Caderno" href="/caderno/feed.xml"><link rel="stylesheet" href="/assets/styles/site.css">'
+          social = (
+              '<link rel="alternate" type="application/rss+xml" title="DevNux Caderno" href="/caderno/feed.xml">'
+              f'<meta property="og:title" content="{BRAND}">'
+              '<meta property="og:description" content="Medio ambiente, tecnología, radioafición y meliponicultura en el espacio personal y técnico de Marcelo Trindade.">'
+              '<meta property="og:type" content="website">'
+              '<meta property="og:url" content="https://devnux.com.br/es/">'
+              '<meta property="og:image" content="https://devnux.com.br/assets/images/social-preview.png">'
+              '<meta property="og:image:type" content="image/png">'
+              '<meta property="og:image:width" content="1200">'
+              '<meta property="og:image:height" content="630">'
+              '<meta property="og:image:alt" content="DevNux — medio ambiente, tecnología, radioafición, meliponicultura y Caderno.">'
+              '<meta property="og:locale" content="es_ES">'
+              '<meta property="og:locale:alternate" content="pt_BR">'
+              '<meta property="og:locale:alternate" content="en_US">'
+              '<meta property="og:site_name" content="DevNux">'
+              '<meta name="twitter:card" content="summary_large_image">'
+              f'<meta name="twitter:title" content="{BRAND}">'
+              '<meta name="twitter:description" content="Medio ambiente, tecnología, radioafición y meliponicultura en el espacio personal y técnico de Marcelo Trindade.">'
+              '<meta name="twitter:image" content="https://devnux.com.br/assets/images/social-preview.png">'
+              '<meta name="twitter:image:alt" content="DevNux — medio ambiente, tecnología, radioafición, meliponicultura y Caderno.">'
+              '<link rel="stylesheet" href="/assets/styles/site.css">'
+          )
+          text = replace_once(text, marker, social, 'es social block')
+          write(path, text)
+
+          # Runtime titles: one clear hierarchy for home, areas and notebook.
+          path = 'assets/scripts/site.js'
+          text = read(path)
+          titles = """  const pageTitles = {
+            home: {
+              pt: 'DEVNUX | Marcelo Trindade',
+              en: 'DEVNUX | Marcelo Trindade',
+              es: 'DEVNUX | Marcelo Trindade'
+            },
+            environment: {
+              pt: 'Meio ambiente | DEVNUX',
+              en: 'Environment | DEVNUX',
+              es: 'Medio ambiente | DEVNUX'
+            },
+            technology: {
+              pt: 'Tecnologia | DEVNUX',
+              en: 'Technology | DEVNUX',
+              es: 'Tecnología | DEVNUX'
+            },
+            radio: {
+              pt: 'Radioamadorismo | DEVNUX',
+              en: 'Amateur radio | DEVNUX',
+              es: 'Radioafición | DEVNUX'
+            },
+            meliponiculture: {
+              pt: 'Meliponicultura | DEVNUX',
+              en: 'Meliponiculture | DEVNUX',
+              es: 'Meliponicultura | DEVNUX'
+            }
+          };"""
+          text, count = re.subn(
+              r"  const pageTitles = \{.*?\n  \};(?=\n\n  if \(currentSection === 'notebook'\))",
+              titles,
+              text,
+              count=1,
+              flags=re.S,
+          )
+          if count != 1:
+              raise SystemExit('failed to replace pageTitles')
+          text = replace_once(
+              text,
+              "document.title = articleTitle ? `${articleTitle} | Caderno · DevNux` : 'Caderno | Marcelo Trindade · DevNux';",
+              "document.title = articleTitle ? `${articleTitle} | Caderno · DEVNUX` : 'Caderno | DEVNUX';",
+              'notebook runtime title',
+          )
+          write(path, text)
+
+          # Regression coverage: identity hierarchy + social metadata in all localized homes.
+          path = 'tests/e2e/site.spec.ts'
+          text = read(path)
+          title_test = """test('títulos seguem a hierarquia de identidade do DevNux', async ({ page }) => {
+            await page.goto('/pt/');
+            await expect(page).toHaveTitle('DEVNUX | Marcelo Trindade');
+
+            await page.goto('/en/environment/');
+            await expect(page).toHaveTitle('Environment | DEVNUX');
+
+            await page.goto('/es/radio/');
+            await expect(page).toHaveTitle('Radioafición | DEVNUX');
+
+            await page.goto('/caderno/');
+            await expect(page).toHaveTitle('Caderno | DEVNUX');
+
+            await page.goto('/caderno/2026/por-que-este-caderno-existe/');
+            await expect(page).toHaveTitle('Por que este caderno existe | Caderno · DEVNUX');
+          });"""
+          text, count = re.subn(
+              r"test\('títulos seguem uma convenção consistente por área'.*?\n\}\);(?=\n\ntest\('raiz e home PT publicam metadados sociais completos e preview otimizado')",
+              title_test,
+              text,
+              count=1,
+              flags=re.S,
+          )
+          if count != 1:
+              raise SystemExit('failed to replace title test')
+
+          social_test = """test('raiz e homes localizadas publicam metadados sociais completos e consistentes', async ({ page, request }) => {
+            const brandTitle = 'DEVNUX | Marcelo Trindade';
+            const previewUrl = 'https://devnux.com.br/assets/images/social-preview.png';
+
+            const rootResponse = await request.get('/');
+            expect(rootResponse.ok()).toBeTruthy();
+            const rootHtml = await rootResponse.text();
+            expect(rootHtml).toContain(`<title>${brandTitle}</title>`);
+            expect(rootHtml).toContain(`<meta property=\"og:title\" content=\"${brandTitle}\">`);
+            expect(rootHtml).toContain('<meta property=\"og:locale:alternate\" content=\"en_US\">');
+            expect(rootHtml).toContain('<meta property=\"og:locale:alternate\" content=\"es_ES\">');
+            expect(rootHtml).toContain(`<meta name=\"twitter:title\" content=\"${brandTitle}\">`);
+
+            const homes = [
+              { path: '/pt/', url: 'https://devnux.com.br/pt/', locale: 'pt_BR', alternates: ['en_US', 'es_ES'] },
+              { path: '/en/', url: 'https://devnux.com.br/en/', locale: 'en_US', alternates: ['pt_BR', 'es_ES'] },
+              { path: '/es/', url: 'https://devnux.com.br/es/', locale: 'es_ES', alternates: ['pt_BR', 'en_US'] }
+            ];
+
+            for (const home of homes) {
+              await page.goto(home.path);
+              await expect(page).toHaveTitle(brandTitle);
+              await expect(page.locator('meta[property=\"og:title\"]')).toHaveAttribute('content', brandTitle);
+              await expect(page.locator('meta[property=\"og:url\"]')).toHaveAttribute('content', home.url);
+              await expect(page.locator('meta[property=\"og:image\"]')).toHaveAttribute('content', previewUrl);
+              await expect(page.locator('meta[property=\"og:image:type\"]')).toHaveAttribute('content', 'image/png');
+              await expect(page.locator('meta[property=\"og:image:width\"]')).toHaveAttribute('content', '1200');
+              await expect(page.locator('meta[property=\"og:image:height\"]')).toHaveAttribute('content', '630');
+              await expect(page.locator('meta[property=\"og:image:alt\"]')).toHaveAttribute('content', /DevNux/);
+              await expect(page.locator('meta[property=\"og:locale\"]')).toHaveAttribute('content', home.locale);
+              expect(await page.locator('meta[property=\"og:locale:alternate\"]').evaluateAll(nodes => nodes.map(node => node.getAttribute('content')))).toEqual(home.alternates);
+              await expect(page.locator('meta[property=\"og:site_name\"]')).toHaveAttribute('content', 'DevNux');
+              await expect(page.locator('meta[name=\"twitter:card\"]')).toHaveAttribute('content', 'summary_large_image');
+              await expect(page.locator('meta[name=\"twitter:title\"]')).toHaveAttribute('content', brandTitle);
+              await expect(page.locator('meta[name=\"twitter:description\"]')).toHaveAttribute('content', /.+/);
+              await expect(page.locator('meta[name=\"twitter:image\"]')).toHaveAttribute('content', previewUrl);
+              await expect(page.locator('meta[name=\"twitter:image:alt\"]')).toHaveAttribute('content', /DevNux/);
+            }
+
+            const imageResponse = await request.get('/assets/images/social-preview.png');
+            expect(imageResponse.ok()).toBeTruthy();
+            expect((await imageResponse.body()).byteLength).toBeLessThan(1_000_000);
+
+            const dimensions = await page.evaluate(() => new Promise<number[]>((resolve, reject) => {
+              const image = new Image();
+              image.onload = () => resolve([image.naturalWidth, image.naturalHeight]);
+              image.onerror = () => reject(new Error('social preview failed to load'));
+              image.src = '/assets/images/social-preview.png';
+            }));
+            expect(dimensions).toEqual([1200, 630]);
+          });"""
+          text, count = re.subn(
+              r"test\('raiz e home PT publicam metadados sociais completos e preview otimizado'.*?\n\}\);(?=\n\ntest\('footer pública é única)",
+              social_test,
+              text,
+              count=1,
+              flags=re.S,
+          )
+          if count != 1:
+              raise SystemExit('failed to replace social metadata test')
+          write(path, text)
+          PY
+
+      - name: Commit generated changes
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add index.html pt/index.html en/index.html es/index.html assets/scripts/site.js tests/e2e/site.spec.ts
+          git commit -m 'Unify DevNux social identity' || exit 0
+          git push origin HEAD:agent/social-identity-consistency
