@@ -299,6 +299,48 @@ body.vnext {
   .vnext-keyvals > div { grid-template-columns: 1fr; gap: .3rem; }
 }
 
+/* Compatibility with the existing responsive contract while the new hero uses the living-archive layout. */
+.vnext-profile.profile-panel {
+  display: block;
+  align-self: end;
+  padding: 1.25rem 0 0;
+  background: none;
+  border: 0;
+  border-top: 1px solid var(--border);
+  border-radius: 0;
+  box-shadow: none;
+}
+
+@media (min-width: 721px) and (max-width: 900px) {
+  .vnext-profile.profile-panel {
+    display: grid;
+    grid-template-columns: minmax(10rem, .6fr) minmax(0, 1fr);
+    gap: 1.5rem;
+    align-items: start;
+    max-width: 100%;
+  }
+  .vnext-profile.profile-panel .vnext-profile__photo { margin-bottom: 0; }
+}
+
+@media (max-width: 720px) {
+  .vnext-shell {
+    width: 100%;
+    max-width: var(--container);
+    padding-inline: 1rem;
+  }
+  .vnext-shell > section,
+  .vnext-hero > *,
+  .vnext-row > *,
+  .vnext-record > *,
+  .vnext-trail > *,
+  .vnext-callout > * {
+    min-width: 0;
+    max-width: 100%;
+  }
+  .vnext-profile dl > div { grid-template-columns: minmax(5.5rem, .38fr) minmax(0, 1fr); }
+  .vnext-profile dd { overflow-wrap: anywhere; }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .vnext * { scroll-behavior: auto !important; }
 }
