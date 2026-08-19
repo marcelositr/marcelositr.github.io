@@ -79,16 +79,18 @@ test('alvos de toque mantêm área confortável no smartphone', async ({ page })
   await page.setViewportSize({ width: 390, height: 844 });
   await page.goto('/pt/');
 
+  // CSS defines 44px targets; engines may expose them as 43.999... because of subpixel rounding.
+  const minimumTouchTarget = 43.9;
   const toggleBox = await page.locator('.nav-toggle').boundingBox();
   expect(toggleBox).not.toBeNull();
-  expect(toggleBox!.width).toBeGreaterThanOrEqual(44);
-  expect(toggleBox!.height).toBeGreaterThanOrEqual(44);
+  expect(toggleBox!.width).toBeGreaterThanOrEqual(minimumTouchTarget);
+  expect(toggleBox!.height).toBeGreaterThanOrEqual(minimumTouchTarget);
 
   for (const language of ['pt', 'en', 'es']) {
     const box = await page.locator(`.language-nav a[data-language="${language}"]`).boundingBox();
     expect(box).not.toBeNull();
-    expect(box!.width).toBeGreaterThanOrEqual(44);
-    expect(box!.height).toBeGreaterThanOrEqual(44);
+    expect(box!.width).toBeGreaterThanOrEqual(minimumTouchTarget);
+    expect(box!.height).toBeGreaterThanOrEqual(minimumTouchTarget);
   }
 });
 
