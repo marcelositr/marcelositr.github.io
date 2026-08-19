@@ -191,32 +191,32 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   const pageTitles = {
-  home: {
-    pt: 'DEVNUX | Marcelo Trindade',
-    en: 'DEVNUX | Marcelo Trindade',
-    es: 'DEVNUX | Marcelo Trindade'
-  },
-  environment: {
-    pt: 'Meio ambiente | DEVNUX',
-    en: 'Environment | DEVNUX',
-    es: 'Medio ambiente | DEVNUX'
-  },
-  technology: {
-    pt: 'Tecnologia | DEVNUX',
-    en: 'Technology | DEVNUX',
-    es: 'Tecnología | DEVNUX'
-  },
-  radio: {
-    pt: 'Radioamadorismo | DEVNUX',
-    en: 'Amateur radio | DEVNUX',
-    es: 'Radioafición | DEVNUX'
-  },
-  meliponiculture: {
-    pt: 'Meliponicultura | DEVNUX',
-    en: 'Meliponiculture | DEVNUX',
-    es: 'Meliponicultura | DEVNUX'
-  }
-};
+    home: {
+      pt: 'DEVNUX | Marcelo Trindade',
+      en: 'DEVNUX | Marcelo Trindade',
+      es: 'DEVNUX | Marcelo Trindade'
+    },
+    environment: {
+      pt: 'Meio ambiente | DEVNUX',
+      en: 'Environment | DEVNUX',
+      es: 'Medio ambiente | DEVNUX'
+    },
+    technology: {
+      pt: 'Tecnologia | DEVNUX',
+      en: 'Technology | DEVNUX',
+      es: 'Tecnología | DEVNUX'
+    },
+    radio: {
+      pt: 'Radioamadorismo | DEVNUX',
+      en: 'Amateur radio | DEVNUX',
+      es: 'Radioafición | DEVNUX'
+    },
+    meliponiculture: {
+      pt: 'Meliponicultura | DEVNUX',
+      en: 'Meliponiculture | DEVNUX',
+      es: 'Meliponicultura | DEVNUX'
+    }
+  };
 
   if (currentSection === 'notebook') {
     const articleTitle = document.querySelector('.notebook-article h1')?.textContent?.trim();
