@@ -1,13 +1,35 @@
 import { test, expect, Page } from '@playwright/test';
 
 async function expectNoHorizontalOverflow(page: Page) {
-  const metrics = await page.evaluate(() => ({
-    scrollWidth: document.documentElement.scrollWidth,
-    clientWidth: document.documentElement.clientWidth,
-    innerWidth: window.innerWidth,
-  }));
+  const diagnostics = await page.evaluate(() => {
+    const limit = Math.max(document.documentElement.clientWidth, window.innerWidth) + 1;
+    const offenders = Array.from(document.querySelectorAll('body *'))
+      .map(element => {
+        const rect = element.getBoundingClientRect();
+        return {
+          tag: element.tagName.toLowerCase(),
+          className: element.className,
+          text: (element.textContent || '').trim().replace(/\s+/g, ' ').slice(0, 90),
+          left: Math.round(rect.left),
+          right: Math.round(rect.right),
+          width: Math.round(rect.width),
+        };
+      })
+      .filter(item => item.right > limit || item.left < -1)
+      .slice(0, 8);
 
-  expect(metrics.scrollWidth).toBeLessThanOrEqual(Math.max(metrics.clientWidth, metrics.innerWidth) + 1);
+    return {
+      scrollWidth: document.documentElement.scrollWidth,
+      clientWidth: document.documentElement.clientWidth,
+      innerWidth: window.innerWidth,
+      offenders,
+    };
+  });
+
+  expect(
+    diagnostics.scrollWidth,
+    `Horizontal overflow at ${page.url()} (${diagnostics.innerWidth}px): ${JSON.stringify(diagnostics.offenders)}`,
+  ).toBeLessThanOrEqual(Math.max(diagnostics.clientWidth, diagnostics.innerWidth) + 1);
 }
 
 test('shell responsivo troca navegação no ponto correto sem perder acessibilidade', async ({ page }) => {
