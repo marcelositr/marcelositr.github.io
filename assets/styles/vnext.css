@@ -1,5 +1,8 @@
 /* DevNux living archive layer */
+html { overflow-x: hidden; }
 body.vnext {
+  max-width: 100%;
+  overflow-x: hidden;
   background:
     radial-gradient(circle at 12% -10%, rgba(213, 154, 87, .055), transparent 26rem),
     radial-gradient(circle at 88% 4%, rgba(120, 189, 185, .06), transparent 28rem),
