@@ -359,6 +359,34 @@ p { color: var(--text-soft); }
 .technical-item strong a { color: inherit; }
 .technical-item strong a:hover { color: var(--accent-strong); }
 
+.now-list {
+  display: grid;
+  border-top: 1px solid var(--border);
+}
+.now-item {
+  position: relative;
+  padding: 1.5rem 0 1.6rem;
+  border-bottom: 1px solid var(--border);
+}
+.now-item::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 2.5rem;
+  height: 1px;
+  background: var(--page-accent);
+  transition: width var(--ease);
+}
+.now-item:hover::before { width: 5rem; }
+.now-item .feature-kicker { display: block; margin-bottom: .65rem; }
+.now-item h3 { margin: 0 0 .45rem; font-size: clamp(1.25rem, 2.5vw, 1.7rem); }
+.now-item p { max-width: 38rem; margin: 0; }
+
+.technical-item span {
+  line-height: 1.5;
+}
+
 /* Digital identity */
 .identity-stack { display: grid; gap: 0; border-top: 1px solid var(--border); }
 .identity-record {
