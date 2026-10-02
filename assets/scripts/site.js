@@ -11,29 +11,56 @@ document.addEventListener("DOMContentLoaded", () => {
     window.addEventListener("scroll", updateHeader, { passive: true });
   }
 
-  if (nav && actions && window.matchMedia("(max-width: 1024px)").matches) {
-    const button = document.createElement("button");
-    button.type = "button";
-    button.className = "nav-toggle";
-    button.setAttribute("aria-controls", "primary-navigation");
-    button.setAttribute("aria-expanded", "false");
-    button.setAttribute("aria-label", "Abrir menu");
-    button.innerHTML = '<span class="nav-toggle__icon" aria-hidden="true"></span>';
-    nav.id = "primary-navigation";
-    actions.append(button);
+  if (!nav || !actions) return;
 
-    const setMenu = open => {
-      nav.classList.toggle("is-open", open);
-      button.setAttribute("aria-expanded", String(open));
-      button.setAttribute("aria-label", open ? "Fechar menu" : "Abrir menu");
-    };
+  nav.id = "primary-navigation";
 
-    button.addEventListener("click", () => setMenu(button.getAttribute("aria-expanded") !== "true"));
-    nav.addEventListener("click", event => {
-      if (event.target.closest("a")) setMenu(false);
-    });
-    document.addEventListener("keydown", event => {
-      if (event.key === "Escape") setMenu(false);
-    });
-  }
+  let button = null;
+
+  const closeMenu = () => {
+    nav.classList.remove("is-open");
+    if (button) {
+      button.setAttribute("aria-expanded", "false");
+      button.setAttribute("aria-label", "Abrir menu");
+    }
+  };
+
+  const ensureMobileNavigation = () => {
+    const mobile = window.matchMedia("(max-width: 1024px)").matches;
+
+    if (mobile && !button) {
+      button = document.createElement("button");
+      button.type = "button";
+      button.className = "nav-toggle";
+      button.setAttribute("aria-controls", "primary-navigation");
+      button.setAttribute("aria-expanded", "false");
+      button.setAttribute("aria-label", "Abrir menu");
+      button.innerHTML = '<span class="nav-toggle__icon" aria-hidden="true"></span>';
+      actions.append(button);
+
+      button.addEventListener("click", () => {
+        const open = button.getAttribute("aria-expanded") !== "true";
+        nav.classList.toggle("is-open", open);
+        button.setAttribute("aria-expanded", String(open));
+        button.setAttribute("aria-label", open ? "Fechar menu" : "Abrir menu");
+      });
+    }
+
+    if (!mobile && button) {
+      closeMenu();
+      button.remove();
+      button = null;
+    }
+  };
+
+  nav.addEventListener("click", event => {
+    if (event.target.closest("a")) closeMenu();
+  });
+
+  document.addEventListener("keydown", event => {
+    if (event.key === "Escape") closeMenu();
+  });
+
+  ensureMobileNavigation();
+  window.addEventListener("resize", ensureMobileNavigation);
 });
